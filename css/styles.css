@@ -8,7 +8,6 @@
 /* Fuente de Letra y overflow para sacar scroll */
 body {
   font-family: "Outfit", sans-serif;
-  overflow-x: hidden;
 }
 
 /* Medidas del Logo */
@@ -34,7 +33,7 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: #f3e3c4;
-  padding: 10px;
+  padding: 5px;
   width: 100%;
 }
 
@@ -56,8 +55,6 @@ body {
   font-size: 50px;
 }
 
-
-
 .centrar_texto {
   text-align: center;
 }
@@ -66,7 +63,7 @@ body {
   font-size: 20px;
 }
 
-.navbar ul li {
+.navbar-principal ul li {
   list-style: none;
   text-decoration: none;
   display: inline-block;
@@ -74,7 +71,7 @@ body {
   border-radius: 5px;
 }
 
-.navbar a {
+.navbar-principal a {
   font-weight: 250;
   color: #fff;
   padding: 5px;
@@ -154,6 +151,9 @@ body {
   padding: 15px;
   justify-content: flex-end;
   gap: 10px;
+  background-color: cadetblue;
+  border: 2px solid rgb(167, 119, 119);
+  border-radius: 10px;
 }
 
 .seccion-implementacion li {
@@ -167,10 +167,18 @@ body {
   gap: 10px;
   justify-content: center;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
 }
 
- .fa-kitchen-set, .fa-bed,.fa-tv, .fa-shower,.fa-person-swimming,.fa-droplet,.fa-leaf {
+.fa-kitchen-set,
+.fa-bed,
+.fa-tv,
+.fa-shower,
+.fa-person-swimming,
+.fa-droplet,
+.fa-leaf,
+.fa-bolt {
   color: #f3e3c4;
 }
 
@@ -193,9 +201,6 @@ body {
   border-radius: 10px;
   color: #000;
 }
-
-
-
 
 .ancho_para_el_texto {
   width: initial;
@@ -268,7 +273,6 @@ body {
   font-size: 40px;
   font-weight: 600;
 }
-
 
 .textos_importantes {
   font-size: 3.2rem;
@@ -344,33 +348,33 @@ footer p {
   color: #555;
 }
 
-   /* Estilos para la sección del carrusel */
-   .carousel-section {
-    background-color: #70866b;
-    padding: 20px 0;
-  }
-
-  .carousel-section h2 {
-    color: #f9f8f4;
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 40px;
-    border-bottom: 4px solid #f9f8f4;
-    display: inline-block;
-    padding-bottom: 5px;
-  }
-
-  .carousel-inner .carousel-item img {
-    border-radius: 10px; /* Bordes redondeados para las imágenes del carrusel */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para las imágenes */
-    max-height: 500px; /* Altura máxima para las imágenes del carrusel */
-    object-fit: cover; /* Para que las imágenes cubran el área sin distorsionarse */
-  }
-
-
-
-
-@media screen and (max-width: 768px) {
-  .
+/* Estilos para la sección del carrusel */
+.carousel-section {
+  background-color: #70866b;
+  padding: 20px 0;
 }
 
+.carousel-section h2 {
+  color: #f9f8f4;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  border-bottom: 4px solid #f9f8f4;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.carousel-inner .carousel-item img {
+  border-radius: 10px; /* Bordes redondeados para las imágenes del carrusel */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para las imágenes */
+  max-height: 500px; /* Altura máxima para las imágenes del carrusel */
+  object-fit: cover; /* Para que las imágenes cubran el área sin distorsionarse */
+}
+
+@media (max-width: 600px) {
+  .elementos-contenedor {
+    margin: 10px;
+    padding: 10px;
+    flex-direction: column;
+  }
+}
