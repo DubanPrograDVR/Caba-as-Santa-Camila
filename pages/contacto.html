@@ -22,44 +22,70 @@
   </head>
   <body>
     <header class="cabeza">
-      <nav class="navbar">
-        <div class="contenedor-imagen">
-          <a href="../index.html"
-            ><img class="logo-imagen" src="../img/Logo.png" alt="logo"
-          /></a>
+      <section>
+        <nav class="navbar-principal">
+          <div class="div-navbar">
+            <div class="Imagen-de-logo">
+              <a href=""
+                ><img class="logo-imagen" src="../img/Logo.png" alt="logo"
+              /></a>
+            </div>
+            <ul>
+              <li class="elementos-li"><a href="../index.html">Inicio</a></li>
+              <li class="elementos-li">
+                <a href="pages/ubicacion.html">Ubicación</a>
+              </li>
+              <li class="elementos-li">
+                <a href="pages/Precios.html">Precios</a>
+              </li>
+              <li class="elementos-li">
+                <a href="pages/contacto.html">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="contenedor_de_img-formulario">
+          <h1 style="color: white" class="textos_importantes">
+            Hola, somos cabañas Santa camila
+          </h1>
+          <span class="centrar_texto color-textos-cabeza">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+            alias ipsam unde dolor iste neque ratione debitis dignissimos nulla
+            quaerat aliquam obcaecati, nesciunt totam numquam. Ratione vel
+            aspernatur nihil cum.
+          </span>
+          <br />
+          <button class="boton-de-ver-precios">Ver Precios</button>
         </div>
-        <div class="div-navbar">
-          <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="ubicacion.html">Ubicación</a></li>
-            <li>
-              <a href="Precios.html">Precios</a>
-            </li>
-            <li><a href="contacto.html">Contacto</a></li>
-          </ul>
-        </div>
-      </nav>
+      </section>
     </header>
-    <section class="segunda-seccion centrar_texto">
-      <h2>Contacto</h2>
-      <br />
-      <i class="fa-regular fa-envelope"></i>
-      <p>romecamily@gmail.com</p>
-      <br />
 
-      <i class="fa-solid fa-phone"></i>
-      <p>+56967855652</p>
-
-      <i class="fa-solid fa-location-dot"></i>
-      <p>
-        El Radal s/n, (pasando el puente nuevo, 300 mts a la izquierda) , Molina
-      </p>
+    <section class="seccion-principal-formularios">
+      <h1>Contactanos</h1>
+      <form class="seccion-formulario" action="">
+        <h2>Formulario de Contacto</h2>
+        <div class="elemento-formulario">
+          <label for="">Nombre</label>
+          <input type="text" placeholder="Nombre" />
+        </div>
+        <div class="elemento-formulario">
+          <label for="">Correo Electrico</label>
+          <input type="text" placeholder="Correo Electrico" />
+        </div>
+        <div class="elemento-formulario">
+          <label for="">Mensaje</label>
+          <textarea name="" id=""></textarea>
+        </div>
+      </form>
     </section>
 
     <footer>
-      <a href=""><i class="fa-brands fa-instagram"></i></a>
-      <a href=""><i class="fa-brands fa-facebook"></i></a>
-      <p>Todos los derechos reservados por Duban Alejandro Vasquez Romero</p>
+      <div class="container">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <p>Todos los derechos reservados por Duban Alejandro Vasquez Romero</p>
+      </div>
     </footer>
   </body>
 </html>
