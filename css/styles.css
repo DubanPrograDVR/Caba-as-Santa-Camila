@@ -2,11 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* Fuente de Letra y overflow para sacar scroll */
-body {
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
   font-family: "Outfit", sans-serif;
 }
 
@@ -205,39 +201,45 @@ body {
 
 .carousel-section {
   background-color: #70866b;
-  height: 80vh;
   width: 100%;
 }
 
-.contenedor_de_img {
+.contenedor_de_img,
+.contenedor_de_img-formulario,
+.contenedor_de_img_ubicacion,
+.contenedor_de_img-precios {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 85vh;
+  min-height: 85vh; /* CAMBIO: De height a min-height para flexibilidad */
+  padding: 40px 20px; /* AÑADIDO: Espacio interno para el contenido */
   color: rgb(28, 26, 26);
   text-align: center;
-  background-image: url(../img/Img_Cabañas.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.contenedor_de_img {
+  background-image: url(../img/Img_Cabañas.jpg);
+}
+
+.contenedor_de_img_ubicacion {
+  background-image: url(../img/Puente-Radal.jpeg);
 }
 
 .contenedor_de_img-formulario {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 85vh;
-  color: rgb(28, 26, 26);
-  text-align: center;
   background-image: url(../img/Imagen_Cabaña_3.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
-.boton-de-ver-precios {
+.contenedor_de_img-precios {
+  background-image: url(../img/Valor_Cabañas.jpg);
+}
+
+.boton-de-ver-precios,
+.Enviar-Mensaje {
+  text-decoration: none;
   cursor: pointer;
   font-size: 15px;
   border: none;
@@ -248,17 +250,17 @@ body {
   width: 150px;
 }
 
-.seccion-principal-formularios h1 {
-  margin: 10px;
-  font-size: 2rem;
-  text-align: center;
-  font-weight: 500;
-}
-
 .seccion-principal-formularios {
   padding: 25px;
-  height: 100%;
+  min-height: 100vh; /* CAMBIO: De height a min-height */
   background-color: #f3e3c4;
+}
+
+.titulo-contacto {
+  font-size: 2.2rem;
+  width: 10%;
+  padding-top: 10px;
+  border-bottom: solid 5px #70866b;
 }
 
 .seccion-formulario,
@@ -271,9 +273,8 @@ body {
   flex-direction: column;
   padding: 15px;
   background-color: #fff;
-  width: 40%;
+  width: 50%;
   margin: 0 auto;
-
   border-radius: 10px;
 }
 
@@ -283,16 +284,20 @@ body {
 }
 
 .elemento-formulario input {
-  width: 300px;
-  margin: 10px;
+  width: 100%; /* CAMBIO: De 300px a 100% para ser adaptable */
+  margin: 10px 0;
   border: 1px solid #000;
-  padding: 20px;
+  padding: 15px; /* Reducido para mejor apariencia */
   border-radius: 5px;
 }
 
 textarea {
+  width: 100%; /* AÑADIDO: Para que también sea adaptable */
   max-width: 400px;
   max-height: 200px;
+  padding: 15px;
+  border: 1px solid #000;
+  border-radius: 5px;
 }
 
 .info {
@@ -401,24 +406,6 @@ footer p {
   color: #555;
 }
 
-/* Estilos para la sección del carrusel */
-.carousel-section {
-  height: 100%;
-  width: 100%;
-  background-color: #70866b;
-  padding: 20px 0;
-}
-
-.carousel-section h2 {
-  color: #f9f8f4;
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 40px;
-  border-bottom: 4px solid #f9f8f4;
-  display: inline-block;
-  padding-bottom: 5px;
-}
-
 .carousel-inner .carousel-item img {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -426,30 +413,179 @@ footer p {
   object-fit: cover;
 }
 
-.parent {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+.seccion-direccion {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: row;
+  min-height: 100vh; /* CAMBIO: De height a min-height */
+  padding: 40px 20px; /* AÑADIDO: Espacio interno */
+  width: 100%;
+  background-color: #f3e3c4;
 }
 
-.div1 {
-  grid-area: 1 / 1 / 4 / 3;
-}
-.div2 {
-  grid-area: 1 / 3 / 4 / 6;
-}
-.div3 {
-  grid-area: 4 / 1 / 6 / 3;
-}
-.div4 {
-  grid-area: 4 / 3 / 6 / 6;
+.direccion {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #70866b;
+  width: 50%;
+  /* height: 80%; ELIMINADO: La altura ahora es automática */
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+.elementos-direccion,
+.fa-location-dot,
+.fa-car,
+.fa-bus {
+  color: #f9f8f4;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.direccion h2 {
+  text-align: center;
+  color: #f9f8f4;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.direccion p {
+  text-align: center;
+  color: #f9f8f4;
+  font-size: 1.3rem;
+  font-weight: 200;
+  margin-bottom: 15px;
+}
+.Mapa {
+  margin-left: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #70866b;
+  width: 45%;
+}
+
+.Mapa h2 {
+  text-align: center;
+  color: #f9f8f4;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.Mapa iframe {
+  width: 100%;
+  height: 85%;
+  border-radius: 5px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* --- TÍTULO --- */
+.price-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.price-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.price-header p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 8px;
+}
+
+/* --- CONTENEDOR DE LA TABLA (PARA RESPONSIVE) --- */
+.table-container {
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- TABLA DE PRECIOS --- */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.price-table th,
+.price-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Cabecera de la tabla */
+.price-table thead {
+  background-color: #70866b; /* Verde de tu paleta */
+  color: #f3e3c4; /* Beige de tu paleta */
+}
+
+.price-table thead th {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Cuerpo de la tabla */
+.price-table tbody tr:hover {
+  background-color: #f9fafb; /* Un gris muy claro para el hover */
+}
+
+.price-table td {
+  color: #374151;
+}
+
+.price-table .cabin-name {
+  font-weight: 600;
+  color: #111827;
+}
+
+.price-table .text-center {
+  text-align: center;
+}
+
+.price-table ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+/* --- NOTAS ADICIONALES --- */
+.notes {
+  text-align: center;
+  margin-top: 32px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.notes a {
+  color: #70866b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.notes a:hover {
+  text-decoration: underline;
+}
+
+/* =================================== */
+/* ESTILOS RESPONSIVE          */
+/* =================================== */
+
+@media screen and (max-width: 1024px) {
   .div-navbar {
-    display: flex;
     flex-direction: column;
     padding: 15px;
     gap: 10px;
@@ -457,6 +593,24 @@ footer p {
 
   .Imagen-de-logo {
     text-align: center;
+  }
+
+  .seccion-formulario,
+  .elemento-formulario {
+    width: 80%;
+  }
+
+  .seccion-direccion {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .direccion,
+  .Mapa {
+    width: 90%;
+    margin-bottom: 25px;
+    margin-left: 0;
   }
 }
 
@@ -473,19 +627,37 @@ footer p {
     width: 90%;
   }
 
+  .titulo-contacto {
+    padding-top: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    width: auto;
+    display: inline-block;
+  }
+
+  .seccion-formulario {
+    width: 90%; /* Ajustado para tener márgenes */
+    padding: 20px;
+  }
+
   .logo-imagen {
     width: 40%;
   }
 
-  .div-navbar {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    gap: 10px;
-    width: 100%;
+  .seccion-formulario,
+  .elemento-formulario {
+    width: 80%;
   }
+}
 
-  .Imagen-de-logo {
-    text-align: center;
+@media (max-width: 768px) {
+  .price-header h1 {
+    font-size: 2rem;
+  }
+  .price-table th,
+  .price-table td {
+    padding: 12px 15px;
+    font-size: 0.9rem;
   }
 }

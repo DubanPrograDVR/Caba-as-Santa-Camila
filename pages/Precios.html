@@ -18,58 +18,107 @@
       referrerpolicy="no-referrer" />
     <title>Cabañas Santa Camila</title>
   </head>
-  <body>
+  <body style="background-color: #f3e3c4">
     <header class="cabeza">
-      <nav class="navbar">
-        <div class="contenedor-imagen">
-          <a href=""
-            ><img class="logo-imagen" src="/img/Logo.png" alt="logo"
-          /></a>
+      <section>
+        <nav class="navbar-principal">
+          <div class="div-navbar">
+            <div class="Imagen-de-logo">
+              <a href=""
+                ><img class="logo-imagen" src="../img/Logo.png" alt="logo"
+              /></a>
+            </div>
+            <ul>
+              <li class="elementos-li"><a href="../index.html">Inicio</a></li>
+              <li class="elementos-li">
+                <a href="ubicacion.html">Ubicación</a>
+              </li>
+              <li class="elementos-li">
+                <a href="precios.html">Precios</a>
+              </li>
+              <li class="elementos-li">
+                <a href="contacto.html">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="contenedor_de_img-precios">
+          <h1 style="color: white" class="textos_importantes">
+            Hola, somos cabañas Santa camila
+          </h1>
+          <span class="centrar_texto color-textos-cabeza">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+            alias ipsam unde dolor iste neque ratione debitis dignissimos nulla
+            quaerat aliquam obcaecati, nesciunt totam numquam. Ratione vel
+            aspernatur nihil cum.
+          </span>
+          <br />
+          <a href="precios.html" class="boton-de-ver-precios">Ver Precios</a>
         </div>
-        <div class="div-navbar">
-          <ul>
-            <li><a href="../index.html">Inicio</a></li>
-            <li><a href="ubicacion.html">Ubicación</a></li>
-            <li>
-              <a href="Precios.html">Precios</a>
-            </li>
-            <li><a href="contacto.html">Contacto</a></li>
-          </ul>
-        </div>
-      </nav>
+      </section>
     </header>
 
-    <main>
-      <section>
-        <section class="segunda-seccion centrar_texto">
-          <h2>Precios</h2>
-          <br />
-          <p style="font-size: 25px">
-            En Cabañas Santa Camila creemos que disfrutar de la naturaleza no
-            debería ser un lujo. Por eso, ofrecemos precios justos y accesibles
-            para que vivas una experiencia inolvidable rodeado de montañas, ríos
-            y tranquilidad.
-          </p>
-          <h3 style="font-size: 30px">
-            Valores por noche desde $50.000 a $60.000 CLP, dependiendo de la
-            temporada y el tipo de cabaña.
-          </h3>
-          <p style="font-size: 20px">
-            Cada una de nuestras cabañas está completamente equipada para que
-            solo te preocupes de descansar, explorar y disfrutar.
-          </p>
-          <img
-            style="margin-top: 15px"
-            width="400px"
-            src="../img/Precios.png"
-            alt="" />
-        </section>
-      </section>
-    </main>
-    <footer>
-      <a href=""><i class="fa-brands fa-instagram"></i></a>
-      <a href=""><i class="fa-brands fa-facebook"></i></a>
-      <p>Todos los derechos reservados por Duban Alejandro Vasquez Romero</p>
-    </footer>
+    <div class="container">
+      <header class="price-header">
+        <h1>Nuestros Precios</h1>
+        <p>Temporada 2025</p>
+      </header>
+
+      <div class="table-container">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Tipo de Cabaña</th>
+              <th class="text-center">Capacidad</th>
+              <th class="text-center">Precio (Temporada Baja)</th>
+              <th class="text-center">Precio (Temporada Alta)</th>
+              <th>Características Principales</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cabin-name">Cabaña Estándar</td>
+              <td class="text-center">2-3 personas</td>
+              <td class="text-center">$50.000 CLP / noche</td>
+              <td class="text-center">$70.000 CLP / noche</td>
+              <td>
+                <ul>
+                  <li>1 Cama matrimonial</li>
+                  <li>Cocina equipada</li>
+                  <li>Baño privado</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cabin-name">Cabaña Familiar</td>
+              <td class="text-center">4-5 personas</td>
+              <td class="text-center">$75.000 CLP / noche</td>
+              <td class="text-center">$95.000 CLP / noche</td>
+              <td>
+                <ul>
+                  <li>2 Habitaciones</li>
+                  <li>Living comedor</li>
+                  <li>Terraza pequeña</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td class="cabin-name">Cabaña Premium</td>
+              <td class="text-center">6 personas</td>
+              <td class="text-center">$90.000 CLP / noche</td>
+              <td class="text-center">$120.000 CLP / noche</td>
+              <td>
+                <ul>
+                  <li>3 Habitaciones</li>
+                  <li>Acceso a piscina privada</li>
+                  <li>Parrilla para asados</li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </body>
 </html>
