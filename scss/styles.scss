@@ -1,34 +1,6 @@
-@charset "UTF-8";
-.seccion-principal, .contenedor_de_img,
-.contenedor_de_img-formulario,
-.contenedor_de_img_ubicacion,
-.contenedor_de_img-precios, .seccion-formulario,
-.elemento-formulario {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.segunda_seccion_lugar {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.boton-de-ver-precios,
-.Enviar-Mensaje {
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 15px;
-  border: none;
-  padding: 15px;
-  color: #f9f8f4;
-  border-radius: 5px;
-  background-color: #70866b;
-  width: 150px;
-}
+@use "./utilities/variables" as *  ;
+@use "./utilities/mixins" as *;
+@use "./utilities/extends" as *;
 
 * {
   margin: 0;
@@ -105,6 +77,10 @@
   text-decoration: none;
 }
 
+
+
+
+
 .contenedor-principal {
   height: 100%;
   width: 100%;
@@ -113,6 +89,7 @@
 }
 
 .seccion-principal {
+  @extend %flex_basico_with_column;
   width: 100%;
   min-height: 100vh;
   background-color: #f3e3c4;
@@ -207,9 +184,8 @@
 }
 
 .segunda_seccion_lugar {
-  min-width: 80vw;
-  height: 100vh;
-  background-color: #70866b;
+  @extend %flex_basico_with_row;
+  @include segunda_seccion (80vw,100vh,#70866b);
 }
 
 .ancho_para_el_texto {
@@ -231,13 +207,8 @@
 .contenedor_de_img-formulario,
 .contenedor_de_img_ubicacion,
 .contenedor_de_img-precios {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 40px 20px;
-  text-align: center;
-  min-height: 85vh;
-  color: rgb(28, 26, 26);
+  @extend %flex_basico_with_column;
+  @include contenedor_background_img (cover,no-repeat,center, 40px 20px, center, 85vh,rgb(28, 26, 26));
 }
 
 .contenedor_de_img {
@@ -256,6 +227,11 @@
   background-image: url(../img/Valor_Cabañas.jpg);
 }
 
+.boton-de-ver-precios,
+.Enviar-Mensaje {
+  @extend %boton_para_ver_precios
+}
+
 .seccion-principal-formularios {
   padding: 25px;
   min-height: 100vh; /* CAMBIO: De height a min-height */
@@ -263,21 +239,13 @@
 }
 
 .titulo-contacto {
-  font-size: 2.2rem;
-  width: 10%;
-  padding-top: 10px;
-  border-bottom: "solid 5px #70866b";
+  @include titulo_contacto (2.2rem,10%,10px,"solid 5px #70866b");
 }
 
 .seccion-formulario,
 .elemento-formulario {
-  font-size: 1.3rem;
-  padding: 15px;
-  background-color: #fff;
-  border-radius: 10px;
-  margin: 0 auto;
-  width: 50%;
-  text-align: center;
+  @extend %flex_basico_with_column;
+  @include formularios(1.3rem, 15px, #fff, 10px, 0 auto, 50%,center);
 }
 
 .elemento-formulario label {
@@ -314,6 +282,9 @@ textarea {
   font-size: 20px;
   padding: 25px 0 0 0;
 }
+
+
+
 
 .textos_importantes {
   font-size: 3.2rem;
@@ -443,7 +414,6 @@ footer p {
   font-weight: 200;
   margin-bottom: 15px;
 }
-
 .Mapa {
   margin-left: 20px;
   padding: 10px;
@@ -452,41 +422,43 @@ footer p {
   width: 45%;
 }
 
-.parent {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 8px;
-}
 
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+}
+    
 .img-1 {
-  grid-row: span 5/span 5;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  background-color: blue;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    grid-row: span 5 / span 5;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px ;
+    background-color: blue;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .div3 {
-  grid-row: span 5/span 5;
-  grid-column-start: 3;
-  grid-row-start: 1;
+    grid-row: span 5 / span 5;
+    grid-column-start: 3;
+    grid-row-start: 1;
 }
 
 .div4 {
-  grid-row: span 5/span 5;
-  grid-column-start: 2;
-  grid-row-start: 1;
+    grid-row: span 5 / span 5;
+    grid-column-start: 2;
+    grid-row-start: 1;
 }
 
 .div5 {
-  grid-row: span 5/span 5;
+    grid-row: span 5 / span 5;
 }
 
 .div6 {
-  grid-row: span 5/span 5;
+    grid-row: span 5 / span 5;
 }
+        
 
 .Mapa h2 {
   text-align: center;
@@ -604,24 +576,29 @@ footer p {
 /* =================================== */
 /* ESTILOS RESPONSIVE          */
 /* =================================== */
+
 @media screen and (max-width: 1024px) {
   .div-navbar {
     flex-direction: column;
     padding: 15px;
     gap: 10px;
   }
+
   .Imagen-de-logo {
     text-align: center;
   }
+
   .seccion-formulario,
   .elemento-formulario {
     width: 80%;
   }
+
   .seccion-direccion {
     flex-direction: column;
     align-items: center;
     height: auto;
   }
+
   .direccion,
   .Mapa {
     width: 90%;
@@ -629,17 +606,20 @@ footer p {
     margin-left: 0;
   }
 }
+
 @media (max-width: 600px) {
   .elementos-contenedor {
     margin: 10px;
     padding: 10px;
     flex-direction: column;
   }
+
   .seccion-implementacion {
     margin: 10px;
     padding: 15px;
     width: 90%;
   }
+
   .titulo-contacto {
     padding-top: 10px;
     text-align: center;
@@ -648,18 +628,22 @@ footer p {
     width: auto;
     display: inline-block;
   }
+
   .seccion-formulario {
     width: 90%; /* Ajustado para tener márgenes */
     padding: 20px;
   }
+
   .logo-imagen {
     width: 40%;
   }
+
   .seccion-formulario,
   .elemento-formulario {
     width: 80%;
   }
 }
+
 @media (max-width: 768px) {
   .price-header h1 {
     font-size: 2rem;
@@ -670,5 +654,3 @@ footer p {
     font-size: 0.9rem;
   }
 }
-
-/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,25 @@
+%flex_basico_with_column {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+%flex_basico_with_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+%boton_para_ver_precios {
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+    padding: 15px;
+    color: #f9f8f4;
+    border-radius: 5px;
+    background-color: #70866b;
+    width: 150px;
+}

@@ -1,0 +1,33 @@
+@mixin contenedor_background_img ($bg_size,$bg_repeat,$bg_position,$relleno,$centrar_texto,$altura_minima,$color_texto) {
+    background-size: $bg_size;
+    background-repeat: $bg_repeat;
+    background-position: $bg_position;
+    padding: $relleno;
+    text-align: $centrar_texto;
+    min-height: $altura_minima;
+    color: $color_texto;
+}
+
+@mixin formularios ($letra_tm,$relleno_form,$background_color,$border_radio,$margen,$ancho,$centrar_el_texto) {
+    font-size: $letra_tm;
+    padding: $relleno_form;
+    background-color: $background_color;
+    border-radius: $border_radio;
+    margin: $margen;
+    width: $ancho;
+    text-align: $centrar_el_texto;
+}
+
+@mixin segunda_seccion ($ancho_minimo,$altura_hg,$color_fondo) {
+    min-width: $ancho_minimo;
+    height: $altura_hg;
+    background-color: $color_fondo;
+}
+
+@mixin titulo_contacto ($font-letra,$ancho-titulo,$relleno-superior,$bordes_titulo) {
+    font-size: $font-letra;
+    width: $ancho-titulo;
+    padding-top: $relleno-superior;
+    border-bottom: $bordes_titulo;
+
+}
