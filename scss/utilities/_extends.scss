@@ -12,6 +12,36 @@
   align-items: center;
 }
 
+%flex_basico_with_flex_end_colunm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+%decoracion_navbar {
+  list-style: none;
+  text-decoration: none;
+  display: inline-block;
+  border: 5px solid #fff;
+  border-radius: 5px;
+}
+
+%seccion-de-implementacion {
+  list-style: none;
+  display: inline;
+  font-size: 20px;
+}
+
+%elementos_input {
+  width: 100%; /* CAMBIO: De 300px a 100% para ser adaptable */
+  margin: 10px 0;
+  border: 1px solid #000;
+  padding: 15px; /* Reducido para mejor apariencia */
+  border-radius: 5px;
+}
+
 %boton_para_ver_precios {
     text-decoration: none;
     cursor: pointer;

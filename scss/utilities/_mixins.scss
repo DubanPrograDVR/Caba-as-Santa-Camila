@@ -31,3 +31,13 @@
     border-bottom: $bordes_titulo;
 
 }
+
+
+@mixin propiedades_elemento_contenedor ($tamano_letra,$margin_elemento,$padding_elemento,$background-elemento,$border-elemento,$border-radius-elemento) {
+    font-size: $tamano_letra;
+    margin: $margin_elemento;
+    padding: $padding_elemento;
+    background-color: $background-elemento;
+    border: $border-elemento;
+    border-radius: $border-radius-elemento;
+}
