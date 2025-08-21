@@ -1,43 +1,200 @@
-@mixin contenedor_background_img ($bg_size,$bg_repeat,$bg_position,$relleno,$centrar_texto,$altura_minima,$color_texto) {
-    background-size: $bg_size;
-    background-repeat: $bg_repeat;
-    background-position: $bg_position;
-    padding: $relleno;
-    text-align: $centrar_texto;
-    min-height: $altura_minima;
-    color: $color_texto;
+@mixin contenedor_background_img(
+  $bg_size,
+  $bg_repeat,
+  $bg_position,
+  $relleno,
+  $centrar_texto,
+  $altura_minima,
+  $color_texto
+) {
+  background-size: $bg_size;
+  background-repeat: $bg_repeat;
+  background-position: $bg_position;
+  padding: $relleno;
+  text-align: $centrar_texto;
+  min-height: $altura_minima;
+  color: $color_texto;
 }
 
-@mixin formularios ($letra_tm,$relleno_form,$background_color,$border_radio,$margen,$ancho,$centrar_el_texto) {
-    font-size: $letra_tm;
-    padding: $relleno_form;
-    background-color: $background_color;
-    border-radius: $border_radio;
-    margin: $margen;
-    width: $ancho;
-    text-align: $centrar_el_texto;
+@mixin formularios(
+  $letra_tm,
+  $relleno_form,
+  $background_color,
+  $border_radio,
+  $margen,
+  $ancho,
+  $centrar_el_texto
+) {
+  font-size: $letra_tm;
+  padding: $relleno_form;
+  background-color: $background_color;
+  border-radius: $border_radio;
+  margin: $margen;
+  width: $ancho;
+  text-align: $centrar_el_texto;
 }
 
-@mixin segunda_seccion ($ancho_minimo,$altura_hg,$color_fondo) {
-    min-width: $ancho_minimo;
-    height: $altura_hg;
-    background-color: $color_fondo;
+@mixin segunda_seccion($ancho_minimo, $altura_hg, $color_fondo) {
+  min-width: $ancho_minimo;
+  height: $altura_hg;
+  background-color: $color_fondo;
 }
 
-@mixin titulo_contacto ($font-letra,$ancho-titulo,$relleno-superior,$bordes_titulo) {
-    font-size: $font-letra;
-    width: $ancho-titulo;
-    padding-top: $relleno-superior;
-    border-bottom: $bordes_titulo;
-
+@mixin titulo_contacto(
+  $font-letra,
+  $ancho-titulo,
+  $relleno-superior,
+  $bordes_titulo
+) {
+  font-size: $font-letra;
+  width: $ancho-titulo;
+  padding-top: $relleno-superior;
+  border-bottom: $bordes_titulo;
 }
 
+@mixin propiedades_elemento_contenedor(
+  $tamano_letra,
+  $margin_elemento,
+  $padding_elemento,
+  $background-elemento,
+  $border-elemento,
+  $border-radius-elemento
+) {
+  font-size: $tamano_letra;
+  margin: $margin_elemento;
+  padding: $padding_elemento;
+  background-color: $background-elemento;
+  border: $border-elemento;
+  border-radius: $border-radius-elemento;
+}
 
-@mixin propiedades_elemento_contenedor ($tamano_letra,$margin_elemento,$padding_elemento,$background-elemento,$border-elemento,$border-radius-elemento) {
-    font-size: $tamano_letra;
-    margin: $margin_elemento;
-    padding: $padding_elemento;
-    background-color: $background-elemento;
-    border: $border-elemento;
-    border-radius: $border-radius-elemento;
+@mixin direccion_mapa(
+  $relleno_map,
+  $border_radius_map,
+  $color_de_fondo,
+  $ancho_wd
+) {
+  padding: $relleno_map;
+  border-radius: $border_radius_map;
+  background-color: $color_de_fondo;
+  width: $ancho_wd;
+}
+
+@mixin propiedades_iconos(
+  $color_icono,
+  $tamano_de_icono,
+  $alinear_texto,
+  $margin_bottom
+) {
+  color: $color_icono;
+  font-size: $tamano_de_icono;
+  text-align: $alinear_texto;
+  margin-bottom: $margin_bottom;
+}
+
+@mixin direccion_mapa_texto(
+  $centar_mi_texto,
+  $letra_color,
+  $letra_tamano,
+  $grosor_de_letra,
+  $margin_de_bottom
+) {
+  text-align: $centar_mi_texto;
+  color: $letra_color;
+  font-size: $letra_tamano;
+  font-weight: $grosor_de_letra;
+  margin-bottom: $margin_de_bottom;
+}
+
+@mixin estilos_mapa(
+  $margin_izquierdo,
+  $relleno_mapa,
+  $border_mapa,
+  $color_de_fondo_mapa,
+  $ancho_del_mapa
+) {
+  margin-left: $margin_izquierdo;
+  padding: $relleno_mapa;
+  border-radius: $border_mapa;
+  background-color: $color_de_fondo_mapa;
+  width: $ancho_del_mapa;
+}
+
+@mixin propiedades_seccion_principal(
+  $ancho_seccion_principal,
+  $altura_minima,
+  $color_de_fondo_principal
+) {
+  width: $ancho_seccion_principal;
+  min-height: $altura_minima;
+  background-color: $color_de_fondo_principal;
+}
+
+@mixin navbar-principal(
+  $grosor_text,
+  $color_de_texto,
+  $grosor_element,
+  $text_decoration
+) {
+  font-weight: $grosor_text;
+  color: $color_de_texto;
+  padding: $grosor_element;
+  text-decoration: $text_decoration;
+}
+
+@mixin imagenes_de_nosotros(
+  $display_fl,
+  $centrar_elementos,
+  $justify_contend,
+  $minima_altura,
+  $ancho
+) {
+  display: $display_fl;
+  align-items: $centrar_elementos;
+  justify-content: $justify_contend;
+  min-height: $minima_altura;
+  width: $ancho;
+}
+
+@mixin medidas-imagen($padding, $ancho, $altura_minima, $border_radius) {
+  padding: $padding;
+  width: $ancho;
+  min-height: $altura_minima;
+  border-radius: $border_radius;
+}
+
+@mixin textos_img($tamano_letra, $padding, $margin) {
+  font-size: $tamano_letra;
+  padding: $padding;
+  margin: $margin;
+}
+
+@mixin carrousel-item($border-radius, $box-shadow, $altura_max, $objetos-fit) {
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  max-height: $altura_max;
+  object-fit: $objetos-fit;
+}
+
+@mixin mapa_iframe($width, $height, $border_radius) {
+  width: $width;
+  height: $height;
+  border-radius: $border_radius;
+}
+
+@mixin precios_tabla($padding, $text_align, $borden-bottom) {
+  padding: $padding;
+  text-align: $text_align;
+  border-bottom: $borden-bottom;
+}
+
+@mixin propiedades_basicas_content_principal($ancho, $alto, $color) {
+  height: $ancho;
+  width: $alto;
+  color: $color;
+}
+
+@mixin propiedades_de_ancho_tabla($width, $borde-colapsado) {
+  width: $width;
+  border-collapse: $borde-colapsado;
 }

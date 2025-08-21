@@ -1,4 +1,4 @@
-@use "./utilities/variables" as *  ;
+@use "./utilities/variables" as *;
 @use "./utilities/mixins" as *;
 @use "./utilities/extends" as *;
 
@@ -11,9 +11,9 @@
 
 /* Medidas del Logo */
 .logo-imagen {
-  margin: 0 auto;
-  width: 20%;
-  height: auto;
+  margin: $centrar_objeto;
+  width: $ancho_logo;
+  height: altura_auto;
 }
 
 .grosor_texto {
@@ -26,22 +26,22 @@
 }
 
 .div-navbar {
-  display: flex;
-  flex-wrap: wrap;
-  border-radius: 2px;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f3e3c4;
-  padding: 5px;
-  width: 100%;
+  @extend %div_navbar;
 }
 
+.imagen-de-nosotros {
+  @include imagenes_de_nosotros(flex, center, center, 80vh, 100%);
+}
+
+.imagen-de-nosotros img {
+  @include medidas-imagen(20px, 100%, 70vh, 20px);
+}
+
+.imagen-de-nosotros p {
+  @include textos_img(1.2rem, 15px, 10px);
+}
 .div-navbar a {
   font-size: 20px;
-}
-
-.separacion_relleno {
-  padding: 20px;
 }
 
 .tamaño_titulos {
@@ -49,13 +49,11 @@
 }
 
 .tamaño-titulos {
-  border-bottom: 4px solid #70866b;
-  font-weight: 600;
-  font-size: 50px;
+  @extend %tamaño_titulos;
 }
 
 .centrar_texto {
-  text-align: center;
+  text-align: $centrar_texto;
 }
 
 .tamaño-parrafos {
@@ -67,70 +65,36 @@
 }
 
 .navbar-principal a {
-  font-weight: 250;
-  color: #fff;
-  padding: 5px;
-  text-decoration: none;
+  @include navbar-principal(250, #fff, 5px, none);
 }
 
+.seccion-sobre-nosotros {
+  $background: #f9fafb;
+}
 
+.seccion-sobre-nosotros h1 {
+  @extend %seccion-sobre-nosotros;
+}
 
+.seccion-sobre-nosotros h2 {
+  @extend %seccion-sobre-nosotros-h2;
+}
 
+.seccion-sobre-nosotros p {
+  @extend %seccion-sobre-nosotros-p;
+}
 
 .contenedor-principal {
-  height: 100%;
-  width: 100%;
-  background-color: #70866b;
-  color: #f9f8f4;
+  @include propiedades_basicas_content_principal(100%, 100%, #f9f8f4);
 }
 
 .seccion-principal {
   @extend %flex_basico_with_column;
-  width: 100%;
-  min-height: 100vh;
-  background-color: #f3e3c4;
-}
-
-.contenedor-sobre-cabañas {
-  padding: 20px;
-  margin-top: 35px;
-  width: 90%;
-}
-
-.contenedor-sobre-cabañas h2 {
-  border-bottom: 4px solid #70866b;
-  font-size: 50px;
-  color: #000;
-}
-
-.contenedor-sobre-cabañas p {
-  color: #000;
-  font-size: 20px;
-  border-bottom: 4px solid #70866b;
-}
-
-.iconos-lugar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row-reverse;
-  gap: 10px;
-  list-style: none;
+  @include propiedades_seccion_principal(100%, 100vh, #f3e3c4);
 }
 
 .seccion-implementacion {
-  display: flex;
-  text-align: center;
-  padding: 20px;
-  width: 80vw;
-  min-height: 30vh;
-  margin: 15px;
-  background-color: #70866b;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  flex-wrap: wrap;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  @extend %seccion_implementacion_index;
 }
 
 .titulo-cabañas {
@@ -141,7 +105,14 @@
 
 .elemento-contenedor {
   @extend %flex_basico_with_flex_end_colunm;
-  @include propiedades_elemento_contenedor (40px,20px,15px,cadetblue,"2px solid rgb(167, 119, 119);",10px);
+  @include propiedades_elemento_contenedor(
+    40px,
+    20px,
+    15px,
+    cadetblue,
+    "2px solid rgb(167, 119, 119);",
+    10px
+  );
 }
 
 .seccion-implementacion li {
@@ -149,12 +120,7 @@
 }
 
 .elementos-contenedor {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
+  @extend %elementos_contenedor;
 }
 
 .fa-kitchen-set,
@@ -170,20 +136,16 @@
 
 .segunda_seccion_lugar {
   @extend %flex_basico_with_row;
-  @include segunda_seccion (80vw,100vh,#70866b);
+  @include segunda_seccion(80vw, 100vh, #70866b);
 }
 
-
-
 .color-textos-cabeza {
-  font-weight: 200;
-  color: #f9f8f4;
-  font-size: 25px;
+  @extend %color-textos-cabeza;
 }
 
 .carousel-section {
   background-color: #70866b;
-  width: 100%;
+  width: $ancho;
 }
 
 .contenedor_de_img,
@@ -191,7 +153,15 @@
 .contenedor_de_img_ubicacion,
 .contenedor_de_img-precios {
   @extend %flex_basico_with_column;
-  @include contenedor_background_img (cover,no-repeat,center, 40px 20px, center, 85vh,rgb(28, 26, 26));
+  @include contenedor_background_img(
+    cover,
+    no-repeat,
+    center,
+    40px 20px,
+    center,
+    85vh,
+    rgb(28, 26, 26)
+  );
 }
 
 .contenedor_de_img {
@@ -212,23 +182,21 @@
 
 .boton-de-ver-precios,
 .Enviar-Mensaje {
-  @extend %boton_para_ver_precios
+  @extend %boton_para_ver_precios;
 }
 
 .seccion-principal-formularios {
-  padding: 25px;
-  min-height: 100vh; /* CAMBIO: De height a min-height */
-  background-color: #f3e3c4;
+  @extend %seccion_de_formulario;
 }
 
 .titulo-contacto {
-  @include titulo_contacto (2.2rem,10%,10px,"solid 5px #70866b");
+  @include titulo_contacto(2.2rem, 10%, 10px, "solid 5px #70866b");
 }
 
 .seccion-formulario,
 .elemento-formulario {
   @extend %flex_basico_with_column;
-  @include formularios(1.3rem, 15px, #fff, 10px, 0 auto, 50%,center);
+  @include formularios(1.3rem, 15px, #fff, 10px, 0 auto, 50%, center);
 }
 
 .elemento-formulario label {
@@ -238,25 +206,11 @@
 
 .elemento-formulario input {
   @extend %elementos_input;
-  
 }
 
-textarea {
-  width: 100%; /* AÑADIDO: Para que también sea adaptable */
-  max-width: 400px;
-  max-height: 200px;
-  padding: 15px;
-  border: 1px solid #000;
-  border-radius: 5px;
+.texto-de-area {
+  @extend %configuracion_text_area;
 }
-
-.info {
-  display: flex;
-  justify-content: center;
-}
-
-
-
 
 .textos_importantes {
   font-size: 3.2rem;
@@ -273,18 +227,11 @@ a:hover {
 }
 
 footer {
-  width: 100%;
-  background-color: #333;
-  color: #f9f8f4;
-  padding: 30px 0;
-  text-align: center;
+  @extend %footer;
 }
 
 footer a {
-  color: #f9f8f4;
-  font-size: 1.8rem;
-  margin: 0 10px;
-  transition: color 0.3s ease;
+  @extend %footer_a;
 }
 
 footer a:hover {
@@ -308,17 +255,11 @@ footer p {
 }
 
 .info-section h2 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 40px;
-  border-bottom: 4px solid #70866b;
-  display: inline-block; /* Para que la línea se ajuste al texto */
-  padding-bottom: 5px;
+  @extend %titulo_pequeño_h2;
 }
 
 .info-item {
-  margin-bottom: 30px;
+  margin-bottom: $boton_margin;
 }
 
 .info-item h3 {
@@ -334,173 +275,87 @@ footer p {
 }
 
 .carousel-inner .carousel-item img {
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-height: 500px;
-  object-fit: cover;
+  @include carrousel-item(10px, "0 4px 8px rgba(0, 0, 0, 0.2);", 500px, cover);
 }
 
 .seccion-direccion {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-direction: row;
-  min-height: 100vh; /* CAMBIO: De height a min-height */
-  padding: 40px 20px; /* AÑADIDO: Espacio interno */
-  width: 100%;
-  background-color: #f3e3c4;
+  @extend %seccion-direccion;
 }
 
 .direccion {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #70866b;
-  width: 50%;
-  /* height: 80%; ELIMINADO: La altura ahora es automática */
+  @extend %flex_start;
+  @include direccion_mapa(20px, 10px, #70866b, 50%);
 }
 
 .elementos-direccion,
 .fa-location-dot,
 .fa-car,
 .fa-bus {
-  color: #f9f8f4;
-  font-size: 1.8rem;
-  text-align: center;
-  margin-bottom: 10px;
+  @include propiedades_iconos(#f9f8f4, 1.8rem, center, 10px);
 }
 
 .direccion h2 {
-  text-align: center;
-  color: #f9f8f4;
-  font-size: 2rem;
-  margin-bottom: 15px;
+  @extend %direccion_del_mapa;
 }
 
 .direccion p {
-  text-align: center;
-  color: #f9f8f4;
-  font-size: 1.3rem;
-  font-weight: 200;
-  margin-bottom: 15px;
+  @include direccion_mapa_texto(center, #f9f8f4, 1.3rem, 200, 15px);
 }
 .Mapa {
-  margin-left: 20px;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #70866b;
-  width: 45%;
+  @include estilos_mapa(20px, 10px, 10px, #70866b, 45%);
 }
-
-
-.parent {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 8px;
-}
-    
-.img-1 {
-    grid-row: span 5 / span 5;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 10px ;
-    background-color: blue;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.div3 {
-    grid-row: span 5 / span 5;
-    grid-column-start: 3;
-    grid-row-start: 1;
-}
-
-.div4 {
-    grid-row: span 5 / span 5;
-    grid-column-start: 2;
-    grid-row-start: 1;
-}
-
-.div5 {
-    grid-row: span 5 / span 5;
-}
-
-.div6 {
-    grid-row: span 5 / span 5;
-}
-        
-
 .Mapa h2 {
-  text-align: center;
-  color: #f9f8f4;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  @extend %titulo_h2;
 }
 
 .Mapa iframe {
-  width: 100%;
-  height: 85%;
-  border-radius: 5px;
+  @include mapa_iframe(100%, 85%, 5px);
 }
 
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  @extend %container;
 }
 
-/* --- TÍTULO --- */
 .price-header {
-  text-align: center;
-  margin-bottom: 40px;
+  text-align: $centrar_texto;
+  margin-bottom: $margin_bottom;
 }
 
 .price-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: $tamaño_letra;
+  font-weight: grosor_de_letra_precios;
   margin: 0;
 }
 
 .price-header p {
   font-size: 1.2rem;
-  color: #555;
-  margin-top: 8px;
+  color: $color_letra;
+  margin-top: $margin_superior;
 }
 
 /* --- CONTENEDOR DE LA TABLA (PARA RESPONSIVE) --- */
 .table-container {
-  overflow-x: auto;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  @extend %contenedor_tabla;
 }
 
 /* --- TABLA DE PRECIOS --- */
 .price-table {
-  width: 100%;
-  border-collapse: collapse;
+  @include propiedades_de_ancho_tabla(100%, collapse);
 }
 
 .price-table th,
 .price-table td {
-  padding: 16px 20px;
-  text-align: left;
-  border-bottom: 1px solid #e5e7eb;
+  @include precios_tabla(16px 20px, left, "1px solid #e5e7eb");
 }
 
 /* Cabecera de la tabla */
 .price-table thead {
-  background-color: #70866b; /* Verde de tu paleta */
+  background-color: $back_hover_precio_tabla; /* Verde de tu paleta */
   color: #f3e3c4; /* Beige de tu paleta */
 }
 
 .price-table thead th {
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  @extend %precios_tablas;
 }
 
 /* Cuerpo de la tabla */
@@ -518,7 +373,7 @@ footer p {
 }
 
 .price-table .text-center {
-  text-align: center;
+  text-align: $centrar_texto;
 }
 
 .price-table ul {
@@ -529,20 +384,15 @@ footer p {
 
 /* --- NOTAS ADICIONALES --- */
 .notes {
-  text-align: center;
-  margin-top: 32px;
-  color: #4b5563;
-  line-height: 1.6;
+  @extend %notas;
 }
 
 .notes a {
-  color: #70866b;
-  font-weight: 600;
-  text-decoration: none;
+  @extend %notas_a;
 }
 
 .notes a:hover {
-  text-decoration: underline;
+  text-decoration: $text_de_decoration;
 }
 
 /* =================================== */
@@ -554,6 +404,12 @@ footer p {
     flex-direction: column;
     padding: 15px;
     gap: 10px;
+  }
+
+  .imagen-de-nosotros {
+    padding: 20px;
+    height: 100%;
+    flex-direction: column;
   }
 
   .Imagen-de-logo {
@@ -584,6 +440,11 @@ footer p {
     margin: 10px;
     padding: 10px;
     flex-direction: column;
+  }
+
+  .imagen-de-nosotros {
+    flex-direction: column;
+    height: 100%;
   }
 
   .seccion-implementacion {
