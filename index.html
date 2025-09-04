@@ -3,7 +3,102 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cabañas Santa Camila</title>
+
+    <!-- SEO Meta Tags -->
+    <title>
+      Cabañas Santa Camila - Alojamiento Rural en El Radal, Molina | Región del
+      Maule
+    </title>
+    <meta
+      name="description"
+      content="Descubre Cabañas Santa Camila en El Radal, Molina. Alojamiento rural totalmente equipado cerca de Siete Tazas. Reserva tu escapada perfecta en la naturaleza de la Región del Maule." />
+    <meta
+      name="keywords"
+      content="cabañas molina, alojamiento el radal, cabañas siete tazas, turismo rural maule, cabañas equipadas chile, vacaciones naturaleza" />
+    <meta name="author" content="Cabañas Santa Camila" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.cabanassantacamila.cl/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.cabanassantacamila.cl/" />
+    <meta
+      property="og:title"
+      content="Cabañas Santa Camila - Alojamiento Rural en El Radal, Molina" />
+    <meta
+      property="og:description"
+      content="Alojamiento rural totalmente equipado cerca de Siete Tazas. La escapada perfecta en la naturaleza." />
+    <meta
+      property="og:image"
+      content="https://www.cabanassantacamila.cl/img/Cabañas.png" />
+    <meta property="og:locale" content="es_CL" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.cabanassantacamila.cl/" />
+    <meta
+      property="twitter:title"
+      content="Cabañas Santa Camila - Alojamiento Rural en El Radal, Molina" />
+    <meta
+      property="twitter:description"
+      content="Alojamiento rural totalmente equipado cerca de Siete Tazas. La escapada perfecta en la naturaleza." />
+    <meta
+      property="twitter:image"
+      content="https://www.cabanassantacamila.cl/img/Cabañas.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LodgingBusiness",
+        "name": "Cabañas Santa Camila",
+        "description": "Alojamiento rural totalmente equipado en El Radal, Molina, cerca del Parque Nacional Radal Siete Tazas",
+        "url": "https://www.cabanassantacamila.cl",
+        "telephone": "+56-9-XXXX-XXXX",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Ruta K‑275, sector El Radal",
+          "addressLocality": "Molina",
+          "addressRegion": "Región del Maule",
+          "addressCountry": "CL"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -35.415001,
+          "longitude": -71.056248
+        },
+        "amenityFeature": [
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Cocina equipada",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Televisión por cable",
+            "value": true
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            "name": "Agua caliente",
+            "value": true
+          }
+        ],
+        "priceRange": "$50,000 - $120,000 CLP por noche"
+      }
+    </script>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/styles.css" as="style" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      as="style" />
+
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,14 +144,15 @@
 
         <div class="contenedor_de_img">
           <h1 style="color: white" class="textos_importantes">
-            Hola, somos cabañas Santa camila
+            Cabañas Santa Camila - Tu Refugio en la Naturaleza
           </h1>
-          <span class="centrar_texto color-textos-cabeza">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-            alias ipsam unde dolor iste neque ratione debitis dignissimos nulla
-            quaerat aliquam obcaecati, nesciunt totam numquam. Ratione vel
-            aspernatur nihil cum.
-          </span>
+          <p class="centrar_texto color-textos-cabeza">
+            Descubre la tranquilidad perfecta en nuestras cabañas totalmente
+            equipadas en El Radal, Molina. Ubicadas estratégicamente cerca del
+            Parque Nacional Radal Siete Tazas, ofrecemos la combinación ideal
+            entre comodidad moderna y conexión con la naturaleza en la hermosa
+            Región del Maule.
+          </p>
           <br />
           <a href="pages/precios.html" class="boton-de-ver-precios"
             >Ver Precios</a
@@ -96,38 +192,48 @@
       </section>
 
       <section class="seccion-sobre-nosotros">
-        <h1 class="text-black text-center">Quienes Somos?</h1>
+        <h2 class="text-black text-center">¿Quiénes Somos?</h2>
         <div class="imagen-de-nosotros">
-          <img src="./img/Nosotros.jpg" alt="" />
+          <img
+            src="./img/Nosotros.jpg"
+            alt="Cabañas Santa Camila en El Radal - Vista panorámica del establecimiento" />
+          <div>
+            <h3 class="text-center text-black">Nuestra Historia</h3>
+            <p class="text-black">
+              Cabañas Santa Camila nació del sueño de ofrecer a las familias y
+              viajeros un refugio auténtico en la naturaleza. Ubicadas en el
+              corazón del sector El Radal, nuestras cabañas han sido diseñadas
+              para brindar la máxima comodidad mientras te conectas con los
+              paisajes únicos de la Región del Maule.
+            </p>
 
-          <p class="text-black">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-            a, delectus porro fugiat accusamus, debitis cum sit inventore at
-            sapiente dolorum pariatur dicta ad? Dolores similique architecto
-            natus. Eligendi, molestiae. Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Facere, quasi repudiandae labore recusandae quod
-            quia nulla quibusdam sequi debitis modi quis similique iusto,
-            ratione impedit nisi fuga aperiam cumque quae. Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Pariatur porro ab iure, officia
-            eum culpa veniam rerum maiores nisi quasi, laborum suscipit debitis
-            sequi voluptas itaque laboriosam, iste saepe dignissimos! Lorem
-            ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, et
-            porro sapiente possimus expedita iusto aliquid id atque labore
-            fugiat sunt sit dolor! Nihil natus in perspiciatis, corporis ipsam
-            harum.
-          </p>
+            <h3 class="text-center text-black">¿Por Qué Elegirnos?</h3>
+            <p class="text-black">
+              Con más de [X años] de experiencia en turismo rural, nos
+              especializamos en crear experiencias memorables. Nuestras cabañas
+              están estratégicamente ubicadas a solo minutos del Parque Nacional
+              Radal Siete Tazas, permitiéndote explorar cascadas como el Velo de
+              la Novia y el Salto de la Leona.
+            </p>
+
+            <h3 class="text-center text-black">Compromiso con la Naturaleza</h3>
+            <p class="text-black">
+              Creemos en el turismo sustentable. Nuestras instalaciones respetan
+              el entorno natural y promovemos prácticas ecoamigables para
+              preservar la belleza de El Radal para futuras generaciones.
+            </p>
+          </div>
         </div>
       </section>
 
       <section class="seccion-principal">
         <div class="seccion-implementacion">
-          <h2 class="titulo-cabañas">Implementos de cada cabaña</h2>
+          <h2 class="titulo-cabañas">Comodidades de Nuestras Cabañas</h2>
           <p
             class="centrar_texto tamaño-parrafos grosor_texto ancho_para_el_texto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quis
-            voluptatem fuga cum doloremque ullam. Veniam repellat, temporibus,
-            voluptates dolore ex id pariatur quibusdam dolorem incidunt
-            voluptatum odit, animi ad?
+            Cada cabaña está completamente equipada con todo lo necesario para
+            una estadía confortable. Disfruta de amenidades modernas en un
+            entorno natural privilegiado.
           </p>
           <div class="elementos-contenedor">
             <div class="elemento-contenedor">
@@ -154,13 +260,12 @@
         </div>
 
         <div class="seccion-implementacion">
-          <h2 class="titulo-cabañas">Que puedes encontar cerca del lugar?</h2>
+          <h2 class="titulo-cabañas">Atractivos Naturales Cercanos</h2>
           <p
             class="centrar_texto tamaño-parrafos grosor_texto ancho_para_el_texto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quis
-            voluptatem fuga cum doloremque ullam. Veniam repellat, temporibus,
-            voluptates dolore ex id pariatur quibusdam dolorem incidunt
-            voluptatum odit, animi ad?
+            Explora las maravillas naturales que rodean Cabañas Santa Camila.
+            Desde nuestras instalaciones, tienes acceso directo a algunos de los
+            paisajes más espectaculares de la Región del Maule.
           </p>
           <div class="elementos-contenedor">
             <div class="elemento-contenedor">
@@ -227,6 +332,7 @@
                 aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
+            <p class="text-black text-left">sadsdadjaslkdjl</p>
           </div>
         </div>
       </section>
