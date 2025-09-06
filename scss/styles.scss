@@ -143,6 +143,14 @@
   @extend %color-textos-cabeza;
 }
 
+.whatsapp-float {
+  @extend %boton_whatsApp;
+}
+
+.whatsapp-float:hover {
+  @extend %boton_whatsApp_hover;
+}
+
 .carousel-section {
   background-color: #70866b;
   width: $ancho;
