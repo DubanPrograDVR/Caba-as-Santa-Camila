@@ -1,0 +1,43 @@
+/* ================================================
+   COMPONENTE: FOOTER
+   Estilos para pie de página
+   ================================================ */
+
+footer {
+  background: #2d3748;
+  color: #f9f8f4;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+footer a {
+  color: #f3e3c4;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+footer a:hover {
+  color: #70866b;
+}
+
+footer p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.fa-brands,
+.fa-instagram {
+  color: rgb(33, 33, 176);
+  margin: 5px;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.fa-brands:hover,
+.fa-instagram:hover {
+  color: #70866b;
+  transform: scale(1.2);
+}
