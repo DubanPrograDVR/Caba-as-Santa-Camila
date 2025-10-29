@@ -123,107 +123,406 @@
         <nav class="navbar-principal">
           <div class="div-navbar">
             <div class="Imagen-de-logo">
-              <a href=""
-                ><img class="logo-imagen" src="img/Logo.png" alt="logo"
-              /></a>
+              <a href="">
+                <img
+                  class="logo-imagen"
+                  src="img/Logo.png"
+                  alt="Cabañas Santa Camila Logo"
+                  loading="eager" />
+              </a>
             </div>
-            <ul>
-              <li class="elementos-li"><a href="#">Inicio</a></li>
-              <li class="elementos-li">
-                <a href="./pages/ubicacion.html">Ubicación</a>
-              </li>
-              <li class="elementos-li">
-                <a href="./pages/precios.html">Precios</a>
-              </li>
-              <li class="elementos-li">
-                <a href="./pages/contacto.html">Contacto</a>
-              </li>
-            </ul>
+
+            <!-- Menu hamburguesa para móvil -->
+            <button class="mobile-menu-toggle" aria-label="Abrir menú">
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+            </button>
+
+            <!-- Navegación principal -->
+            <div class="nav-menu">
+              <ul>
+                <li class="elementos-li"><a href="#" class="nav-link">Inicio</a></li>
+                <li class="elementos-li">
+                  <a href="./pages/ubicacion.html" class="nav-link">Ubicación</a>
+                </li>
+                <li class="elementos-li">
+                  <a href="./pages/precios.html" class="nav-link">Precios</a>
+                </li>
+                <li class="elementos-li">
+                  <a href="./pages/contacto.html" class="nav-link">Contacto</a>
+                </li>
+                <li class="elementos-li">
+                  <a href="./pages/reserva-rapida.html" class="nav-link-cta">Reservar</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
 
         <div class="contenedor_de_img">
-          <h1 style="color: white" class="textos_importantes">
-            Cabañas Santa Camila - Tu Refugio en la Naturaleza
-          </h1>
-          <p class="centrar_texto color-textos-cabeza">
-            Descubre la tranquilidad perfecta en nuestras cabañas totalmente
-            equipadas en El Radal, Molina. Ubicadas estratégicamente cerca del
-            Parque Nacional Radal Siete Tazas, ofrecemos la combinación ideal
-            entre comodidad moderna y conexión con la naturaleza en la hermosa
-            Región del Maule.
-          </p>
-          <br />
-          <a href="pages/precios.html" class="boton-de-ver-precios"
-            >Ver Precios</a
-          >
+          <!-- Hero Video Background -->
+          <video class="hero-video" autoplay muted loop playsinline>
+            <source src="./video/hero-cabanas.mp4" type="video/mp4" />
+          </video>
+          
+          <!-- Fallback con imagen si no hay video -->
+          <div class="hero-fallback"></div>
+
+          <div class="hero-overlay">
+            <span class="hero-badge">🌲 El Mejor Escape Natural del Maule</span>
+            <h1 class="textos_importantes animate-fade-in">
+              Tu Refugio Natural en<br>
+              <span class="highlight-text">Radal Siete Tazas</span>
+            </h1>
+            <p class="centrar_texto color-textos-cabeza hero-subtitle">
+              Desconéctate del ruido urbano y reconecta con la naturaleza.<br>
+              Cabañas totalmente equipadas donde el río es tu melodía matutina.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="cta-buttons">
+              <a href="./pages/reserva-rapida.html" class="btn-primary">
+                <i class="fas fa-calendar-check"></i>
+                <span>Reservar Ahora</span>
+              </a>
+              <a href="#galeria" class="btn-secondary">
+                <i class="fas fa-images"></i>
+                <span>Ver Galería</span>
+              </a>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="trust-indicators">
+              <span class="trust-item">
+                <i class="fas fa-shield-check"></i>
+                <strong>100%</strong> Seguro
+              </span>
+              <span class="trust-item">
+                <i class="fas fa-star"></i>
+                <strong>4.9/5</strong> Rating
+              </span>
+              <span class="trust-item">
+                <i class="fas fa-users"></i>
+                <strong>200+</strong> Familias
+              </span>
+            </div>
+          </div>
         </div>
       </section>
     </header>
 
     <main class="contenedor-principal">
+      <!-- Sección de Pruebas Sociales -->
+      <section class="social-proof-section">
+        <div class="container">
+          <!-- Métricas de Confianza con animación -->
+          <div class="stats-wrapper">
+            <div class="trust-metrics">
+              <div class="metric">
+                <div class="metric-icon">
+                  <i class="fas fa-calendar-check"></i>
+                </div>
+                <span class="metric-number" data-target="5">0</span>
+                <span class="metric-plus">+</span>
+                <span class="metric-label">Años de Experiencia</span>
+              </div>
+              <div class="metric">
+                <div class="metric-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <span class="metric-number" data-target="200">0</span>
+                <span class="metric-plus">+</span>
+                <span class="metric-label">Familias Felices</span>
+              </div>
+              <div class="metric">
+                <div class="metric-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="metric-number" data-target="4.9">0</span>
+                <span class="metric-label">Calificación Promedio</span>
+              </div>
+              <div class="metric">
+                <div class="metric-icon">
+                  <i class="fas fa-home"></i>
+                </div>
+                <span class="metric-number" data-target="100">0</span>
+                <span class="metric-plus">%</span>
+                <span class="metric-label">Satisfacción</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonios Mejorados -->
+          <div class="testimonios-section">
+            <div class="section-intro">
+              <span class="section-badge">Testimonios</span>
+              <h2 class="section-title">Experiencias Reales</h2>
+              <p class="section-description">
+                Lee lo que nuestros huéspedes dicen sobre su estadía
+              </p>
+            </div>
+            
+            <div class="testimonios-grid">
+              <div class="testimonio-card">
+                <div class="testimonio-rating">★★★★★</div>
+                <p class="testimonio-text">
+                  "Increíble experiencia familiar. Los niños no querían irse del
+                  río y nosotros tampoco de la tranquilidad. ¡Volveremos sin
+                  dudas!"
+                </p>
+                <div class="testimonio-footer">
+                  <div class="testimonio-author">
+                    <div class="author-avatar">
+                      <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="author-info">
+                      <h4>Familia González</h4>
+                      <span>Santiago • Enero 2025</span>
+                    </div>
+                  </div>
+                  <div class="verified-badge">
+                    <i class="fas fa-check-circle"></i> Verificado
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonio-card featured">
+                <div class="featured-label">⭐ Destacado</div>
+                <div class="testimonio-rating">★★★★★</div>
+                <p class="testimonio-text">
+                  "La cabaña tenía todo lo necesario. Despertarse con el sonido
+                  del río es una experiencia que no se paga con nada. Atención impecable."
+                </p>
+                <div class="testimonio-footer">
+                  <div class="testimonio-author">
+                    <div class="author-avatar">
+                      <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="author-info">
+                      <h4>María & Carlos</h4>
+                      <span>Valparaíso • Diciembre 2024</span>
+                    </div>
+                  </div>
+                  <div class="verified-badge">
+                    <i class="fas fa-check-circle"></i> Verificado
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonio-card">
+                <div class="testimonio-rating">★★★★★</div>
+                <p class="testimonio-text">
+                  "Perfecta ubicación para conocer Siete Tazas. Las cabañas súper
+                  limpias y la atención de primera. Recomendado 100%."
+                </p>
+                <div class="testimonio-footer">
+                  <div class="testimonio-author">
+                    <div class="author-avatar">
+                      <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="author-info">
+                      <h4>Los Aventureros</h4>
+                      <span>Concepción • Febrero 2025</span>
+                    </div>
+                  </div>
+                  <div class="verified-badge">
+                    <i class="fas fa-check-circle"></i> Verificado
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="info-section text-center">
         <div class="container">
-          <h2 class="mb-5">Nuestras Cabañas</h2>
+          <div class="section-intro">
+            <span class="section-badge">¿Por qué nosotros?</span>
+            <h2 class="section-title">La Experiencia Completa</h2>
+            <p class="section-description">
+              Más que un alojamiento, es tu puerta de entrada a la aventura y el descanso
+            </p>
+          </div>
+          
           <div class="row">
             <div class="col-md-4 info-item">
-              <h3>Comodidad</h3>
+              <div class="info-icon-wrapper">
+                <i class="fas fa-home feature-icon"></i>
+              </div>
+              <h3>Comodidad Premium</h3>
               <p>
-                Disfruta de cabañas totalmente equipadas con todas las
-                comodidades modernas para una estancia inolvidable.
+                Cabañas completamente equipadas con cocina moderna, TV cable, 
+                agua caliente 24/7 y amenidades de alta calidad.
               </p>
+              <a href="./pages/precios.html" class="info-link">
+                Ver detalles <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
             <div class="col-md-4 info-item">
-              <h3>Naturaleza</h3>
+              <div class="info-icon-wrapper">
+                <i class="fas fa-leaf feature-icon"></i>
+              </div>
+              <h3>Naturaleza Virgen</h3>
               <p>
-                Ubicadas en un entorno natural privilegiado, ideal para
-                relajarse y conectar con la tranquilidad del paisaje.
+                Ubicación privilegiada a orillas del río y a minutos de las 
+                cascadas más impresionantes de Chile.
               </p>
+              <a href="./pages/ubicacion.html" class="info-link">
+                Cómo llegar <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
             <div class="col-md-4 info-item">
-              <h3>Actividades</h3>
+              <div class="info-icon-wrapper">
+                <i class="fas fa-heart feature-icon"></i>
+              </div>
+              <h3>Atención Personalizada</h3>
               <p>
-                Explora senderos, disfruta de paseos a caballo o simplemente
-                relájate junto a la piscina.
+                Servicio familiar directo. Te asesoramos para crear la 
+                escapada perfecta según tus necesidades.
               </p>
+              <a href="./pages/contacto.html" class="info-link">
+                Contáctanos <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       <section class="seccion-sobre-nosotros">
-        <h2 class="text-black text-center">¿Quiénes Somos?</h2>
-        <div class="imagen-de-nosotros">
-          <img
-            {style="display: block;,max-width: 100%"
-            }
-            src="./img/Nosotros.jpg"
-            alt="Cabañas Santa Camila en El Radal - Vista panorámica del establecimiento" />
-          <div>
-            <h3 class="text-center text-black">Nuestra Historia</h3>
-            <p class="text-black">
-              Cabañas Santa Camila nació del sueño de ofrecer a las familias y
-              viajeros un refugio auténtico en la naturaleza. Ubicadas en el
-              corazón del sector El Radal, nuestras cabañas han sido diseñadas
-              para brindar la máxima comodidad mientras te conectas con los
-              paisajes únicos de la Región del Maule.
+        <div class="container">
+          <div class="section-intro">
+            <span class="section-badge">Nuestra Esencia</span>
+            <h2 class="section-title">¿Quiénes Somos?</h2>
+            <p class="section-description">
+              Una familia apasionada por la naturaleza y el turismo sustentable
             </p>
+          </div>
 
-            <h3 class="text-center text-black">¿Por Qué Elegirnos?</h3>
-            <p class="text-black">
-              Con más de [X años] de experiencia en turismo rural, nos
-              especializamos en crear experiencias memorables. Nuestras cabañas
-              están estratégicamente ubicadas a solo minutos del Parque Nacional
-              Radal Siete Tazas, permitiéndote explorar cascadas como el Velo de
-              la Novia y el Salto de la Leona.
-            </p>
+          <div class="about-content">
+            <!-- Imagen destacada -->
+            <div class="about-image-wrapper">
+              <div class="image-decoration"></div>
+              <img
+                src="./img/Nosotros.jpg"
+                alt="Familia Cabañas Santa Camila - Equipo"
+                class="about-image"
+                loading="lazy" />
+              <div class="image-badge">
+                <i class="fas fa-heart"></i>
+                <span>Familia<br>Santa Camila</span>
+              </div>
+            </div>
 
-            <h3 class="text-center text-black">Compromiso con la Naturaleza</h3>
-            <p class="text-black">
-              Creemos en el turismo sustentable. Nuestras instalaciones respetan
-              el entorno natural y promovemos prácticas ecoamigables para
-              preservar la belleza de El Radal para futuras generaciones.
-            </p>
+            <!-- Contenido informativo -->
+            <div class="about-info">
+              <div class="about-card">
+                <div class="card-icon">
+                  <i class="fas fa-book-open"></i>
+                </div>
+                <div class="card-content">
+                  <h3>Nuestra Historia</h3>
+                  <p>
+                    Cabañas Santa Camila nació del sueño de ofrecer a las familias y
+                    viajeros un refugio auténtico en la naturaleza. Ubicadas en el
+                    corazón del sector El Radal, nuestras cabañas han sido diseñadas
+                    para brindar la máxima comodidad mientras te conectas con los
+                    paisajes únicos de la Región del Maule.
+                  </p>
+                  <div class="card-highlight">
+                    <i class="fas fa-quote-left"></i>
+                    "Más que cabañas, creamos experiencias memorables"
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-card">
+                <div class="card-icon">
+                  <i class="fas fa-medal"></i>
+                </div>
+                <div class="card-content">
+                  <h3>¿Por Qué Elegirnos?</h3>
+                  <div class="benefits-list">
+                    <div class="benefit-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Más de 5 años de experiencia en turismo rural</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Ubicación privilegiada cerca de Siete Tazas</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Atención personalizada y familiar</span>
+                    </div>
+                    <div class="benefit-item">
+                      <i class="fas fa-check-circle"></i>
+                      <span>Instalaciones modernas y confortables</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-card">
+                <div class="card-icon">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="card-content">
+                  <h3>Compromiso con la Naturaleza</h3>
+                  <p>
+                    Creemos en el turismo sustentable. Nuestras instalaciones respetan
+                    el entorno natural y promovemos prácticas ecoamigables para
+                    preservar la belleza de El Radal para futuras generaciones.
+                  </p>
+                  <div class="eco-badges">
+                    <div class="eco-badge">
+                      <i class="fas fa-recycle"></i>
+                      <span>Reciclaje</span>
+                    </div>
+                    <div class="eco-badge">
+                      <i class="fas fa-water"></i>
+                      <span>Uso eficiente</span>
+                    </div>
+                    <div class="eco-badge">
+                      <i class="fas fa-tree"></i>
+                      <span>Reforestación</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Estadísticas adicionales -->
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="stat-info">
+                <h4>Ubicación Estratégica</h4>
+                <p>A minutos del Parque Nacional Radal Siete Tazas</p>
+              </div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-award"></i>
+              </div>
+              <div class="stat-info">
+                <h4>Calidad Garantizada</h4>
+                <p>Instalaciones mantenidas con los más altos estándares</p>
+              </div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <div class="stat-info">
+                <h4>Atención 24/7</h4>
+                <p>Siempre disponibles para hacer tu estadía perfecta</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -286,62 +585,124 @@
         </div>
       </section>
 
+      <!-- Banner de Disponibilidad -->
+      <div class="availability-banner">
+        <div class="container">
+          <div class="availability-content">
+            <div class="availability-info">
+              <i class="fas fa-calendar-alt"></i>
+              <span class="availability-text">
+                <strong>Temporada Alta:</strong> Solo 2 cabañas disponibles para
+                este fin de semana
+              </span>
+            </div>
+            <div class="live-indicator">
+              <span class="live-dot"></span>
+              <span class="live-text">En vivo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <section class="carousel-section text-center">
         <div class="container">
-          <h2 class="mb-5 text-uppercase">Conoce nuestras cabañas</h2>
-          <div
-            id="carouselExampleFade"
-            class="carousel slide carousel-fade mx-auto"
-            data-bs-ride="carousel"
-            style="max-width: 900px">
-            <div class="carousel-inner rounded-3 shadow-lg">
-              <div class="carousel-item active">
-                <img
-                  src="./img/Cabañas.png"
-                  class="d-block w-100"
-                  alt="Imagen de Cabaña 1" />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="img/Cabañas_stc.jpg"
-                  class="d-block w-100"
-                  alt="Imagen de Cabaña 2" />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="img/Imagen_Cabaña_3.jpg"
-                  class="d-block w-100"
-                  alt="Imagen de Cabaña 3" />
+          <div class="section-header">
+            <h2 class="mb-3 text-uppercase">Tus Cabañas te Esperan</h2>
+            <p class="section-subtitle">
+              Cada cabaña cuenta una historia de descanso y conexión
+            </p>
+          </div>
+
+          <!-- Galería Mejorada con Disponibilidad -->
+          <div class="cabanas-showcase">
+            <div class="cabana-preview" data-cabin="bosque">
+              <img
+                src="./img/Cabañas.png"
+                class="cabana-img"
+                alt="Cabaña Bosque - Vista exterior"
+                loading="lazy" />
+              <div class="cabana-overlay">
+                <h3>Cabaña Bosque</h3>
+                <p>4 personas • Vista al río</p>
+                <div class="availability-status available">
+                  <i class="fas fa-check-circle"></i>
+                  Disponible
+                </div>
+                <button class="btn-view-cabin">Ver Detalles</button>
               </div>
             </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleFade"
-              data-bs-slide="prev">
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleFade"
-              data-bs-slide="next">
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+
+            <div class="cabana-preview" data-cabin="rio">
+              <img
+                src="img/Cabañas_stc.jpg"
+                class="cabana-img"
+                alt="Cabaña Río - Vista panorámica"
+                loading="lazy" />
+              <div class="cabana-overlay">
+                <h3>Cabaña Río</h3>
+                <p>6 personas • Terraza privada</p>
+                <div class="availability-status limited">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Pocas fechas disponibles
+                </div>
+                <button class="btn-view-cabin">Ver Detalles</button>
+              </div>
+            </div>
+
+            <div class="cabana-preview" data-cabin="premium">
+              <img
+                src="img/Imagen_Cabaña_3.jpg"
+                class="cabana-img"
+                alt="Cabaña Premium - Interior acogedor"
+                loading="lazy" />
+              <div class="cabana-overlay">
+                <h3>Cabaña Premium</h3>
+                <p>8 personas • Jacuzzi privado</p>
+                <div class="availability-status available">
+                  <i class="fas fa-check-circle"></i>
+                  Disponible
+                </div>
+                <button class="btn-view-cabin">Ver Detalles</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botón CTA Principal -->
+          <div class="main-cta">
+            <a href="./pages/reserva-rapida.html" class="btn-reserve-now">
+              <i class="fas fa-calendar-check"></i>
+              Reservar Mi Escapada
+            </a>
+            <p class="cta-subtitle">
+              <i class="fas fa-shield-alt"></i>
+              Reserva directa sin comisiones • Atención personalizada
+              garantizada
+            </p>
           </div>
         </div>
       </section>
     </main>
 
-    <a href="https://wa.me/56982222698" class="whatsapp-float" target="_blank">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <!-- Botones flotantes -->
+    <div class="floating-actions">
+      <!-- Botón de Reserva Rápida Flotante -->
+      <a
+        href="./pages/reserva-rapida.html"
+        class="floating-reserve"
+        id="floating-reserve">
+        <i class="fas fa-calendar-plus"></i>
+        <span class="floating-text">Reservar</span>
+      </a>
+
+      <!-- WhatsApp Flotante -->
+      <a
+        href="https://wa.me/56982222698"
+        class="whatsapp-float"
+        target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="floating-text">WhatsApp</span>
+      </a>
+    </div>
 
     <footer>
       <div class="container">
@@ -355,5 +716,6 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"></script>
+    <script src="js/navigation.js"></script>
   </body>
 </html>

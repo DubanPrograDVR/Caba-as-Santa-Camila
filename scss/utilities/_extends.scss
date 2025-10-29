@@ -38,34 +38,6 @@
   align-items: center;
 }
 
-%seccion-sobre-nosotros {
-  text-align: center;
-  color: #000;
-  text-transform: uppercase;
-  text-decoration: underline 4px #70866b;
-  font-size: 3.2rem;
-  background-color: #f9fafb;
-  font-weight: 350;
-}
-
-%seccion-sobre-nosotros-h2 {
-  text-align: center;
-  color: #000;
-  text-transform: uppercase;
-  text-decoration: underline 4px #70866b;
-  font-size: 2.5rem;
-  background-color: #f9fafb;
-  font-weight: 200;
-}
-
-%seccion-sobre-nosotros-p {
-  text-align: center;
-  color: #000;
-  font-size: 2rem;
-  background-color: #f9fafb;
-  font-weight: 200;
-}
-
 %seccion_implementacion_index {
   display: flex;
   text-align: center;
@@ -237,8 +209,8 @@
   position: fixed;
   width: 60px;
   height: 60px;
-  bottom: 40px;
-  right: 40px;
+  bottom: 100px; /* Ajustado para que esté arriba del botón de reserva */
+  left: 20px; /* Cambiado de right a left */
   background-color: #20ba5a;
   color: #fff;
   border-radius: 50px;

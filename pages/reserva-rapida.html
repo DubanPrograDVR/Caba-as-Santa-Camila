@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reserva Rápida - Cabañas Santa Camila</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/reserva.css" />
+  </head>
+  <body>
+    <!-- Barra de Progreso -->
+    <div class="progress-bar">
+      <div class="step active" data-step="1">
+        <span class="step-number">1</span>
+        <span class="step-label">Fechas</span>
+      </div>
+      <div class="step" data-step="2">
+        <span class="step-number">2</span>
+        <span class="step-label">Cabaña</span>
+      </div>
+      <div class="step" data-step="3">
+        <span class="step-number">3</span>
+        <span class="step-label">Confirmar</span>
+      </div>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <div class="reserva-container">
+      <!-- PASO 1: Selección de Fechas -->
+      <div class="reserva-step active" id="step-1">
+        <h2>¿Cuándo quieres desconectarte?</h2>
+        <div class="date-selector">
+          <div class="date-input-group">
+            <label>Llegada</label>
+            <input type="date" id="checkin" class="date-input" />
+          </div>
+          <div class="date-input-group">
+            <label>Salida</label>
+            <input type="date" id="checkout" class="date-input" />
+          </div>
+          <div class="guest-selector">
+            <label>Huéspedes</label>
+            <select id="guests">
+              <option value="2">2 personas</option>
+              <option value="4">4 personas</option>
+              <option value="6">6 personas</option>
+              <option value="8">8 personas</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-continue" onclick="nextStep(2)">Continuar</button>
+      </div>
+
+      <!-- PASO 2: Selección de Cabaña -->
+      <div class="reserva-step" id="step-2">
+        <h2>Elige tu refugio perfecto</h2>
+        <div class="cabanas-grid">
+          <div class="cabana-card" data-price="65000">
+            <img src="../img/cabana-1.jpg" alt="Cabaña Bosque" />
+            <div class="cabana-info">
+              <h3>Cabaña Bosque</h3>
+              <p>Para 4 personas • Vista al río</p>
+              <div class="amenities">
+                <span><i class="fas fa-bed"></i> 2 dormitorios</span>
+                <span><i class="fas fa-tv"></i> TV Cable</span>
+                <span><i class="fas fa-kitchen-set"></i> Cocina</span>
+              </div>
+              <div class="price">$65.000/noche</div>
+            </div>
+          </div>
+
+          <div class="cabana-card" data-price="85000">
+            <img src="../img/cabana-2.jpg" alt="Cabaña Río" />
+            <div class="cabana-info">
+              <h3>Cabaña Río</h3>
+              <p>Para 6 personas • Terraza privada</p>
+              <div class="amenities">
+                <span><i class="fas fa-bed"></i> 3 dormitorios</span>
+                <span><i class="fas fa-tv"></i> TV Cable</span>
+                <span><i class="fas fa-hot-tub"></i> Jacuzzi</span>
+              </div>
+              <div class="price">$85.000/noche</div>
+            </div>
+          </div>
+        </div>
+        <div class="step-navigation">
+          <button class="btn-back" onclick="prevStep(1)">Volver</button>
+          <button class="btn-continue" onclick="nextStep(3)">Continuar</button>
+        </div>
+      </div>
+
+      <!-- PASO 3: Confirmación -->
+      <div class="reserva-step" id="step-3">
+        <h2>Confirma tu reserva</h2>
+        <div class="reserva-summary">
+          <h3>Resumen de tu estadía</h3>
+          <div class="summary-item">
+            <span>Fechas:</span>
+            <span id="summary-dates">-</span>
+          </div>
+          <div class="summary-item">
+            <span>Cabaña:</span>
+            <span id="summary-cabin">-</span>
+          </div>
+          <div class="summary-item">
+            <span>Huéspedes:</span>
+            <span id="summary-guests">-</span>
+          </div>
+          <div class="summary-total">
+            <span>Total:</span>
+            <span id="summary-total">$0</span>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <input type="text" placeholder="Tu nombre" id="guest-name" required />
+          <input type="tel" placeholder="Teléfono" id="guest-phone" required />
+          <input type="email" placeholder="Email" id="guest-email" required />
+        </div>
+
+        <div class="final-cta">
+          <button class="btn-whatsapp" onclick="sendWhatsAppReservation()">
+            <i class="fab fa-whatsapp"></i>
+            Confirmar por WhatsApp
+          </button>
+          <p class="security-note">
+            <i class="fas fa-shield-alt"></i>
+            Reserva segura • Sin pagos online • Confirma directo con nosotros
+          </p>
+        </div>
+
+        <button class="btn-back" onclick="prevStep(2)">Volver</button>
+      </div>
+    </div>
+
+    <script src="../js/reserva.js"></script>
+  </body>
+</html>
