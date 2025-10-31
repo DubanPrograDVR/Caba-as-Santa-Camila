@@ -118,67 +118,79 @@
       crossorigin="anonymous" />
   </head>
   <body>
-    <header class="cabeza">
-      <section>
-        <nav class="navbar-principal">
-          <div class="div-navbar">
-            <div class="Imagen-de-logo">
-              <a href="index.html" aria-label="Volver al inicio">
-                <img
-                  class="logo-imagen"
-                  src="img/Logo.png"
-                  alt="Cabañas Santa Camila Logo"
-                  loading="eager" />
-              </a>
-            </div>
-
-            <!-- Menu hamburguesa para móvil -->
-            <button
-              class="mobile-menu-toggle"
-              aria-label="Abrir menú"
-              aria-expanded="false">
-              <span class="hamburger-line"></span>
-              <span class="hamburger-line"></span>
-              <span class="hamburger-line"></span>
-            </button>
-
-            <!-- Navegación principal -->
-            <div class="nav-menu">
-              <ul>
-                <li class="elementos-li">
-                  <a href="#" class="nav-link active">
-                    <i class="fas fa-home"></i>
-                    <span>Inicio</span>
-                  </a>
-                </li>
-                <li class="elementos-li">
-                  <a href="./pages/ubicacion.html" class="nav-link">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Ubicación</span>
-                  </a>
-                </li>
-                <li class="elementos-li">
-                  <a href="./pages/precios.html" class="nav-link">
-                    <i class="fas fa-tags"></i>
-                    <span>Precios</span>
-                  </a>
-                </li>
-                <li class="elementos-li">
-                  <a href="./pages/contacto.html" class="nav-link">
-                    <i class="fas fa-envelope"></i>
-                    <span>Contacto</span>
-                  </a>
-                </li>
-                <li class="elementos-li">
-                  <a href="./pages/reserva-rapida.html" class="nav-link-cta">
-                    <i class="fas fa-calendar-check"></i>
-                    <span>Reservar</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+    <!-- ==========================================
+         HEADER CON NAVBAR REORDENADO
+         ========================================== -->
+    <header class="site-header">
+      <nav class="main-navbar" role="navigation" aria-label="Navegación principal">
+        <div class="navbar-wrapper">
+          
+          <!-- Logo / Brand -->
+          <div class="navbar-brand">
+            <a href="index.html" class="brand-link" aria-label="Cabañas Santa Camila - Volver al inicio">
+              <img
+                class="brand-logo"
+                src="img/Logo.png"
+                alt="Cabañas Santa Camila Logo"
+                width="120"
+                height="60"
+                loading="eager" />
+              <span class="brand-text" aria-hidden="true">Santa Camila</span>
+            </a>
           </div>
-        </nav>
+
+          <!-- Navegación de enlaces -->
+          <div class="navbar-nav" id="navbarNav">
+            <ul class="nav-list" role="list">
+              <li class="nav-item">
+                <a href="#" class="nav-link nav-link--active" aria-current="page">
+                  <i class="nav-icon fas fa-home" aria-hidden="true"></i>
+                  <span class="nav-text">Inicio</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./pages/ubicacion.html" class="nav-link">
+                  <i class="nav-icon fas fa-map-marker-alt" aria-hidden="true"></i>
+                  <span class="nav-text">Ubicación</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./pages/precios.html" class="nav-link">
+                  <i class="nav-icon fas fa-tags" aria-hidden="true"></i>
+                  <span class="nav-text">Precios</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./pages/contacto.html" class="nav-link">
+                  <i class="nav-icon fas fa-envelope" aria-hidden="true"></i>
+                  <span class="nav-text">Contacto</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CTA Reservar -->
+          <div class="navbar-cta">
+            <a href="./pages/reserva-rapida.html" class="cta-button">
+              <i class="fas fa-calendar-check" aria-hidden="true"></i>
+              <span>Reservar Ahora</span>
+            </a>
+          </div>
+
+          <!-- Toggle móvil -->
+          <button
+            class="navbar-toggle"
+            type="button"
+            aria-label="Abrir menú de navegación"
+            aria-expanded="false"
+            aria-controls="navbarNav">
+            <span class="toggle-icon"></span>
+            <span class="toggle-icon"></span>
+            <span class="toggle-icon"></span>
+          </button>
+
+        </div>
+      </nav>
 
         <div class="contenedor_de_img">
           <!-- Hero Video Background -->
@@ -229,7 +241,6 @@
             </div>
           </div>
         </div>
-      </section>
     </header>
 
     <main class="contenedor-principal">

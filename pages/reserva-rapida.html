@@ -4,22 +4,101 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reserva Rápida - Cabañas Santa Camila</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    
+    <!-- Estilos -->
     <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/reserva.css" />
+    
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
   </head>
   <body>
+    <!-- Header con Navbar -->
+    <header class="cabeza">
+      <section>
+        <nav class="navbar-principal">
+          <div class="div-navbar">
+            <div class="Imagen-de-logo">
+              <a href="../index.html" aria-label="Volver al inicio">
+                <img
+                  class="logo-imagen"
+                  src="../img/Logo.png"
+                  alt="Cabañas Santa Camila Logo"
+                  loading="eager" />
+              </a>
+            </div>
+
+            <!-- Menu hamburguesa para móvil -->
+            <button
+              class="mobile-menu-toggle"
+              aria-label="Abrir menú"
+              aria-expanded="false">
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+            </button>
+
+            <!-- Navegación principal -->
+            <div class="nav-menu">
+              <ul>
+                <li class="elementos-li">
+                  <a href="../index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                  </a>
+                </li>
+                <li class="elementos-li">
+                  <a href="./ubicacion.html" class="nav-link">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Ubicación</span>
+                  </a>
+                </li>
+                <li class="elementos-li">
+                  <a href="./precios.html" class="nav-link">
+                    <i class="fas fa-tags"></i>
+                    <span>Precios</span>
+                  </a>
+                </li>
+                <li class="elementos-li">
+                  <a href="./contacto.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contacto</span>
+                  </a>
+                </li>
+                <li class="elementos-li">
+                  <a href="./reserva-rapida.html" class="nav-link-cta active">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Reservar</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </section>
+    </header>
+
     <!-- Barra de Progreso -->
     <div class="progress-bar">
       <div class="step active" data-step="1">
-        <span class="step-number">1</span>
+        <span class="step-number"><i class="fas fa-calendar-alt"></i></span>
         <span class="step-label">Fechas</span>
       </div>
+      <div class="progress-line"></div>
       <div class="step" data-step="2">
-        <span class="step-number">2</span>
+        <span class="step-number"><i class="fas fa-home"></i></span>
         <span class="step-label">Cabaña</span>
       </div>
+      <div class="progress-line"></div>
       <div class="step" data-step="3">
-        <span class="step-number">3</span>
+        <span class="step-number"><i class="fas fa-check-circle"></i></span>
         <span class="step-label">Confirmar</span>
       </div>
     </div>
@@ -28,18 +107,22 @@
     <div class="reserva-container">
       <!-- PASO 1: Selección de Fechas -->
       <div class="reserva-step active" id="step-1">
-        <h2>¿Cuándo quieres desconectarte?</h2>
+        <div class="step-header">
+          <span class="step-icon">📅</span>
+          <h2>¿Cuándo quieres desconectarte?</h2>
+          <p class="step-description">Selecciona las fechas de tu escapada perfecta a la naturaleza</p>
+        </div>
         <div class="date-selector">
           <div class="date-input-group">
-            <label>Llegada</label>
+            <label><i class="fas fa-calendar-check"></i> Llegada</label>
             <input type="date" id="checkin" class="date-input" />
           </div>
           <div class="date-input-group">
-            <label>Salida</label>
+            <label><i class="fas fa-calendar-xmark"></i> Salida</label>
             <input type="date" id="checkout" class="date-input" />
           </div>
           <div class="guest-selector">
-            <label>Huéspedes</label>
+            <label><i class="fas fa-users"></i> Huéspedes</label>
             <select id="guests">
               <option value="2">2 personas</option>
               <option value="4">4 personas</option>
@@ -48,91 +131,237 @@
             </select>
           </div>
         </div>
-        <button class="btn-continue" onclick="nextStep(2)">Continuar</button>
+        <button class="btn-continue" onclick="nextStep(2)">
+          <span>Continuar</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
       </div>
 
       <!-- PASO 2: Selección de Cabaña -->
       <div class="reserva-step" id="step-2">
-        <h2>Elige tu refugio perfecto</h2>
+        <div class="step-header">
+          <span class="step-icon">🏡</span>
+          <h2>Elige tu refugio perfecto</h2>
+          <p class="step-description">Selecciona la cabaña ideal para tu estadía</p>
+        </div>
         <div class="cabanas-grid">
-          <div class="cabana-card" data-price="65000">
-            <img src="../img/cabana-1.jpg" alt="Cabaña Bosque" />
+          <div class="cabana-card" data-price="65000" onclick="selectCabin(this)">
+            <div class="cabana-badge">
+              <i class="fas fa-star"></i> Popular
+            </div>
+            <div class="cabana-image">
+              <img src="../img/Cabañas.png" alt="Cabaña Bosque" />
+            </div>
             <div class="cabana-info">
-              <h3>Cabaña Bosque</h3>
-              <p>Para 4 personas • Vista al río</p>
+              <h3><i class="fas fa-tree"></i> Cabaña Bosque</h3>
+              <p class="cabana-subtitle">Para 4 personas • Vista al río</p>
               <div class="amenities">
                 <span><i class="fas fa-bed"></i> 2 dormitorios</span>
                 <span><i class="fas fa-tv"></i> TV Cable</span>
-                <span><i class="fas fa-kitchen-set"></i> Cocina</span>
+                <span><i class="fas fa-utensils"></i> Cocina</span>
               </div>
-              <div class="price">$65.000/noche</div>
+              <div class="price-tag">
+                <span class="price-amount">$65.000</span>
+                <span class="price-period">/noche</span>
+              </div>
             </div>
           </div>
 
-          <div class="cabana-card" data-price="85000">
-            <img src="../img/cabana-2.jpg" alt="Cabaña Río" />
+          <div class="cabana-card" data-price="85000" onclick="selectCabin(this)">
+            <div class="cabana-badge premium">
+              <i class="fas fa-crown"></i> Premium
+            </div>
+            <div class="cabana-image">
+              <img src="../img/Cabañas_stc.jpg" alt="Cabaña Río" />
+            </div>
             <div class="cabana-info">
-              <h3>Cabaña Río</h3>
-              <p>Para 6 personas • Terraza privada</p>
+              <h3><i class="fas fa-water"></i> Cabaña Río</h3>
+              <p class="cabana-subtitle">Para 6 personas • Terraza privada</p>
               <div class="amenities">
                 <span><i class="fas fa-bed"></i> 3 dormitorios</span>
                 <span><i class="fas fa-tv"></i> TV Cable</span>
                 <span><i class="fas fa-hot-tub"></i> Jacuzzi</span>
               </div>
-              <div class="price">$85.000/noche</div>
+              <div class="price-tag">
+                <span class="price-amount">$85.000</span>
+                <span class="price-period">/noche</span>
+              </div>
             </div>
           </div>
         </div>
         <div class="step-navigation">
-          <button class="btn-back" onclick="prevStep(1)">Volver</button>
-          <button class="btn-continue" onclick="nextStep(3)">Continuar</button>
+          <button class="btn-back" onclick="prevStep(1)">
+            <i class="fas fa-arrow-left"></i>
+            <span>Volver</span>
+          </button>
+          <button class="btn-continue" onclick="nextStep(3)">
+            <span>Continuar</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
         </div>
       </div>
 
       <!-- PASO 3: Confirmación -->
       <div class="reserva-step" id="step-3">
-        <h2>Confirma tu reserva</h2>
-        <div class="reserva-summary">
-          <h3>Resumen de tu estadía</h3>
-          <div class="summary-item">
-            <span>Fechas:</span>
-            <span id="summary-dates">-</span>
-          </div>
-          <div class="summary-item">
-            <span>Cabaña:</span>
-            <span id="summary-cabin">-</span>
-          </div>
-          <div class="summary-item">
-            <span>Huéspedes:</span>
-            <span id="summary-guests">-</span>
-          </div>
-          <div class="summary-total">
-            <span>Total:</span>
-            <span id="summary-total">$0</span>
-          </div>
+        <div class="step-header">
+          <span class="step-icon">✅</span>
+          <h2>Confirma tu reserva</h2>
+          <p class="step-description">Revisa los detalles y completa tu información</p>
         </div>
+        
+        <div class="confirmation-wrapper">
+          <div class="reserva-summary">
+            <h3><i class="fas fa-clipboard-list"></i> Resumen de tu estadía</h3>
+            <div class="summary-item">
+              <span class="summary-label"><i class="fas fa-calendar"></i> Fechas:</span>
+              <span class="summary-value" id="summary-dates">-</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label"><i class="fas fa-home"></i> Cabaña:</span>
+              <span class="summary-value" id="summary-cabin">-</span>
+            </div>
+            <div class="summary-item">
+              <span class="summary-label"><i class="fas fa-users"></i> Huéspedes:</span>
+              <span class="summary-value" id="summary-guests">-</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-total">
+              <span class="total-label">Total estimado:</span>
+              <span class="total-value" id="summary-total">$0</span>
+            </div>
+          </div>
 
-        <div class="contact-form">
-          <input type="text" placeholder="Tu nombre" id="guest-name" required />
-          <input type="tel" placeholder="Teléfono" id="guest-phone" required />
-          <input type="email" placeholder="Email" id="guest-email" required />
+          <div class="contact-form">
+            <h3><i class="fas fa-user-circle"></i> Tus datos</h3>
+            <div class="form-group">
+              <label><i class="fas fa-user"></i> Nombre completo</label>
+              <input type="text" placeholder="Ingresa tu nombre" id="guest-name" required />
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-phone"></i> Teléfono</label>
+              <input type="tel" placeholder="+56 9 XXXX XXXX" id="guest-phone" required />
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-envelope"></i> Email</label>
+              <input type="email" placeholder="tucorreo@ejemplo.com" id="guest-email" required />
+            </div>
+          </div>
         </div>
 
         <div class="final-cta">
           <button class="btn-whatsapp" onclick="sendWhatsAppReservation()">
             <i class="fab fa-whatsapp"></i>
-            Confirmar por WhatsApp
+            <span>Confirmar por WhatsApp</span>
           </button>
           <p class="security-note">
-            <i class="fas fa-shield-alt"></i>
+            <i class="fas fa-shield-check"></i>
             Reserva segura • Sin pagos online • Confirma directo con nosotros
           </p>
         </div>
 
-        <button class="btn-back" onclick="prevStep(2)">Volver</button>
+        <button class="btn-back" onclick="prevStep(2)">
+          <i class="fas fa-arrow-left"></i>
+          <span>Volver</span>
+        </button>
       </div>
     </div>
 
+    <!-- Botones flotantes -->
+    <div class="floating-actions">
+      <!-- Botón de Reserva Rápida Flotante -->
+      <a
+        href="./reserva-rapida.html"
+        class="floating-reserve"
+        id="floating-reserve">
+        <i class="fas fa-calendar-plus"></i>
+        <span class="floating-text">Reservar</span>
+      </a>
+
+      <!-- WhatsApp Flotante -->
+      <a
+        href="https://wa.me/56982222698"
+        class="whatsapp-float"
+        target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="floating-text">WhatsApp</span>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <!-- Logo y descripción -->
+          <div class="footer-section footer-about">
+            <div class="footer-logo">
+              <img
+                src="../img/Logo.png"
+                alt="Cabañas Santa Camila"
+                class="footer-logo-img" />
+              <h3>Cabañas Santa Camila</h3>
+            </div>
+            <p class="footer-description">
+              Tu refugio natural en El Radal, Molina. Desconéctate del ruido
+              urbano y reconecta con la naturaleza.
+            </p>
+          </div>
+
+          <!-- Enlaces rápidos -->
+          <div class="footer-section footer-links">
+            <h4>Enlaces Rápidos</h4>
+            <ul>
+              <li><a href="../index.html"><i class="fas fa-home"></i> Inicio</a></li>
+              <li><a href="./ubicacion.html"><i class="fas fa-map-marker-alt"></i> Ubicación</a></li>
+              <li><a href="./precios.html"><i class="fas fa-tags"></i> Precios</a></li>
+              <li><a href="./contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+          </div>
+
+          <!-- Contacto -->
+          <div class="footer-section footer-contact">
+            <h4>Contáctanos</h4>
+            <ul>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Ruta K‑275, El Radal, Molina</span>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <a href="tel:+56982222698">+56 9 8222 2698</a>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:contacto@cabanassantacamila.cl">contacto@cabanassantacamila.cl</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Redes sociales -->
+          <div class="footer-section footer-social">
+            <h4>Síguenos</h4>
+            <div class="social-links">
+              <a href="#" target="_blank" aria-label="Instagram" class="social-link">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#" target="_blank" aria-label="Facebook" class="social-link">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+              <a href="https://wa.me/56982222698" target="_blank" aria-label="WhatsApp" class="social-link">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>&copy; 2025 Cabañas Santa Camila. Todos los derechos reservados.</p>
+          <p class="footer-credits">Desarrollado por <strong>Duban Alejandro Vásquez Romero</strong></p>
+        </div>
+      </div>
+    </footer>
+
     <script src="../js/reserva.js"></script>
+    <script src="../js/navigation.js"></script>
   </body>
 </html>

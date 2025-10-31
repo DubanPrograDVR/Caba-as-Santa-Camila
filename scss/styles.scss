@@ -5,7 +5,8 @@
 /* ================================================
    IMPORTACIÓN DE COMPONENTES MODULARES
    ================================================ */
-@use "./components/navigation" as *;
+@use "./components/main-navbar" as *;
+
 @use "./components/hero" as *;
 @use "./components/buttons" as *;
 @use "./components/sections" as *;
@@ -18,6 +19,10 @@
 @use "./components/forms" as *;
 @use "./components/location" as *;
 @use "./components/footer" as *;
+
+/* ================================================
+   IMPORTACIÓN DE PÁGINAS
+   ================================================ */
 
 /* ================================================
    ESTILOS GLOBALES BASE

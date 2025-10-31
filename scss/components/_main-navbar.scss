@@ -1,0 +1,502 @@
+/* =======================================
+   NAVBAR MODERNO Y LIMPIO
+   Diseño simplificado con iconos visibles
+   ======================================= */
+
+// Variables específicas del navbar
+$navbar-height: 80px;
+$navbar-height-scrolled: 70px;
+$navbar-height-mobile: 70px;
+$navbar-bg: rgba(255, 255, 255, 0.95);
+$navbar-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+$navbar-sticky-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+$navbar-text: #2c3e2f;
+$navbar-link-hover: #70866b;
+$navbar-transition: all 0.3s ease;
+$accent-gold: #d4af37;
+
+/* =======================================
+   SITE HEADER
+   ======================================= */
+
+.site-header {
+  position: relative;
+  width: 100%;
+  
+  .main-navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: $navbar-height;
+    background: $navbar-bg;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: $navbar-shadow;
+    border-bottom: 1px solid rgba(112, 134, 107, 0.1);
+    z-index: 1000;
+    transition: $navbar-transition;
+    
+    &.scrolled {
+      height: $navbar-height-scrolled;
+      box-shadow: $navbar-sticky-shadow;
+      
+      .brand-logo {
+        height: 45px;
+      }
+    }
+  }
+}
+
+/* =======================================
+   NAVBAR WRAPPER
+   ======================================= */
+
+.navbar-wrapper {
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* =======================================
+   BRAND / LOGO
+   ======================================= */
+
+.navbar-brand {
+  flex-shrink: 0;
+  z-index: 1001;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: $navbar-transition;
+  padding: 8px;
+  border-radius: 12px;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid #70866b;
+    outline-offset: 4px;
+    border-radius: 12px;
+  }
+}
+
+.brand-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: $navbar-transition;
+  
+  .brand-link:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.brand-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: $navbar-text;
+  letter-spacing: -0.5px;
+  display: none;
+  
+  @media (min-width: 1200px) {
+    display: block;
+  }
+}
+
+/* =======================================
+   NAVEGACIÓN - CENTRADA Y SIMPLIFICADA
+   ======================================= */
+
+.navbar-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  color: $navbar-text;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: $navbar-transition;
+  position: relative;
+  background: transparent;
+  
+  &:hover {
+    color: white;
+    background: linear-gradient(135deg, #70866b 0%, #5a6e56 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(112, 134, 107, 0.3);
+    
+    .nav-icon {
+      transform: scale(1.1);
+    }
+  }
+  
+  &:focus-visible {
+    outline: 2px solid #70866b;
+    outline-offset: 2px;
+  }
+  
+  // Link activo
+  &--active {
+    background: linear-gradient(135deg, #70866b 0%, #5a6e56 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(112, 134, 107, 0.35);
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(112, 134, 107, 0.4);
+    }
+    
+    .nav-icon {
+      color: white;
+    }
+  }
+}
+
+.nav-icon {
+  font-size: 1.1rem;
+  transition: $navbar-transition;
+  flex-shrink: 0;
+}
+
+.nav-text {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+/* =======================================
+   CTA BUTTON - SIMPLIFICADO
+   ======================================= */
+
+.navbar-cta {
+  flex-shrink: 0;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #70866b 0%, #5a6e56 100%);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(112, 134, 107, 0.3);
+  transition: $navbar-transition;
+  letter-spacing: 0.3px;
+  
+  i {
+    font-size: 1.2rem;
+    transition: $navbar-transition;
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(112, 134, 107, 0.4);
+    background: linear-gradient(135deg, #5a6e56 0%, #70866b 100%);
+    
+    i {
+      transform: scale(1.15);
+    }
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(112, 134, 107, 0.35);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid #d4af37;
+    outline-offset: 4px;
+  }
+}
+
+/* =======================================
+   MOBILE TOGGLE - SIMPLIFICADO
+   ======================================= */
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #70866b 0%, #5a6e56 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: $navbar-transition;
+  z-index: 1001;
+  box-shadow: 0 4px 12px rgba(112, 134, 107, 0.3);
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(112, 134, 107, 0.4);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid #70866b;
+    outline-offset: 4px;
+  }
+  
+  &[aria-expanded="true"] {
+    .toggle-icon {
+      &:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      
+      &:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      
+      &:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.toggle-icon {
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: $navbar-transition;
+}
+
+/* =======================================
+   RESPONSIVE DESIGN
+   ======================================= */
+
+@media (max-width: 1024px) {
+  .navbar-wrapper {
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .nav-list {
+    gap: 6px;
+  }
+  
+  .nav-link {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+  
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header .main-navbar {
+    height: $navbar-height-mobile;
+    
+    &.scrolled {
+      height: 65px;
+    }
+  }
+  
+  .navbar-wrapper {
+    padding: 0 15px;
+  }
+  
+  .navbar-toggle {
+    display: flex;
+  }
+  
+  .navbar-nav {
+    position: fixed;
+    top: $navbar-height-mobile;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - #{$navbar-height-mobile});
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    
+    &.active {
+      transform: translateX(0);
+    }
+  }
+  
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 25px 20px;
+    width: 100%;
+  }
+  
+  .nav-item {
+    width: 100%;
+  }
+  
+  .nav-link {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    
+    &:hover {
+      transform: translateX(5px);
+    }
+    
+    &--active {
+      box-shadow: 0 4px 12px rgba(112, 134, 107, 0.4);
+    }
+  }
+  
+  .nav-icon {
+    font-size: 1.3rem;
+  }
+  
+  .navbar-cta {
+    display: none;
+  }
+  
+  .brand-logo {
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-wrapper {
+    padding: 0 10px;
+  }
+  
+  .brand-logo {
+    height: 40px;
+  }
+  
+  .navbar-toggle {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .toggle-icon {
+    width: 24px;
+  }
+  
+  .nav-list {
+    padding: 20px 15px;
+  }
+  
+  .nav-link {
+    padding: 14px 18px;
+    font-size: 1.05rem;
+  }
+}
+
+/* =======================================
+   ANIMACIONES DE ENTRADA
+   ======================================= */
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.main-navbar {
+  animation: slideDown 0.6s ease-out;
+}
+
+/* =======================================
+   ACCESIBILIDAD
+   ======================================= */
+
+// Prefers reduced motion
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .nav-link {
+    border: 2px solid currentColor;
+    
+    &--active {
+      border-color: white;
+      border-width: 3px;
+    }
+  }
+  
+  .cta-button {
+    border: 2px solid white;
+  }
+  
+  .main-navbar {
+    border-bottom: 2px solid $navbar-text;
+  }
+}
+
+// Focus visible improvements
+.nav-link:focus-visible,
+.cta-button:focus-visible,
+.brand-link:focus-visible,
+.navbar-toggle:focus-visible {
+  outline: 2px solid #70866b;
+  outline-offset: 3px;
+}
