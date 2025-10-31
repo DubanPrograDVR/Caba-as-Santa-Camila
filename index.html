@@ -123,7 +123,7 @@
         <nav class="navbar-principal">
           <div class="div-navbar">
             <div class="Imagen-de-logo">
-              <a href="">
+              <a href="index.html" aria-label="Volver al inicio">
                 <img
                   class="logo-imagen"
                   src="img/Logo.png"
@@ -133,7 +133,10 @@
             </div>
 
             <!-- Menu hamburguesa para móvil -->
-            <button class="mobile-menu-toggle" aria-label="Abrir menú">
+            <button
+              class="mobile-menu-toggle"
+              aria-label="Abrir menú"
+              aria-expanded="false">
               <span class="hamburger-line"></span>
               <span class="hamburger-line"></span>
               <span class="hamburger-line"></span>
@@ -142,18 +145,35 @@
             <!-- Navegación principal -->
             <div class="nav-menu">
               <ul>
-                <li class="elementos-li"><a href="#" class="nav-link">Inicio</a></li>
                 <li class="elementos-li">
-                  <a href="./pages/ubicacion.html" class="nav-link">Ubicación</a>
+                  <a href="#" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                  </a>
                 </li>
                 <li class="elementos-li">
-                  <a href="./pages/precios.html" class="nav-link">Precios</a>
+                  <a href="./pages/ubicacion.html" class="nav-link">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Ubicación</span>
+                  </a>
                 </li>
                 <li class="elementos-li">
-                  <a href="./pages/contacto.html" class="nav-link">Contacto</a>
+                  <a href="./pages/precios.html" class="nav-link">
+                    <i class="fas fa-tags"></i>
+                    <span>Precios</span>
+                  </a>
                 </li>
                 <li class="elementos-li">
-                  <a href="./pages/reserva-rapida.html" class="nav-link-cta">Reservar</a>
+                  <a href="./pages/contacto.html" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contacto</span>
+                  </a>
+                </li>
+                <li class="elementos-li">
+                  <a href="./pages/reserva-rapida.html" class="nav-link-cta">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Reservar</span>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -165,18 +185,18 @@
           <video class="hero-video" autoplay muted loop playsinline>
             <source src="./video/hero-cabanas.mp4" type="video/mp4" />
           </video>
-          
+
           <!-- Fallback con imagen si no hay video -->
           <div class="hero-fallback"></div>
 
           <div class="hero-overlay">
             <span class="hero-badge">🌲 El Mejor Escape Natural del Maule</span>
             <h1 class="textos_importantes animate-fade-in">
-              Tu Refugio Natural en<br>
+              Tu Refugio Natural en<br />
               <span class="highlight-text">Radal Siete Tazas</span>
             </h1>
             <p class="centrar_texto color-textos-cabeza hero-subtitle">
-              Desconéctate del ruido urbano y reconecta con la naturaleza.<br>
+              Desconéctate del ruido urbano y reconecta con la naturaleza.<br />
               Cabañas totalmente equipadas donde el río es tu melodía matutina.
             </p>
 
@@ -262,7 +282,7 @@
                 Lee lo que nuestros huéspedes dicen sobre su estadía
               </p>
             </div>
-            
+
             <div class="testimonios-grid">
               <div class="testimonio-card">
                 <div class="testimonio-rating">★★★★★</div>
@@ -292,7 +312,8 @@
                 <div class="testimonio-rating">★★★★★</div>
                 <p class="testimonio-text">
                   "La cabaña tenía todo lo necesario. Despertarse con el sonido
-                  del río es una experiencia que no se paga con nada. Atención impecable."
+                  del río es una experiencia que no se paga con nada. Atención
+                  impecable."
                 </p>
                 <div class="testimonio-footer">
                   <div class="testimonio-author">
@@ -313,8 +334,8 @@
               <div class="testimonio-card">
                 <div class="testimonio-rating">★★★★★</div>
                 <p class="testimonio-text">
-                  "Perfecta ubicación para conocer Siete Tazas. Las cabañas súper
-                  limpias y la atención de primera. Recomendado 100%."
+                  "Perfecta ubicación para conocer Siete Tazas. Las cabañas
+                  súper limpias y la atención de primera. Recomendado 100%."
                 </p>
                 <div class="testimonio-footer">
                   <div class="testimonio-author">
@@ -342,10 +363,11 @@
             <span class="section-badge">¿Por qué nosotros?</span>
             <h2 class="section-title">La Experiencia Completa</h2>
             <p class="section-description">
-              Más que un alojamiento, es tu puerta de entrada a la aventura y el descanso
+              Más que un alojamiento, es tu puerta de entrada a la aventura y el
+              descanso
             </p>
           </div>
-          
+
           <div class="row">
             <div class="col-md-4 info-item">
               <div class="info-icon-wrapper">
@@ -353,7 +375,7 @@
               </div>
               <h3>Comodidad Premium</h3>
               <p>
-                Cabañas completamente equipadas con cocina moderna, TV cable, 
+                Cabañas completamente equipadas con cocina moderna, TV cable,
                 agua caliente 24/7 y amenidades de alta calidad.
               </p>
               <a href="./pages/precios.html" class="info-link">
@@ -366,7 +388,7 @@
               </div>
               <h3>Naturaleza Virgen</h3>
               <p>
-                Ubicación privilegiada a orillas del río y a minutos de las 
+                Ubicación privilegiada a orillas del río y a minutos de las
                 cascadas más impresionantes de Chile.
               </p>
               <a href="./pages/ubicacion.html" class="info-link">
@@ -379,8 +401,8 @@
               </div>
               <h3>Atención Personalizada</h3>
               <p>
-                Servicio familiar directo. Te asesoramos para crear la 
-                escapada perfecta según tus necesidades.
+                Servicio familiar directo. Te asesoramos para crear la escapada
+                perfecta según tus necesidades.
               </p>
               <a href="./pages/contacto.html" class="info-link">
                 Contáctanos <i class="fas fa-arrow-right"></i>
@@ -411,7 +433,7 @@
                 loading="lazy" />
               <div class="image-badge">
                 <i class="fas fa-heart"></i>
-                <span>Familia<br>Santa Camila</span>
+                <span>Familia<br />Santa Camila</span>
               </div>
             </div>
 
@@ -424,11 +446,11 @@
                 <div class="card-content">
                   <h3>Nuestra Historia</h3>
                   <p>
-                    Cabañas Santa Camila nació del sueño de ofrecer a las familias y
-                    viajeros un refugio auténtico en la naturaleza. Ubicadas en el
-                    corazón del sector El Radal, nuestras cabañas han sido diseñadas
-                    para brindar la máxima comodidad mientras te conectas con los
-                    paisajes únicos de la Región del Maule.
+                    Cabañas Santa Camila nació del sueño de ofrecer a las
+                    familias y viajeros un refugio auténtico en la naturaleza.
+                    Ubicadas en el corazón del sector El Radal, nuestras cabañas
+                    han sido diseñadas para brindar la máxima comodidad mientras
+                    te conectas con los paisajes únicos de la Región del Maule.
                   </p>
                   <div class="card-highlight">
                     <i class="fas fa-quote-left"></i>
@@ -471,9 +493,10 @@
                 <div class="card-content">
                   <h3>Compromiso con la Naturaleza</h3>
                   <p>
-                    Creemos en el turismo sustentable. Nuestras instalaciones respetan
-                    el entorno natural y promovemos prácticas ecoamigables para
-                    preservar la belleza de El Radal para futuras generaciones.
+                    Creemos en el turismo sustentable. Nuestras instalaciones
+                    respetan el entorno natural y promovemos prácticas
+                    ecoamigables para preservar la belleza de El Radal para
+                    futuras generaciones.
                   </p>
                   <div class="eco-badges">
                     <div class="eco-badge">
@@ -534,8 +557,10 @@
             <span class="section-badge">✨ Todo Incluido</span>
             <h2 class="section-title">Comodidades de Nuestras Cabañas</h2>
             <p class="section-description">
-              Cada cabaña está completamente equipada con todo lo necesario para una estadía confortable.<br>
-              Disfruta de amenidades modernas en un entorno natural privilegiado.
+              Cada cabaña está completamente equipada con todo lo necesario para
+              una estadía confortable.<br />
+              Disfruta de amenidades modernas en un entorno natural
+              privilegiado.
             </p>
           </div>
 
@@ -546,7 +571,8 @@
               </div>
               <h3 class="amenity-title">Televisión por Cable</h3>
               <p class="amenity-description">
-                Entretenimiento familiar con canales variados para todas las edades
+                Entretenimiento familiar con canales variados para todas las
+                edades
               </p>
               <div class="amenity-check">
                 <i class="fas fa-check-circle"></i>
@@ -559,7 +585,8 @@
               </div>
               <h3 class="amenity-title">2 Dormitorios</h3>
               <p class="amenity-description">
-                Espacios cómodos con ropa de cama premium para un descanso reparador
+                Espacios cómodos con ropa de cama premium para un descanso
+                reparador
               </p>
               <div class="amenity-check">
                 <i class="fas fa-check-circle"></i>
@@ -598,7 +625,8 @@
               </div>
               <h3 class="amenity-title">Energía Eléctrica</h3>
               <p class="amenity-description">
-                Suministro eléctrico estable con conexiones en todas las habitaciones
+                Suministro eléctrico estable con conexiones en todas las
+                habitaciones
               </p>
               <div class="amenity-check">
                 <i class="fas fa-check-circle"></i>
@@ -628,8 +656,10 @@
             <span class="section-badge">🏞️ Naturaleza Prístina</span>
             <h2 class="section-title">Atractivos Naturales Cercanos</h2>
             <p class="section-description">
-              Explora las maravillas naturales que rodean Cabañas Santa Camila.<br>
-              Acceso directo a los paisajes más espectaculares de la Región del Maule.
+              Explora las maravillas naturales que rodean Cabañas Santa
+              Camila.<br />
+              Acceso directo a los paisajes más espectaculares de la Región del
+              Maule.
             </p>
           </div>
 
@@ -645,8 +675,9 @@
               <div class="attraction-content">
                 <h3 class="attraction-title">Naturaleza Virgen</h3>
                 <p class="attraction-description">
-                  Bosques nativos, flora endémica y fauna silvestre en su hábitat natural.
-                  Senderos para trekking y caminatas ecológicas.
+                  Bosques nativos, flora endémica y fauna silvestre en su
+                  hábitat natural. Senderos para trekking y caminatas
+                  ecológicas.
                 </p>
                 <div class="attraction-meta">
                   <span class="meta-item">
@@ -669,8 +700,8 @@
               <div class="attraction-content">
                 <h3 class="attraction-title">Río al Frente</h3>
                 <p class="attraction-description">
-                  Ríos cristalinos con pozones naturales perfectos para nadar y refrescarse.
-                  Ideal para actividades acuáticas familiares.
+                  Ríos cristalinos con pozones naturales perfectos para nadar y
+                  refrescarse. Ideal para actividades acuáticas familiares.
                 </p>
                 <div class="attraction-meta">
                   <span class="meta-item">
@@ -693,8 +724,8 @@
               <div class="attraction-content">
                 <h3 class="attraction-title">Siete Tazas & Más</h3>
                 <p class="attraction-description">
-                  Velo de la Novia, Siete Tazas y Salto de la Leona. Cascadas espectaculares
-                  y formaciones geológicas únicas.
+                  Velo de la Novia, Siete Tazas y Salto de la Leona. Cascadas
+                  espectaculares y formaciones geológicas únicas.
                 </p>
                 <div class="attraction-meta">
                   <span class="meta-item">
@@ -726,85 +757,134 @@
           </div>
         </div>
       </section>
-
-      <!-- Banner de Disponibilidad -->
-      <div class="availability-banner">
-        <div class="container">
-          <div class="availability-content">
-            <div class="availability-info">
-              <i class="fas fa-calendar-alt"></i>
-              <span class="availability-text">
-                <strong>Temporada Alta:</strong> Solo 2 cabañas disponibles para
-                este fin de semana
-              </span>
-            </div>
-            <div class="live-indicator">
-              <span class="live-dot"></span>
-              <span class="live-text">En vivo</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <section class="carousel-section text-center">
         <div class="container">
           <div class="section-header">
-            <h2 class="mb-3 text-uppercase">Tus Cabañas te Esperan</h2>
+            <span class="section-badge">
+              <i class="fas fa-home"></i>
+              Alojamiento Premium
+            </span>
+            <h2 class="section-title">
+              <span class="title-icon">🏡</span>
+              Tus Cabañas te Esperan
+              <span class="title-accent"></span>
+            </h2>
             <p class="section-subtitle">
-              Cada cabaña cuenta una historia de descanso y conexión
+              <i class="fas fa-heart"></i>
+              Cada cabaña cuenta una historia de descanso y conexión con la naturaleza
             </p>
           </div>
 
           <!-- Galería Mejorada con Disponibilidad -->
           <div class="cabanas-showcase">
             <div class="cabana-preview" data-cabin="bosque">
-              <img
-                src="./img/Cabañas.png"
-                class="cabana-img"
-                alt="Cabaña Bosque - Vista exterior"
-                loading="lazy" />
-              <div class="cabana-overlay">
-                <h3>Cabaña Bosque</h3>
-                <p>4 personas • Vista al río</p>
-                <div class="availability-status available">
-                  <i class="fas fa-check-circle"></i>
-                  Disponible
+              <div class="cabana-image-wrapper">
+                <img
+                  src="./img/Cabañas.png"
+                  class="cabana-img"
+                  alt="Cabaña Bosque - Vista exterior"
+                  loading="lazy" />
+              </div>
+              <div class="cabana-content">
+                <div class="cabana-header">
+                  <h3 class="cabana-title">
+                    <i class="fas fa-tree"></i>
+                    Cabaña Bosque
+                  </h3>
+                  <div class="availability-status available">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Disponible</span>
+                  </div>
                 </div>
-                <button class="btn-view-cabin">Ver Detalles</button>
+                <p class="cabana-description">
+                  Perfecta para familias pequeñas, rodeada de naturaleza
+                </p>
+                <div class="cabana-features">
+                  <span class="feature-item">
+                    <i class="fas fa-users"></i> 4 personas
+                  </span>
+                  <span class="feature-item">
+                    <i class="fas fa-water"></i> Vista al río
+                  </span>
+                </div>
+                <button class="btn-view-cabin">
+                  <span>Ver Detalles</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
               </div>
             </div>
 
             <div class="cabana-preview" data-cabin="rio">
-              <img
-                src="img/Cabañas_stc.jpg"
-                class="cabana-img"
-                alt="Cabaña Río - Vista panorámica"
-                loading="lazy" />
-              <div class="cabana-overlay">
-                <h3>Cabaña Río</h3>
-                <p>6 personas • Terraza privada</p>
-                <div class="availability-status limited">
-                  <i class="fas fa-exclamation-triangle"></i>
-                  Pocas fechas disponibles
+              <div class="cabana-image-wrapper">
+                <img
+                  src="img/Cabañas_stc.jpg"
+                  class="cabana-img"
+                  alt="Cabaña Río - Vista panorámica"
+                  loading="lazy" />
+              </div>
+              <div class="cabana-content">
+                <div class="cabana-header">
+                  <h3 class="cabana-title">
+                    <i class="fas fa-water"></i>
+                    Cabaña Río
+                  </h3>
+                  <div class="availability-status limited">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Pocas fechas</span>
+                  </div>
                 </div>
-                <button class="btn-view-cabin">Ver Detalles</button>
+                <p class="cabana-description">
+                  Espacio amplio con terraza privada para disfrutar al máximo
+                </p>
+                <div class="cabana-features">
+                  <span class="feature-item">
+                    <i class="fas fa-users"></i> 6 personas
+                  </span>
+                  <span class="feature-item">
+                    <i class="fas fa-house-chimney"></i> Terraza privada
+                  </span>
+                </div>
+                <button class="btn-view-cabin">
+                  <span>Ver Detalles</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
               </div>
             </div>
 
             <div class="cabana-preview" data-cabin="premium">
-              <img
-                src="img/Imagen_Cabaña_3.jpg"
-                class="cabana-img"
-                alt="Cabaña Premium - Interior acogedor"
-                loading="lazy" />
-              <div class="cabana-overlay">
-                <h3>Cabaña Premium</h3>
-                <p>8 personas • Jacuzzi privado</p>
-                <div class="availability-status available">
-                  <i class="fas fa-check-circle"></i>
-                  Disponible
+              <div class="cabana-image-wrapper">
+                <img
+                  src="img/Imagen_Cabaña_3.jpg"
+                  class="cabana-img"
+                  alt="Cabaña Premium - Interior acogedor"
+                  loading="lazy" />
+              </div>
+              <div class="cabana-content">
+                <div class="cabana-header">
+                  <h3 class="cabana-title">
+                    <i class="fas fa-crown"></i>
+                    Cabaña Premium
+                  </h3>
+                  <div class="availability-status available">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Disponible</span>
+                  </div>
                 </div>
-                <button class="btn-view-cabin">Ver Detalles</button>
+                <p class="cabana-description">
+                  Lujo y confort en plena naturaleza, ideal para grupos
+                </p>
+                <div class="cabana-features">
+                  <span class="feature-item">
+                    <i class="fas fa-users"></i> 8 personas
+                  </span>
+                  <span class="feature-item">
+                    <i class="fas fa-star"></i> Premium
+                  </span>
+                </div>
+                <button class="btn-view-cabin">
+                  <span>Ver Detalles</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -847,10 +927,107 @@
     </div>
 
     <footer>
-      <div class="container">
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <p>Todos los derechos reservados por Duban Alejandro Vasquez Romero</p>
+      <div class="footer-container">
+        <div class="footer-content">
+          <!-- Logo y descripción -->
+          <div class="footer-section footer-about">
+            <div class="footer-logo">
+              <img
+                src="img/Logo.png"
+                alt="Cabañas Santa Camila"
+                class="footer-logo-img" />
+              <h3>Cabañas Santa Camila</h3>
+            </div>
+            <p class="footer-description">
+              Tu refugio natural en El Radal, Molina. Desconéctate del ruido
+              urbano y reconecta con la naturaleza.
+            </p>
+          </div>
+
+          <!-- Enlaces rápidos -->
+          <div class="footer-section footer-links">
+            <h4>Enlaces Rápidos</h4>
+            <ul>
+              <li>
+                <a href="#"><i class="fas fa-home"></i> Inicio</a>
+              </li>
+              <li>
+                <a href="./pages/ubicacion.html"
+                  ><i class="fas fa-map-marker-alt"></i> Ubicación</a
+                >
+              </li>
+              <li>
+                <a href="./pages/precios.html"
+                  ><i class="fas fa-tags"></i> Precios</a
+                >
+              </li>
+              <li>
+                <a href="./pages/contacto.html"
+                  ><i class="fas fa-envelope"></i> Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contacto -->
+          <div class="footer-section footer-contact">
+            <h4>Contáctanos</h4>
+            <ul>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Ruta K‑275, El Radal, Molina</span>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <a href="tel:+56982222698">+56 9 8222 2698</a>
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:contacto@cabanassantacamila.cl"
+                  >contacto@cabanassantacamila.cl</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Redes sociales -->
+          <div class="footer-section footer-social">
+            <h4>Síguenos</h4>
+            <div class="social-links">
+              <a
+                href="#"
+                target="_blank"
+                aria-label="Instagram"
+                class="social-link">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                aria-label="Facebook"
+                class="social-link">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+              <a
+                href="https://wa.me/56982222698"
+                target="_blank"
+                aria-label="WhatsApp"
+                class="social-link">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Cabañas Santa Camila. Todos los derechos reservados.
+          </p>
+          <p class="footer-credits">
+            Desarrollado por <strong>Duban Alejandro Vásquez Romero</strong>
+          </p>
+        </div>
       </div>
     </footer>
 

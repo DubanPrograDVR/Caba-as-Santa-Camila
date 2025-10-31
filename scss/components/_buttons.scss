@@ -92,18 +92,35 @@
   gap: 10px;
   background: linear-gradient(135deg, #70866b, #5a6e56);
   color: #fff;
-  padding: 15px 20px;
+  padding: 16px 26px;
   border-radius: 50px;
   text-decoration: none;
-  box-shadow: 0 8px 20px rgba(112, 134, 107, 0.4);
-  transition: all 0.3s ease;
-  font-weight: 600;
+  box-shadow: 0 8px 25px rgba(112, 134, 107, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+
+  i {
+    font-size: 1.2rem;
+  }
 }
 
 .floating-reserve:hover {
   color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(112, 134, 107, 0.5);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(112, 134, 107, 0.6);
+  background: linear-gradient(135deg, #5a6e56, #4a5b47);
+}
+
+.floating-text {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Ocultar texto de WhatsApp en escritorio */
+.whatsapp-float .floating-text {
+  display: none;
 }
 
 /* Botones de precios */
