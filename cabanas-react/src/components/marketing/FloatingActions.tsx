@@ -1,13 +1,17 @@
-const FloatingActions = () => {
+interface FloatingActionsProps {
+  onBookClick?: () => void;
+}
+
+const FloatingActions = ({ onBookClick }: FloatingActionsProps) => {
   return (
     <div className="floating-actions">
-      <a
-        href="/pages/reserva-rapida.html"
+      <button
+        onClick={onBookClick}
         className="floating-reserve"
         id="floating-reserve">
         <i className="fas fa-calendar-plus"></i>
         <span className="floating-text">Reservar</span>
-      </a>
+      </button>
 
       <a
         href="https://wa.me/56982222698"

@@ -1,396 +1,722 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: SHOWCASE DE CABAÑAS - REDISEÑO v3.0
+   Premium Bento Grid Layout
+   ================================================ */
+
+.cabins-section {
+  background: linear-gradient(180deg, $color-white 0%, $color-gray-50 100%);
+  padding: $section-padding-lg 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ================================
+   DECORACIONES DE FONDO
+   ================================ */
+
+.cabins-bg-decoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.decoration-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba($color-primary, 0.08) 0%,
+    transparent 70%
+  );
+
+  &.circle-1 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -200px;
+  }
+
+  &.circle-2 {
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    left: -100px;
+    background: radial-gradient(
+      circle,
+      rgba($color-accent, 0.1) 0%,
+      transparent 70%
+    );
+  }
+}
+
+.decoration-leaf {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.15;
+  animation: floatLeaf 8s ease-in-out infinite;
+
+  &.leaf-1 {
+    top: 15%;
+    left: 5%;
+    animation-delay: 0s;
+  }
+
+  &.leaf-2 {
+    bottom: 20%;
+    right: 8%;
+    animation-delay: -4s;
+  }
+}
+
+@keyframes floatLeaf {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+/* ================================
+   HEADER DE SECCIÓN
+   ================================ */
+
+.cabins-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: $space-8;
+  margin-bottom: $space-12;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: $breakpoint-lg) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.header-content {
+  max-width: 540px;
+}
+
+.cabins-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+  color: $color-white;
+  padding: $space-2 $space-5;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  margin-bottom: $space-4;
+  box-shadow: $shadow-primary;
+
+  i {
+    color: $color-accent-light;
+  }
+}
+
+.cabins-title {
+  font-size: clamp($font-size-2xl, 5vw, $font-size-4xl);
+  font-weight: $font-weight-extrabold;
+  color: $color-text-primary;
+  margin: 0 0 $space-4;
+  line-height: $line-height-tight;
+
+  .title-highlight {
+    background: linear-gradient(135deg, $color-primary, $color-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.cabins-subtitle {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  margin: 0;
+}
+
+/* Stats del header */
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: $space-6;
+  background: $color-white;
+  padding: $space-5 $space-8;
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-lg;
+  border: 1px solid rgba($color-primary, 0.08);
+
+  @media (max-width: $breakpoint-md) {
+    gap: $space-4;
+    padding: $space-4 $space-6;
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-1;
+}
+
+.stat-number {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-extrabold;
+  color: $color-primary;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: $color-gray-200;
+}
+
+/* ================================
+   BENTO GRID
+   ================================ */
+
+.cabins-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-6;
+  margin-bottom: $space-12;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+
+    .cabin-card.featured {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   TARJETA DE CABAÑA
+   ================================ */
+
+.cabin-card {
+  background: $color-white;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba($color-primary, 0.05);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $color-primary, $color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 10;
+  }
+
+  &:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 32px 64px rgba($color-primary, 0.15);
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .cabin-visual img {
+      transform: scale(1.1);
+    }
+
+    .cabin-overlay {
+      opacity: 1;
+    }
+
+    .cabin-cta {
+      background: $color-primary-dark;
+
+      .cta-icon {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  &.active {
+    z-index: 5;
+  }
+}
+
+/* Cabaña destacada */
+.cabin-card.featured {
+  @media (min-width: $breakpoint-lg) {
+    grid-row: span 1;
+
+    .cabin-visual {
+      height: 280px;
+    }
+  }
+}
+
+/* ================================
+   VISUAL DE CABAÑA
+   ================================ */
+
+.cabin-visual {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.cabin-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 40%,
+    rgba($color-black, 0.6) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: $space-4;
+}
+
+.cabin-highlight {
+  background: rgba($color-accent, 0.95);
+  color: $color-white;
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  backdrop-filter: blur(8px);
+
+  i {
+    font-size: $font-size-sm;
+  }
+}
+
+/* Precio flotante */
+.cabin-price-tag {
+  position: absolute;
+  bottom: $space-4;
+  right: $space-4;
+  background: $color-white;
+  padding: $space-3 $space-4;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.price-from {
+  font-size: 10px;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.price-value {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-extrabold;
+  color: $color-primary;
+}
+
+.price-unit {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+/* ================================
+   INFO DE CABAÑA
+   ================================ */
+
+.cabin-info {
+  padding: $space-6;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  flex: 1;
+}
+
+.cabin-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $space-3;
+}
+
+.cabin-name {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  i {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(
+      135deg,
+      rgba($color-primary, 0.1),
+      rgba($color-primary, 0.05)
+    );
+    border-radius: $radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-primary;
+    font-size: $font-size-lg;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+  }
+}
+
+.cabin-status {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-3;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  white-space: nowrap;
+
+  &.available {
+    background: rgba($color-success, 0.1);
+    color: #15803d;
+  }
+
+  &.limited {
+    background: rgba(#f97316, 0.1);
+    color: #ea580c;
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.cabin-desc {
+  margin: 0;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+/* Features como pills */
+.cabin-features-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+}
+
+.feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  padding: $space-2 $space-3;
+  background: $color-gray-100;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  font-weight: $font-weight-medium;
+
+  &.capacity {
+    background: rgba($color-primary, 0.1);
+    color: $color-primary;
+
+    i {
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+/* ================================
+   CTA DE CABAÑA
+   ================================ */
+
+.cabin-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+  width: 100%;
+  padding: $space-4 $space-6;
+  background: $color-primary;
+  color: $color-white;
+  border: none;
+  border-radius: $radius-xl;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  box-shadow: $shadow-primary;
+
+  .cta-icon {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: $color-primary-dark;
+    box-shadow: $shadow-primary-lg;
+  }
+}
+
+/* ================================
+   FOOTER DE SECCIÓN
+   ================================ */
+
+.cabins-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-6;
+  padding: $space-8;
+  background: $color-white;
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-lg;
+  border: 1px solid rgba($color-primary, 0.08);
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: $breakpoint-lg) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.footer-trust {
+  display: flex;
+  gap: $space-8;
+
+  @media (max-width: $breakpoint-md) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $space-4;
+  }
+}
+
+.footer-trust .trust-item {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+
+  i {
+    color: $color-primary;
+    font-size: $font-size-lg;
+  }
+}
+
+.footer-action {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: $space-3;
+  }
+}
+
+.action-text {
+  margin: 0;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+
+  i {
+    color: $color-primary;
+  }
+}
+
+.btn-consult {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-6;
+  background: $color-whatsapp;
+  color: $color-white;
+  border-radius: $radius-full;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  text-decoration: none;
+  transition: $transition-smooth;
+  box-shadow: 0 4px 12px rgba($color-whatsapp, 0.3);
+
+  i {
+    font-size: $font-size-lg;
+  }
+
+  &:hover {
+    background: $color-whatsapp-dark;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($color-whatsapp, 0.4);
+    color: $color-white;
+  }
+}
+
+/* ================================
+   LEGACY STYLES (mantener compatibilidad)
+   ================================ */
+
 .section-header {
-  margin-bottom: 4rem;
+  margin-bottom: $space-12;
   position: relative;
 }
 
 .section-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, #70866b, #5a6e56);
-  color: #ffffff;
-  padding: 0.6rem 1.5rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  gap: $space-2;
+  background: $color-primary;
+  color: $color-white;
+  padding: $space-2 $space-5;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 15px rgba(112, 134, 107, 0.3);
-  animation: float 3s ease-in-out infinite;
-}
-
-.section-badge i {
-  font-size: 1rem;
+  letter-spacing: $letter-spacing-wider;
+  margin-bottom: $space-4;
+  box-shadow: $shadow-primary;
 }
 
 .section-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #2c3e2f;
-  margin: 1rem 0;
-  line-height: 1.2;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title .title-icon {
-  display: inline-block;
-  margin-right: 1rem;
-  animation: bounce 2s ease-in-out infinite;
-}
-
-.section-title .title-accent {
-  display: block;
-  width: 150px;
-  height: 5px;
-  background: linear-gradient(90deg, #70866b, #5a6e56, #70866b);
-  margin: 1rem auto 0;
-  border-radius: 10px;
-  animation: expand 2s ease-in-out infinite;
+  font-size: clamp($font-size-2xl, 4vw, $font-size-4xl);
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin: $space-4 0;
+  line-height: $line-height-tight;
 }
 
 .section-subtitle {
-  font-size: 1.2rem;
-  color: #5a6e56;
-  max-width: 600px;
-  margin: 1.5rem auto 0;
-  line-height: 1.8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  max-width: 560px;
+  margin: $space-4 auto 0;
+  line-height: $line-height-relaxed;
 }
 
-.section-subtitle i {
-  color: #70866b;
-  font-size: 1.3rem;
-  animation: heartbeat 1.5s ease-in-out infinite;
-}
+/* ================================
+   RESPONSIVE
+   ================================ */
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
+@media (max-width: $breakpoint-md) {
+  .cabins-section {
+    padding: $section-padding-md 0;
   }
-  50% {
-    transform: translateY(-10px);
-  }
-}
 
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes expand {
-  0%,
-  100% {
-    width: 150px;
-  }
-  50% {
-    width: 200px;
-  }
-}
-
-@keyframes heartbeat {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1.2);
-  }
-  50% {
-    transform: scale(1);
-  }
-  75% {
-    transform: scale(1.15);
-  }
-}
-
-.cabanas-showcase {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 3rem;
-  padding: 3rem 1rem;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-.cabana-preview {
-  background: #ffffff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  border: 1px solid rgba(112, 134, 107, 0.1);
-}
-
-.cabana-preview::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #70866b, #5a6e56, #70866b);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.cabana-preview:hover {
-  transform: translateY(-16px) scale(1.03);
-  box-shadow: 0 20px 50px rgba(112, 134, 107, 0.3);
-  border-color: #70866b;
-}
-
-.cabana-preview:hover::before {
-  opacity: 1;
-}
-
-.cabana-preview:hover .cabana-img {
-  transform: scale(1.15);
-}
-
-.cabana-preview:hover .btn-view-cabin {
-  background: linear-gradient(135deg, #5a6e56, #4a5b47);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(112, 134, 107, 0.4);
-}
-
-.cabana-preview:hover .cabana-title i {
-  transform: scale(1.2) rotate(10deg);
-}
-
-.cabana-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #f3e3c4 0%, #e8d4b4 100%);
-}
-
-.cabana-image-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
-  pointer-events: none;
-}
-
-.cabana-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.cabana-content {
-  padding: 2rem 1.75rem;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
-}
-
-.cabana-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 0.25rem;
-}
-
-.cabana-title {
-  font-size: 1.65rem;
-  font-weight: 700;
-  color: #2c3e2f;
-  margin: 0;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.cabana-title i {
-  color: #70866b;
-  font-size: 1.5rem;
-  transition: all 0.3s ease;
-}
-
-.cabana-description {
-  color: #5a6e56;
-  font-size: 1rem;
-  line-height: 1.7;
-  margin: 0;
-  flex: 1;
-  font-weight: 400;
-}
-
-.cabana-features {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  padding: 1.25rem 0;
-  border-top: 2px solid rgba(112, 134, 107, 0.12);
-  border-bottom: 2px solid rgba(112, 134, 107, 0.12);
-  margin: 0.5rem 0;
-}
-
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: #2c3e2f;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.feature-item i {
-  color: #70866b;
-  font-size: 1.15rem;
-}
-
-.availability-status {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  white-space: nowrap;
-  flex-shrink: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.availability-status i {
-  font-size: 0.9rem;
-}
-
-.availability-status.available {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  color: #ffffff;
-}
-
-.availability-status.available i {
-  color: #ffffff;
-}
-
-.availability-status.limited {
-  background: linear-gradient(135deg, #fb923c, #ea580c);
-  color: #ffffff;
-}
-
-.availability-status.limited i {
-  color: #ffffff;
-}
-
-.availability-status.unavailable {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
-  color: #ffffff;
-}
-
-.availability-status.unavailable i {
-  color: #ffffff;
-}
-
-.btn-view-cabin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  background: linear-gradient(135deg, #70866b, #5a6e56);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  width: 100%;
-  margin-top: auto;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 15px rgba(112, 134, 107, 0.3);
-}
-
-.btn-view-cabin i {
-  font-size: 1rem;
-  transition: transform 0.4s ease;
-}
-
-.btn-view-cabin:hover i {
-  transform: translateX(6px);
-}
-
-.btn-view-cabin:active {
-  transform: scale(0.97);
-}
-
-@media (max-width: 1024px) {
-  .cabanas-showcase {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-  .cabana-image-wrapper {
-    height: 240px;
-  }
-  .cabana-content {
-    padding: 1.5rem;
-  }
-  .cabana-title {
-    font-size: 1.35rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .cabanas-showcase {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1rem;
-  }
-  .cabana-preview:hover {
-    transform: translateY(-8px) scale(1.01);
-  }
-  .cabana-image-wrapper {
-    height: 220px;
-  }
-  .cabana-content {
-    padding: 1.25rem;
-  }
-  .cabana-title {
-    font-size: 1.25rem;
-  }
-  .cabana-features {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .cabana-header {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .availability-status {
-    align-self: flex-start;
-  }
-  .cabana-image-wrapper {
+  .cabin-visual {
     height: 200px;
+  }
+
+  .cabin-info {
+    padding: $space-5;
+  }
+
+  .cabin-top {
+    flex-direction: column;
+    gap: $space-3;
+  }
+
+  .cabin-name i {
+    width: 36px;
+    height: 36px;
+    font-size: $font-size-base;
+  }
+
+  .cabin-name h3 {
+    font-size: $font-size-base;
+  }
+
+  .cabin-price-tag {
+    bottom: $space-3;
+    right: $space-3;
+    padding: $space-2 $space-3;
+  }
+
+  .price-value {
+    font-size: $font-size-base;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .header-stats {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .stat-number {
+    font-size: $font-size-xl;
+  }
+
+  .cabins-footer {
+    padding: $space-5;
+  }
+
+  .footer-trust {
+    gap: $space-3;
+  }
+
+  .footer-trust .trust-item {
+    font-size: $font-size-xs;
   }
 }

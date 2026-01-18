@@ -1,36 +1,173 @@
-* {
+@use "./variables" as *;
+
+/* ================================================
+   ESTILOS BASE GLOBALES
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Outfit", sans-serif;
 }
 
-.grosor_texto {
-  font-weight: 200;
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+  background-color: $color-off-white;
+}
+
+/* ================================
+   TIPOGRAFÍA GLOBAL
+   ================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+  letter-spacing: $letter-spacing-tight;
+}
+
+h1 {
+  font-size: clamp($font-size-3xl, 5vw, $font-size-5xl);
+}
+
+h2 {
+  font-size: clamp($font-size-2xl, 4vw, $font-size-4xl);
+}
+
+h3 {
+  font-size: clamp($font-size-xl, 3vw, $font-size-2xl);
+}
+
+h4 {
+  font-size: $font-size-xl;
+}
+
+h5 {
+  font-size: $font-size-lg;
+}
+
+h6 {
+  font-size: $font-size-base;
+}
+
+p {
+  line-height: $line-height-relaxed;
+  color: $color-text-secondary;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+}
+
+/* ================================
+   CLASES UTILITARIAS
+   ================================ */
+
+.textos_importantes {
+  font-size: clamp($font-size-2xl, 5vw, $font-size-5xl);
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
 }
 
 .tamaño_titulos {
-  font-size: 30px;
+  font-size: $font-size-3xl;
+}
+
+.tamaño-parrafos {
+  font-size: $font-size-lg;
+}
+
+.grosor_texto {
+  font-weight: $font-weight-light;
 }
 
 .centrar_texto {
   text-align: center;
 }
 
-.tamaño-parrafos {
-  font-size: 20px;
-}
-
-.textos_importantes {
-  font-size: 3.2rem;
-  font-weight: 500;
-}
-
 .color_de_textos {
-  font-size: 25px;
-  color: rgb(28, 26, 26);
+  font-size: $font-size-xl;
+  color: $color-text-primary;
 }
 
-a:hover {
-  color: rgb(181, 181, 59);
+/* ================================
+   CONTENEDORES
+   ================================ */
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+/* ================================
+   SCROLLBAR PERSONALIZADO
+   ================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-gray-300;
+  border-radius: $radius-full;
+
+  &:hover {
+    background: $color-gray-400;
+  }
+}
+
+/* ================================
+   SELECCIÓN DE TEXTO
+   ================================ */
+
+::selection {
+  background: rgba($color-primary, 0.2);
+  color: $color-primary-dark;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-md) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  html {
+    font-size: 14px;
+  }
 }

@@ -1,0 +1,213 @@
+/* ================================================
+   SISTEMA DE DISEÑO - Cabañas Santa Camila
+   Design Tokens v2.0 - React Project
+   ================================================ */
+
+/* ================================
+   PALETA DE COLORES
+   ================================ */
+
+// Colores Primarios
+$color-primary: #70866b;
+$color-primary-light: #8a9f85;
+$color-primary-dark: #5a6e56;
+$color-primary-darker: #4a5b47;
+
+// Colores de Acento
+$color-accent: #d4af37;
+$color-accent-light: #f3e3c4;
+$color-accent-dark: #b8962f;
+
+// Neutros
+$color-white: #ffffff;
+$color-black: #000000;
+$color-off-white: #fafafa;
+$color-cream: #f8f6f2;
+$color-gray-50: #f9fafb;
+$color-gray-100: #f3f4f6;
+$color-gray-200: #e5e7eb;
+$color-gray-300: #d1d5db;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+$color-gray-600: #4b5563;
+$color-gray-700: #374151;
+$color-gray-800: #1f2937;
+$color-gray-900: #111827;
+
+// Colores Semánticos
+$color-success: #22c55e;
+$color-warning: #f59e0b;
+$color-error: #ef4444;
+$color-info: #3b82f6;
+
+// Colores de Marca (terceros)
+$color-whatsapp: #25d366;
+$color-whatsapp-dark: #128c7e;
+
+// Colores de Texto
+$color-text-primary: #1f2937;
+$color-text-secondary: #4b5563;
+$color-text-muted: #6b7280;
+$color-text-light: #9ca3af;
+
+/* ================================
+   TIPOGRAFÍA
+   ================================ */
+
+// Familias
+$font-family-primary:
+  "Outfit",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+$font-family-base: $font-family-primary;
+$font-family-heading:
+  "Outfit",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  sans-serif;
+
+// Escala Tipográfica (Perfect Fourth - 1.333)
+$font-size-xs: 0.75rem; // 12px
+$font-size-sm: 0.875rem; // 14px
+$font-size-base: 1rem; // 16px
+$font-size-lg: 1.125rem; // 18px
+$font-size-xl: 1.25rem; // 20px
+$font-size-2xl: 1.5rem; // 24px
+$font-size-3xl: 1.875rem; // 30px
+$font-size-4xl: 2.25rem; // 36px
+$font-size-5xl: 3rem; // 48px
+$font-size-6xl: 3.75rem; // 60px
+
+// Pesos
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+// Altura de línea
+$line-height-tight: 1.25;
+$line-height-snug: 1.375;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.625;
+$line-height-loose: 2;
+
+// Espaciado de letras
+$letter-spacing-tighter: -0.05em;
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+$letter-spacing-wider: 0.05em;
+$letter-spacing-widest: 0.1em;
+
+/* ================================
+   ESPACIADO (Base 8px)
+   ================================ */
+
+$space-0: 0;
+$space-1: 0.25rem; // 4px
+$space-2: 0.5rem; // 8px
+$space-3: 0.75rem; // 12px
+$space-4: 1rem; // 16px
+$space-5: 1.25rem; // 20px
+$space-6: 1.5rem; // 24px
+$space-7: 1.75rem; // 28px
+$space-8: 2rem; // 32px
+$space-10: 2.5rem; // 40px
+$space-12: 3rem; // 48px
+$space-16: 4rem; // 64px
+$space-20: 5rem; // 80px
+$space-24: 6rem; // 96px
+$space-32: 8rem; // 128px
+
+// Espaciado de secciones (optimizado para mejor ritmo)
+$section-padding-sm: $space-10;
+$section-padding-md: $space-12;
+$section-padding-lg: $space-16;
+
+/* ================================
+   BORDES Y RADIOS
+   ================================ */
+
+$radius-sm: 0.25rem; // 4px
+$radius-md: 0.5rem; // 8px
+$radius-lg: 0.75rem; // 12px
+$radius-xl: 1rem; // 16px
+$radius-2xl: 1.5rem; // 24px
+$radius-3xl: 2rem; // 32px
+$radius-full: 9999px;
+
+$border-width-thin: 1px;
+$border-width-medium: 2px;
+$border-width-thick: 4px;
+
+/* ================================
+   SOMBRAS
+   ================================ */
+
+$shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-sm:
+  0 1px 3px rgba(0, 0, 0, 0.1),
+  0 1px 2px rgba(0, 0, 0, 0.06);
+$shadow-md:
+  0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg:
+  0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl:
+  0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+// Sombras con color
+$shadow-primary: 0 4px 14px rgba($color-primary, 0.25);
+$shadow-primary-lg: 0 10px 30px rgba($color-primary, 0.3);
+$shadow-accent: 0 4px 14px rgba($color-accent, 0.25);
+$shadow-gold: 0 4px 14px rgba($color-accent, 0.3);
+$shadow-gold-lg: 0 10px 30px rgba($color-accent, 0.35);
+
+/* ================================
+   TRANSICIONES
+   ================================ */
+
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-smooth: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 500ms ease;
+
+/* ================================
+   Z-INDEX
+   ================================ */
+
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-fixed: 300;
+$z-modal-backdrop: 400;
+$z-modal: 500;
+$z-popover: 600;
+$z-tooltip: 700;
+
+/* ================================
+   BREAKPOINTS
+   ================================ */
+
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+/* ================================
+   CONTENEDORES
+   ================================ */
+
+$container-max-width: 1280px;
+$container-padding: $space-4;

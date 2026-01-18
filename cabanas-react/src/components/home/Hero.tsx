@@ -8,43 +8,62 @@ const Hero = () => {
       <div className="hero-fallback"></div>
 
       <div className="hero-overlay">
-        <span className="hero-badge">🌲 El Mejor Escape Natural del Maule</span>
+        <span className="hero-badge">
+          <i className="fas fa-leaf"></i>
+          El Mejor Escape Natural del Maule
+        </span>
+
         <h1 className="textos_importantes animate-fade-in">
           Tu Refugio Natural en
           <br />
           <span className="highlight-text">Radal Siete Tazas</span>
         </h1>
-        <p className="centrar_texto color-textos-cabeza hero-subtitle">
+
+        <p className="hero-subtitle">
           Desconéctate del ruido urbano y reconecta con la naturaleza.
           <br />
           Cabañas totalmente equipadas donde el río es tu melodía matutina.
         </p>
 
-        <div className="cta-buttons">
-          <a href="/pages/reserva-rapida.html" className="btn-primary">
+        <div className="hero-cta-wrapper">
+          <a href="/pages/reserva-rapida.html" className="btn-hero-primary">
             <i className="fas fa-calendar-check"></i>
             <span>Reservar Ahora</span>
+            <span className="btn-arrow">→</span>
           </a>
-          <a href="#galeria" className="btn-secondary">
-            <i className="fas fa-images"></i>
-            <span>Ver Galería</span>
-          </a>
+          <p className="hero-microcopy">
+            <i className="fas fa-shield-check"></i>
+            Reserva segura • Cancelación flexible
+          </p>
         </div>
 
-        <div className="trust-indicators">
-          <span className="trust-item">
-            <i className="fas fa-shield-check"></i>
-            <strong>100%</strong> Seguro
-          </span>
-          <span className="trust-item">
+        <div className="hero-trust-strip">
+          <div className="trust-badge-inline">
             <i className="fas fa-star"></i>
-            <strong>4.9/5</strong> Rating
-          </span>
-          <span className="trust-item">
+            <span>
+              <strong>4.9</strong> en Google
+            </span>
+          </div>
+          <div className="trust-divider"></div>
+          <div className="trust-badge-inline">
             <i className="fas fa-users"></i>
-            <strong>200+</strong> Familias
-          </span>
+            <span>
+              <strong>200+</strong> familias felices
+            </span>
+          </div>
+          <div className="trust-divider"></div>
+          <div className="trust-badge-inline">
+            <i className="fas fa-award"></i>
+            <span>
+              <strong>5 años</strong> de experiencia
+            </span>
+          </div>
         </div>
+      </div>
+
+      <div className="scroll-hint">
+        <span>Descubre más</span>
+        <i className="fas fa-chevron-down"></i>
       </div>
     </section>
   );

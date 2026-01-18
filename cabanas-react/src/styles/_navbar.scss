@@ -1,3 +1,10 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: NAVBAR PRINCIPAL
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
 .site-header {
   position: relative;
   width: 100%;
@@ -10,22 +17,23 @@
   right: 0;
   width: 100%;
   height: 80px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid rgba(112, 134, 107, 0.1);
-  z-index: 1000;
-  transition: all 0.3s ease;
+  background: rgba($color-white, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: $shadow-sm;
+  border-bottom: 1px solid rgba($color-primary, 0.08);
+  z-index: $z-sticky;
+  transition: $transition-smooth;
+  animation: slideDown 0.5s ease-out;
 }
 
 .site-header .main-navbar.scrolled {
   height: 70px;
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: $shadow-md;
 }
 
 .site-header .main-navbar.scrolled .brand-logo {
-  height: 45px;
+  height: 42px;
 }
 
 .navbar-wrapper {
@@ -47,47 +55,48 @@
 .brand-link {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: $space-3;
   text-decoration: none;
-  transition: all 0.3s ease;
-  padding: 8px;
-  border-radius: 12px;
-}
+  transition: $transition-base;
+  padding: $space-2;
+  border-radius: $radius-lg;
 
-.brand-link:hover {
-  transform: translateY(-2px);
-}
+  &:hover {
+    transform: translateY(-2px);
 
-.brand-link:focus-visible {
-  outline: 2px solid #70866b;
-  outline-offset: 4px;
-  border-radius: 12px;
+    .brand-logo {
+      transform: scale(1.05);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 4px;
+  }
 }
 
 .brand-logo {
   height: 50px;
   width: auto;
   object-fit: contain;
-  transition: all 0.3s ease;
-}
-
-.brand-link:hover .brand-logo {
-  transform: scale(1.05);
+  transition: $transition-base;
 }
 
 .brand-text {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #2c3e2f;
-  letter-spacing: -0.5px;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  letter-spacing: $letter-spacing-tight;
   display: none;
-}
 
-@media (min-width: 1200px) {
-  .brand-text {
+  @media (min-width: $breakpoint-xl) {
     display: block;
   }
 }
+
+/* ================================
+   NAVEGACIÓN
+   ================================ */
 
 .navbar-nav {
   flex: 1;
@@ -102,7 +111,7 @@
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: $space-3;
 }
 
 .nav-item {
@@ -113,60 +122,64 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 12px 20px;
-  color: #2c3e2f;
+  gap: $space-3;
+  padding: $space-3 $space-5;
+  color: $color-text-primary;
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-lg;
+  transition: $transition-base;
   position: relative;
   background: transparent;
-}
 
-.nav-link:hover {
-  color: white;
-  background: linear-gradient(135deg, #70866b 0%, #5a6e56 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(112, 134, 107, 0.3);
-}
+  &:hover {
+    color: $color-white;
+    background: $color-primary;
+    transform: translateY(-2px);
+    box-shadow: $shadow-primary;
 
-.nav-link:hover .nav-icon {
-  transform: scale(1.1);
-}
+    .nav-icon {
+      transform: scale(1.1);
+    }
+  }
 
-.nav-link:focus-visible {
-  outline: 2px solid #70866b;
-  outline-offset: 2px;
-}
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
 
-.nav-link--active {
-  background: linear-gradient(135deg, #70866b 0%, #5a6e56 100%);
-  color: white;
-  box-shadow: 0 4px 12px rgba(112, 134, 107, 0.35);
-}
+  &--active {
+    background: $color-primary;
+    color: $color-white;
+    box-shadow: $shadow-primary;
 
-.nav-link--active:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(112, 134, 107, 0.4);
-}
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: $shadow-primary-lg;
+    }
 
-.nav-link--active .nav-icon {
-  color: white;
+    .nav-icon {
+      color: $color-white;
+    }
+  }
 }
 
 .nav-icon {
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  font-size: $font-size-base;
+  transition: $transition-base;
   flex-shrink: 0;
 }
 
 .nav-text {
-  font-weight: 600;
-  letter-spacing: 0.3px;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-normal;
   white-space: nowrap;
 }
+
+/* ================================
+   CTA BUTTON
+   ================================ */
 
 .navbar-cta {
   flex-shrink: 0;
@@ -176,43 +189,46 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 12px 28px;
-  background: linear-gradient(135deg, #70866b 0%, #5a6e56 100%);
-  color: white;
+  gap: $space-3;
+  padding: $space-3 $space-7;
+  background: $color-primary;
+  color: $color-white;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1rem;
-  border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(112, 134, 107, 0.3);
-  transition: all 0.3s ease;
-  letter-spacing: 0.3px;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  border-radius: $radius-full;
+  box-shadow: $shadow-primary;
+  transition: $transition-smooth;
+  letter-spacing: $letter-spacing-normal;
+
+  i {
+    font-size: $font-size-lg;
+    transition: $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-primary-lg;
+
+    i {
+      transform: scale(1.15);
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: $shadow-primary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 4px;
+  }
 }
 
-.cta-button i {
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(112, 134, 107, 0.4);
-  background: linear-gradient(135deg, #5a6e56 0%, #70866b 100%);
-}
-
-.cta-button:hover i {
-  transform: scale(1.15);
-}
-
-.cta-button:active {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(112, 134, 107, 0.35);
-}
-
-.cta-button:focus-visible {
-  outline: 2px solid #d4af37;
-  outline-offset: 4px;
-}
+/* ================================
+   TOGGLE MÓVIL
+   ================================ */
 
 .navbar-toggle {
   display: none;
@@ -222,152 +238,182 @@
   gap: 6px;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #70866b 0%, #5a6e56 100%);
+  background: $color-primary;
   border: none;
-  border-radius: 12px;
+  border-radius: $radius-lg;
   cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 1001;
-  box-shadow: 0 4px 12px rgba(112, 134, 107, 0.3);
-}
+  transition: $transition-base;
+  z-index: $z-modal + 1;
+  box-shadow: $shadow-primary;
 
-.navbar-toggle:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(112, 134, 107, 0.4);
-}
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: $shadow-primary-lg;
+  }
 
-.navbar-toggle:focus-visible {
-  outline: 2px solid #70866b;
-  outline-offset: 4px;
-}
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 4px;
+  }
 
-.navbar-toggle[aria-expanded="true"] .toggle-icon:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
-}
+  &[aria-expanded="true"] {
+    .toggle-icon:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
 
-.navbar-toggle[aria-expanded="true"] .toggle-icon:nth-child(2) {
-  opacity: 0;
-  transform: translateX(-20px);
-}
+    .toggle-icon:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
 
-.navbar-toggle[aria-expanded="true"] .toggle-icon:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
+    .toggle-icon:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+  }
 }
 
 .toggle-icon {
   width: 26px;
   height: 3px;
-  background: white;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+  background: $color-white;
+  border-radius: $radius-sm;
+  transition: $transition-base;
 }
 
-@media (max-width: 1024px) {
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-lg) {
   .navbar-wrapper {
-    gap: 20px;
-    padding: 0 20px;
+    gap: $space-5;
+    padding: 0 $space-5;
   }
+
   .nav-list {
-    gap: 6px;
+    gap: $space-2;
   }
+
   .nav-link {
-    padding: 10px 16px;
-    font-size: 0.95rem;
-    gap: 8px;
+    padding: $space-3 $space-4;
+    font-size: $font-size-sm;
+    gap: $space-2;
   }
+
   .cta-button {
-    padding: 10px 20px;
-    font-size: 0.95rem;
+    padding: $space-3 $space-5;
+    font-size: $font-size-sm;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $breakpoint-md) {
   .site-header .main-navbar {
     height: 70px;
+
+    &.scrolled {
+      height: 65px;
+    }
   }
-  .site-header .main-navbar.scrolled {
-    height: 65px;
-  }
+
   .navbar-wrapper {
-    padding: 0 15px;
+    padding: 0 $space-4;
   }
+
   .navbar-toggle {
     display: flex;
   }
+
   .navbar-nav {
     position: fixed;
     top: 70px;
     left: 0;
     width: 100%;
     height: calc(100vh - 70px);
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba($color-white, 0.98);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     transform: translateX(-100%);
     transition: transform 0.4s ease;
     overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    z-index: 999;
+    box-shadow: $shadow-lg;
+    z-index: $z-modal - 1;
+
+    &.active {
+      transform: translateX(0);
+    }
   }
-  .navbar-nav.active {
-    transform: translateX(0);
-  }
+
   .nav-list {
     flex-direction: column;
     align-items: stretch;
-    gap: 10px;
-    padding: 25px 20px;
+    gap: $space-3;
+    padding: $space-6 $space-5;
     width: 100%;
   }
+
   .nav-item {
     width: 100%;
   }
+
   .nav-link {
     width: 100%;
     justify-content: flex-start;
-    padding: 16px 20px;
-    font-size: 1.1rem;
-    border-radius: 12px;
+    padding: $space-4 $space-5;
+    font-size: $font-size-base;
+    border-radius: $radius-lg;
+
+    &:hover {
+      transform: translateX(5px);
+    }
+
+    &--active {
+      box-shadow: $shadow-primary;
+    }
   }
-  .nav-link:hover {
-    transform: translateX(5px);
-  }
-  .nav-link--active {
-    box-shadow: 0 4px 12px rgba(112, 134, 107, 0.4);
-  }
+
   .nav-icon {
-    font-size: 1.3rem;
+    font-size: $font-size-lg;
   }
+
   .navbar-cta {
     display: none;
   }
+
   .brand-logo {
     height: 45px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: $breakpoint-sm) {
   .navbar-wrapper {
-    padding: 0 10px;
+    padding: 0 $space-3;
   }
+
   .brand-logo {
     height: 40px;
   }
+
   .navbar-toggle {
     width: 45px;
     height: 45px;
   }
+
   .toggle-icon {
     width: 24px;
   }
+
   .nav-list {
-    padding: 20px 15px;
+    padding: $space-5 $space-4;
   }
+
   .nav-link {
-    padding: 14px 18px;
-    font-size: 1.05rem;
+    padding: $space-4;
+    font-size: $font-size-base;
   }
 }
+
+/* ================================
+   ANIMACIONES
+   ================================ */
 
 @keyframes slideDown {
   from {
@@ -384,6 +430,10 @@
   animation: slideDown 0.6s ease-out;
 }
 
+/* ================================
+   ACCESIBILIDAD
+   ================================ */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -397,23 +447,28 @@
 @media (prefers-contrast: high) {
   .nav-link {
     border: 2px solid currentColor;
+
+    &--active {
+      border-color: $color-white;
+      border-width: 3px;
+    }
   }
-  .nav-link--active {
-    border-color: white;
-    border-width: 3px;
-  }
+
   .cta-button {
-    border: 2px solid white;
+    border: 2px solid $color-white;
   }
+
   .main-navbar {
-    border-bottom: 2px solid #2c3e2f;
+    border-bottom: 2px solid $color-text-primary;
   }
 }
 
-.nav-link:focus-visible,
-.cta-button:focus-visible,
-.brand-link:focus-visible,
-.navbar-toggle:focus-visible {
-  outline: 2px solid #70866b;
-  outline-offset: 3px;
+.nav-link,
+.cta-button,
+.brand-link,
+.navbar-toggle {
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+  }
 }

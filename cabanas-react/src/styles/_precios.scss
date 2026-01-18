@@ -1,0 +1,817 @@
+@use "./variables" as *;
+
+/* ================================================
+   PÁGINA: PRECIOS
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
+.precios-page {
+  background: $color-cream;
+  min-height: 100vh;
+}
+
+/* ================================
+   HERO SECTION
+   ================================ */
+
+.precios-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 15%) 100%);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/img/Hero.webp");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba($color-primary, 0.9) 0%,
+      rgba(darken($color-primary, 20%), 0.95) 100%
+    );
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: $space-8 $space-6;
+    max-width: 800px;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-2;
+    background: rgba($color-accent, 0.2);
+    border: 1px solid rgba($color-accent, 0.3);
+    color: $color-accent;
+    padding: $space-2 $space-5;
+    border-radius: $radius-full;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    margin-bottom: $space-6;
+  }
+
+  &__title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: $font-weight-black;
+    color: $color-white;
+    line-height: $line-height-tight;
+    margin-bottom: $space-6;
+
+    &-accent {
+      display: block;
+      color: $color-accent;
+      font-size: 0.85em;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    color: rgba($color-white, 0.9);
+    line-height: $line-height-relaxed;
+    margin-bottom: $space-8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-4 $space-8;
+    background: $color-accent;
+    color: $color-text-primary;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-lg;
+    border: none;
+    border-radius: $radius-full;
+    cursor: pointer;
+    transition: $transition-base;
+    box-shadow: $shadow-gold;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: $shadow-gold-lg;
+    }
+  }
+}
+
+/* ================================
+   MAIN CONTENT
+   ================================ */
+
+.precios-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $space-16 $space-6;
+}
+
+/* ================================
+   INFO BOX
+   ================================ */
+
+.precios-info {
+  margin-bottom: $space-16;
+
+  &__box {
+    background: $color-white;
+    border-radius: $radius-2xl;
+    padding: $space-8;
+    box-shadow: $shadow-lg;
+    border-left: 4px solid $color-primary;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $space-6;
+
+    i {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: $space-4;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: $space-3;
+      padding: $space-3 $space-4;
+      background: rgba($color-primary, 0.05);
+      border-radius: $radius-lg;
+      font-size: $font-size-base;
+      color: $color-text-secondary;
+
+      i {
+        color: $color-primary;
+        width: 20px;
+        text-align: center;
+      }
+
+      strong {
+        color: $color-text-primary;
+      }
+    }
+  }
+}
+
+/* ================================
+   PRICING CARDS
+   ================================ */
+
+.precios-cards {
+  margin-bottom: $space-16;
+
+  &__title {
+    text-align: center;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    margin-bottom: $space-10;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: $space-8;
+  }
+}
+
+.precios-card {
+  position: relative;
+  background: $color-white;
+  border-radius: $radius-2xl;
+  padding: $space-8;
+  box-shadow: $shadow-lg;
+  transition: $transition-base;
+  border: 2px solid transparent;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+  }
+
+  &--featured {
+    border-color: $color-accent;
+    transform: scale(1.02);
+
+    &:hover {
+      transform: scale(1.02) translateY(-8px);
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    background: $color-accent;
+    color: $color-text-primary;
+    padding: $space-2 $space-5;
+    border-radius: $radius-full;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    white-space: nowrap;
+  }
+
+  &__header {
+    text-align: center;
+    padding-bottom: $space-6;
+    border-bottom: 1px solid rgba($color-primary, 0.1);
+    margin-bottom: $space-6;
+  }
+
+  &__name {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    margin-bottom: $space-2;
+  }
+
+  &__capacity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-2;
+    color: $color-text-muted;
+    font-size: $font-size-base;
+
+    i {
+      color: $color-primary;
+    }
+  }
+
+  &__pricing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-4;
+    margin-bottom: $space-6;
+  }
+
+  &__season {
+    text-align: center;
+    padding: $space-4;
+    border-radius: $radius-xl;
+
+    &--low {
+      background: rgba($color-primary, 0.08);
+    }
+
+    &--high {
+      background: rgba($color-accent, 0.15);
+    }
+
+    &-label {
+      display: block;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-semibold;
+      text-transform: uppercase;
+      letter-spacing: $letter-spacing-wide;
+      color: $color-text-muted;
+      margin-bottom: $space-2;
+    }
+  }
+
+  &__price {
+    display: block;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-black;
+    color: $color-text-primary;
+  }
+
+  &__unit {
+    display: block;
+    font-size: $font-size-xs;
+    color: $color-text-muted;
+  }
+
+  &__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $space-6 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: $space-3;
+      padding: $space-2 0;
+      font-size: $font-size-sm;
+      color: $color-text-secondary;
+
+      i {
+        color: $color-primary;
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__cta {
+    width: 100%;
+    padding: $space-4;
+    background: $color-primary;
+    color: $color-white;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-base;
+    border: none;
+    border-radius: $radius-xl;
+    cursor: pointer;
+    transition: $transition-base;
+
+    &:hover {
+      background: darken($color-primary, 8%);
+      transform: translateY(-2px);
+      box-shadow: $shadow-primary;
+    }
+  }
+}
+
+/* ================================
+   PROMOTIONS
+   ================================ */
+
+.precios-promos {
+  background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 10%) 100%);
+  border-radius: $radius-2xl;
+  padding: $space-12;
+  margin-bottom: $space-16;
+  text-align: center;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-3;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    margin-bottom: $space-10;
+
+    i {
+      color: $color-accent;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $space-6;
+  }
+
+  &__disclaimer {
+    color: rgba($color-white, 0.7);
+    font-size: $font-size-sm;
+    margin-top: $space-8;
+  }
+}
+
+.promo-card {
+  background: rgba($color-white, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($color-white, 0.2);
+  border-radius: $radius-xl;
+  padding: $space-8;
+  transition: $transition-base;
+
+  &:hover {
+    background: rgba($color-white, 0.15);
+    transform: translateY(-4px);
+  }
+
+  &__icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto $space-4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba($color-accent, 0.2);
+    border-radius: $radius-full;
+
+    i {
+      font-size: $font-size-2xl;
+      color: $color-accent;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    margin-bottom: $space-2;
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+    color: rgba($color-white, 0.8);
+    margin-bottom: $space-4;
+  }
+
+  &__discount {
+    display: inline-block;
+    background: $color-accent;
+    color: $color-text-primary;
+    padding: $space-2 $space-5;
+    border-radius: $radius-full;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-black;
+  }
+}
+
+/* ================================
+   ADDITIONAL SERVICES
+   ================================ */
+
+.precios-services {
+  margin-bottom: $space-16;
+
+  &__title {
+    text-align: center;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    margin-bottom: $space-10;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $space-6;
+  }
+
+  &__note {
+    text-align: center;
+    color: $color-text-muted;
+    font-size: $font-size-sm;
+    font-style: italic;
+    margin-top: $space-8;
+  }
+}
+
+.service-card {
+  background: $color-white;
+  border-radius: $radius-xl;
+  padding: $space-8;
+  text-align: center;
+  box-shadow: $shadow-md;
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  &__icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto $space-5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba($color-primary, 0.1);
+    border-radius: $radius-full;
+
+    i {
+      font-size: $font-size-2xl;
+      color: $color-primary;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    margin-bottom: $space-3;
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    margin-bottom: $space-4;
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__amount {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-black;
+    color: $color-primary;
+  }
+
+  &__unit {
+    font-size: $font-size-xs;
+    color: $color-text-muted;
+  }
+}
+
+/* ================================
+   POLICIES
+   ================================ */
+
+.precios-policies {
+  background: $color-white;
+  border-radius: $radius-2xl;
+  padding: $space-12;
+  margin-bottom: $space-16;
+  box-shadow: $shadow-lg;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-3;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $space-10;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $space-8;
+  }
+}
+
+.policy-card {
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    margin-bottom: $space-4;
+
+    i {
+      color: $color-primary;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      position: relative;
+      padding: $space-2 0 $space-2 $space-6;
+      font-size: $font-size-sm;
+      color: $color-text-secondary;
+      line-height: $line-height-relaxed;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 12px;
+        width: 6px;
+        height: 6px;
+        background: $color-primary;
+        border-radius: $radius-full;
+      }
+    }
+  }
+}
+
+/* ================================
+   INCLUDED FEATURES
+   ================================ */
+
+.precios-included {
+  background: rgba($color-primary, 0.05);
+  border-radius: $radius-2xl;
+  padding: $space-12;
+  margin-bottom: $space-16;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-3;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $space-10;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: $space-6;
+  }
+}
+
+.included-card {
+  text-align: center;
+  padding: $space-6;
+
+  &__icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto $space-4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-white;
+    border-radius: $radius-full;
+    box-shadow: $shadow-md;
+
+    i {
+      font-size: $font-size-xl;
+      color: $color-primary;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    margin-bottom: $space-2;
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+  }
+}
+
+/* ================================
+   CTA SECTION
+   ================================ */
+
+.precios-cta {
+  background: linear-gradient(135deg, darken($color-primary, 5%) 0%, darken($color-primary, 15%) 100%);
+  border-radius: $radius-2xl;
+  padding: $space-12;
+  text-align: center;
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-white;
+    margin-bottom: $space-4;
+  }
+
+  &__text {
+    font-size: $font-size-lg;
+    color: rgba($color-white, 0.9);
+    margin-bottom: $space-8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $space-4;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-4 $space-8;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-base;
+    border: none;
+    border-radius: $radius-full;
+    cursor: pointer;
+    text-decoration: none;
+    transition: $transition-base;
+
+    &--primary {
+      background: $color-accent;
+      color: $color-text-primary;
+      box-shadow: $shadow-gold;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: $shadow-gold-lg;
+      }
+    }
+
+    &--whatsapp {
+      background: $color-whatsapp;
+      color: $color-white;
+
+      &:hover {
+        background: darken($color-whatsapp, 8%);
+        transform: translateY(-3px);
+      }
+    }
+  }
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-md) {
+  .precios-hero {
+    min-height: 50vh;
+
+    &__content {
+      padding: $space-6 $space-4;
+    }
+
+    &__description {
+      font-size: $font-size-base;
+    }
+  }
+
+  .precios-main {
+    padding: $space-10 $space-4;
+  }
+
+  .precios-cards__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .precios-card--featured {
+    transform: none;
+
+    &:hover {
+      transform: translateY(-8px);
+    }
+  }
+
+  .precios-promos {
+    padding: $space-8;
+  }
+
+  .precios-policies {
+    padding: $space-8;
+  }
+
+  .precios-included {
+    padding: $space-8;
+  }
+
+  .precios-cta {
+    padding: $space-8;
+
+    &__buttons {
+      flex-direction: column;
+
+      .precios-cta__btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

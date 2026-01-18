@@ -1,10 +1,18 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: UBICACIÓN
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
 .seccion-direccion {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  background: #f9f8f4;
-  padding: 40px 20px;
+  min-height: 80vh;
+  background: $color-gray-50;
+  padding: $space-10 $space-5;
+  gap: $space-8;
 }
 
 .direccion {
@@ -12,104 +20,134 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 20px;
-  border-radius: 10px;
-  background: #70866b;
+  padding: $space-8;
+  border-radius: $radius-xl;
+  background: $color-primary;
   width: 50%;
   text-align: center;
+  box-shadow: $shadow-lg;
+
+  h2 {
+    font-size: $font-size-2xl;
+    color: $color-cream;
+    margin-bottom: $space-5;
+    font-weight: $font-weight-semibold;
+  }
+
+  p {
+    text-align: center;
+    color: $color-gray-50;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-light;
+    padding: $space-4;
+    line-height: $line-height-relaxed;
+  }
 }
 
 .elementos-direccion,
 .fa-location-dot,
 .fa-car,
 .fa-bus {
-  color: #f9f8f4;
-  font-size: 1.8rem;
+  color: $color-gray-50;
+  font-size: $font-size-2xl;
   text-align: center;
-  margin: 10px;
-}
-
-.direccion h2 {
-  font-size: 2rem;
-  color: #f3e3c4;
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.direccion p {
-  text-align: center;
-  color: #f9f8f4;
-  font-size: 1.3rem;
-  font-weight: 200;
-  padding: 15px;
-  line-height: 1.6;
+  margin: $space-3;
 }
 
 .Mapa {
-  padding: 20px;
-  border-radius: 10px;
-  margin: 10px;
-  background: #70866b;
+  padding: $space-5;
+  border-radius: $radius-xl;
+  margin: $space-3;
+  background: $color-primary;
   width: 45%;
   text-align: center;
+  box-shadow: $shadow-lg;
+
+  h2 {
+    font-size: $font-size-2xl;
+    color: $color-cream;
+    margin-bottom: $space-5;
+    font-weight: $font-weight-semibold;
+  }
+
+  iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: $radius-md;
+    border: none;
+  }
 }
 
-.Mapa h2 {
-  font-size: 2rem;
-  color: #f3e3c4;
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.Mapa iframe {
-  width: 100%;
-  height: 85%;
-  border-radius: 5px;
-  border: none;
-}
+/* ================================
+   PUNTOS DE INTERÉS
+   ================================ */
 
 .points-of-interest {
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 0 20px;
+  max-width: $container-max-width;
+  margin: $space-12 auto;
+  padding: 0 $space-5;
 }
 
 .points-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $space-8;
 }
 
 .point-card {
-  background: rgba(112, 134, 107, 0.1);
-  padding: 25px;
-  border-radius: 15px;
+  background: rgba($color-primary, 0.08);
+  padding: $space-6;
+  border-radius: $radius-xl;
   text-align: center;
-  transition: all 0.3s ease;
-}
+  transition: $transition-smooth;
+  border: 1px solid transparent;
 
-.point-card:hover {
-  background: rgba(112, 134, 107, 0.15);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  &:hover {
+    background: rgba($color-primary, 0.12);
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+    border-color: rgba($color-primary, 0.15);
+  }
 }
 
 .point-icon {
-  color: #70866b;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
+  color: $color-primary;
+  font-size: $font-size-3xl;
+  margin-bottom: $space-4;
 }
 
-@media (max-width: 1024px) {
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-lg) {
   .seccion-direccion {
     flex-direction: column;
     align-items: center;
-    height: auto;
+    min-height: auto;
   }
+
   .direccion,
   .Mapa {
     width: 90%;
-    margin-bottom: 25px;
+    margin-bottom: $space-6;
     margin-left: 0;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .direccion,
+  .Mapa {
+    width: 100%;
+    padding: $space-6;
+  }
+
+  .direccion h2,
+  .Mapa h2 {
+    font-size: $font-size-xl;
+  }
+
+  .Mapa iframe {
+    height: 300px;
   }
 }

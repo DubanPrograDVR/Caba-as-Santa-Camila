@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+// Sistema de Diseño
+@use "./variables" as *;
+
+// Componentes
 @use "./base";
 @use "./layout";
 @use "./navbar";
@@ -10,7 +14,14 @@
 @use "./amenities";
 @use "./attractions";
 @use "./showcase";
+@use "./gallery";
+@use "./booking-modal";
 @use "./pricing";
 @use "./forms";
 @use "./location";
 @use "./footer";
+
+// Páginas
+@use "./ubicacion";
+@use "./precios";
+@use "./contacto";

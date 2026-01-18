@@ -1,19 +1,26 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: FORMULARIOS
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
 .seccion-principal-formularios {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
-  background: #f9f8f4;
+  padding: $space-10 $space-5;
+  background: $color-gray-50;
 }
 
 .titulo-contacto {
-  font-size: 2.2rem;
-  padding-bottom: 10%;
-  margin-bottom: 10px;
-  border-bottom: solid 5px #70866b;
-  color: #2d3748;
-  font-weight: 600;
+  font-size: $font-size-3xl;
+  padding-bottom: $space-8;
+  margin-bottom: $space-3;
+  border-bottom: 4px solid $color-primary;
+  color: $color-text-primary;
+  font-weight: $font-weight-semibold;
 }
 
 .seccion-formulario,
@@ -22,74 +29,83 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
-  padding: 15px;
-  color: #fff;
-  border-radius: 10px;
+  font-size: $font-size-lg;
+  padding: $space-4;
+  color: $color-white;
+  border-radius: $radius-lg;
   margin: 0 auto;
   width: 50%;
   text-align: center;
 }
 
-.elemento-formulario label {
-  margin-bottom: 10px;
-  font-weight: 300;
-  color: #2d3748;
-}
+.elemento-formulario {
+  label {
+    margin-bottom: $space-3;
+    font-weight: $font-weight-light;
+    color: $color-text-primary;
+  }
 
-.elemento-formulario input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 2px solid #e5e7eb;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
+  input {
+    width: 100%;
+    padding: $space-3;
+    border-radius: $radius-md;
+    border: 2px solid $color-gray-200;
+    font-size: $font-size-base;
+    transition: $transition-base;
 
-.elemento-formulario input:focus {
-  outline: none;
-  border-color: #70866b;
-  box-shadow: 0 0 0 3px rgba(112, 134, 107, 0.1);
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    }
+  }
 }
 
 .texto-de-area {
   width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 2px solid #e5e7eb;
-  font-size: 1rem;
-  font-family: "Outfit", sans-serif;
+  padding: $space-3;
+  border-radius: $radius-md;
+  border: 2px solid $color-gray-200;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
   min-height: 150px;
   resize: vertical;
-  transition: all 0.3s ease;
+  transition: $transition-base;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
 }
 
-.texto-de-area:focus {
-  outline: none;
-  border-color: #70866b;
-  box-shadow: 0 0 0 3px rgba(112, 134, 107, 0.1);
-}
+/* ================================
+   RESPONSIVE
+   ================================ */
 
-@media (max-width: 1024px) {
+@media (max-width: $breakpoint-lg) {
   .seccion-formulario,
   .elemento-formulario {
     width: 80%;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: $breakpoint-sm) {
   .titulo-contacto {
-    padding-top: 10px;
+    padding-top: $space-3;
     text-align: center;
-    margin-bottom: 10px;
-    line-height: 1.1;
+    margin-bottom: $space-3;
+    line-height: $line-height-tight;
     width: auto;
     display: inline-block;
+    font-size: $font-size-2xl;
   }
+
   .seccion-formulario {
     width: 90%;
-    padding: 20px;
+    padding: $space-5;
   }
+
   .seccion-formulario,
   .elemento-formulario {
     width: 80%;

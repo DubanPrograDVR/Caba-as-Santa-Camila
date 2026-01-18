@@ -1,30 +1,38 @@
-import Header from "./components/home/Header";
-import Hero from "./components/home/Hero";
-import SocialProof from "./components/home/SocialProof";
-import InfoSection from "./components/content/InfoSection";
-import About from "./components/content/About";
-import Amenities from "./components/content/Amenities";
-import Attractions from "./components/marketing/Attractions";
-import CabinsShowcase from "./components/marketing/CabinsShowcase";
-import FloatingActions from "./components/marketing/FloatingActions";
-import Footer from "./components/layout/Footer";
+import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Ubicacion from "./pages/ubicacion/Ubicacion";
+import Precios from "./pages/precios/Precios";
+import Contacto from "./pages/contacto/Contacto";
+import BookingModal from "./components/marketing/BookingModal";
 
 function App() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+  const handleBookClick = () => setIsBookingOpen(true);
+  const handleCloseBooking = () => setIsBookingOpen(false);
+
   return (
-    <>
-      <Header />
-      <Hero />
-      <main className="contenedor-principal">
-        <SocialProof />
-        <InfoSection />
-        <About />
-        <Amenities />
-        <Attractions />
-        <CabinsShowcase />
-      </main>
-      <FloatingActions />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home onBookClick={handleBookClick} />} />
+        <Route
+          path="/ubicacion"
+          element={<Ubicacion onBookClick={handleBookClick} />}
+        />
+        <Route
+          path="/precios"
+          element={<Precios onBookClick={handleBookClick} />}
+        />
+        <Route
+          path="/contacto"
+          element={<Contacto onBookClick={handleBookClick} />}
+        />
+      </Routes>
+
+      {/* Modal de reserva global */}
+      <BookingModal isOpen={isBookingOpen} onClose={handleCloseBooking} />
+    </Router>
   );
 }
 

@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <header className="site-header">
@@ -11,8 +15,8 @@ const Header = () => {
         aria-label="Navegación principal">
         <div className="navbar-wrapper">
           <div className="navbar-brand">
-            <a
-              href="/"
+            <Link
+              to="/"
               className="brand-link"
               aria-label="Cabañas Santa Camila - Volver al inicio">
               <img
@@ -26,7 +30,7 @@ const Header = () => {
               <span className="brand-text" aria-hidden="true">
                 Santa Camila
               </span>
-            </a>
+            </Link>
           </div>
 
           <div
@@ -34,44 +38,57 @@ const Header = () => {
             id="navbarNav">
             <ul className="nav-list" role="list">
               <li className="nav-item">
-                <a
-                  href="#"
-                  className="nav-link nav-link--active"
-                  aria-current="page">
+                <Link
+                  to="/"
+                  className={`nav-link ${isActive("/") ? "nav-link--active" : ""}`}
+                  aria-current={isActive("/") ? "page" : undefined}
+                  onClick={() => setIsOpen(false)}>
                   <i className="nav-icon fas fa-home" aria-hidden="true"></i>
                   <span className="nav-text">Inicio</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="/pages/ubicacion.html" className="nav-link">
+                <Link
+                  to="/ubicacion"
+                  className={`nav-link ${isActive("/ubicacion") ? "nav-link--active" : ""}`}
+                  aria-current={isActive("/ubicacion") ? "page" : undefined}
+                  onClick={() => setIsOpen(false)}>
                   <i
                     className="nav-icon fas fa-map-marker-alt"
                     aria-hidden="true"></i>
                   <span className="nav-text">Ubicación</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="/pages/precios.html" className="nav-link">
+                <Link
+                  to="/precios"
+                  className={`nav-link ${isActive("/precios") ? "nav-link--active" : ""}`}
+                  aria-current={isActive("/precios") ? "page" : undefined}
+                  onClick={() => setIsOpen(false)}>
                   <i className="nav-icon fas fa-tags" aria-hidden="true"></i>
                   <span className="nav-text">Precios</span>
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="/pages/contacto.html" className="nav-link">
+                <Link
+                  to="/contacto"
+                  className={`nav-link ${isActive("/contacto") ? "nav-link--active" : ""}`}
+                  aria-current={isActive("/contacto") ? "page" : undefined}
+                  onClick={() => setIsOpen(false)}>
                   <i
                     className="nav-icon fas fa-envelope"
                     aria-hidden="true"></i>
                   <span className="nav-text">Contacto</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           <div className="navbar-cta">
-            <a href="/pages/reserva-rapida.html" className="cta-button">
+            <Link to="/#reservar" className="cta-button">
               <i className="fas fa-calendar-check" aria-hidden="true"></i>
               <span>Reservar Ahora</span>
-            </a>
+            </Link>
           </div>
 
           <button

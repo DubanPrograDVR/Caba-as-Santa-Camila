@@ -1,0 +1,551 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: MODAL DE RESERVA
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
+.booking-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba($color-black, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: $z-modal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-5;
+  animation: fadeIn 0.3s ease;
+}
+
+.booking-modal {
+  background: $color-white;
+  border-radius: $radius-2xl;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 80px rgba($color-black, 0.25);
+  animation: slideUp 0.4s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: $space-4;
+  right: $space-4;
+  width: 40px;
+  height: 40px;
+  background: $color-gray-100;
+  border: none;
+  border-radius: $radius-full;
+  color: $color-text-secondary;
+  font-size: $font-size-lg;
+  cursor: pointer;
+  transition: $transition-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  &:hover {
+    background: $color-gray-200;
+    color: $color-text-primary;
+  }
+}
+
+/* ================================
+   HEADER DEL MODAL
+   ================================ */
+
+.modal-header {
+  background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+  padding: $space-8 $space-8 $space-6;
+  border-radius: $radius-2xl $radius-2xl 0 0;
+
+  h2 {
+    color: $color-white;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin: 0 0 $space-6;
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+
+    i {
+      color: $color-accent-light;
+    }
+  }
+}
+
+.booking-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 40px;
+    right: 40px;
+    height: 2px;
+    background: rgba($color-white, 0.2);
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  position: relative;
+  z-index: 1;
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  background: rgba($color-white, 0.2);
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: rgba($color-white, 0.6);
+  transition: $transition-base;
+}
+
+.step-label {
+  font-size: $font-size-xs;
+  color: rgba($color-white, 0.6);
+  font-weight: $font-weight-medium;
+}
+
+.step.active {
+  .step-number {
+    background: $color-accent;
+    color: $color-white;
+  }
+
+  .step-label {
+    color: $color-white;
+  }
+}
+
+/* ================================
+   CONTENIDO DEL MODAL
+   ================================ */
+
+.modal-step {
+  padding: $space-8;
+
+  h3 {
+    font-size: $font-size-lg;
+    color: $color-text-primary;
+    margin: 0 0 $space-6;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+/* ================================
+   SELECTOR DE CABAÑAS
+   ================================ */
+
+.cabin-selector {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.cabin-option {
+  display: block;
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+}
+
+.cabin-option-content {
+  padding: $space-5;
+  background: $color-gray-50;
+  border: 2px solid $color-gray-200;
+  border-radius: $radius-xl;
+  transition: $transition-base;
+  text-align: center;
+
+  i {
+    font-size: $font-size-2xl;
+    color: $color-primary;
+    margin-bottom: $space-3;
+    display: block;
+  }
+
+  h4 {
+    font-size: $font-size-base;
+    color: $color-text-primary;
+    margin: 0 0 $space-3;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.cabin-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $space-4;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+
+  i {
+    font-size: $font-size-sm;
+    margin-right: $space-1;
+    display: inline;
+    color: $color-text-muted;
+  }
+}
+
+.cabin-price {
+  color: $color-primary;
+  font-weight: $font-weight-bold;
+}
+
+.cabin-option.selected .cabin-option-content {
+  border-color: $color-primary;
+  background: rgba($color-primary, 0.05);
+  box-shadow: 0 0 0 4px rgba($color-primary, 0.1);
+}
+
+.cabin-option.unavailable {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.unavailable-badge {
+  display: inline-block;
+  margin-top: $space-2;
+  padding: $space-1 $space-3;
+  background: $color-error;
+  color: $color-white;
+  font-size: $font-size-xs;
+  border-radius: $radius-full;
+}
+
+/* ================================
+   FORMULARIO
+   ================================ */
+
+.date-inputs,
+.contact-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-4;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  &.full-width {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+
+    i {
+      color: $color-primary;
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    padding: $space-4;
+    border: 2px solid $color-gray-200;
+    border-radius: $radius-lg;
+    font-size: $font-size-base;
+    font-family: inherit;
+    transition: $transition-base;
+    background: $color-white;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 4px rgba($color-primary, 0.1);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+}
+
+/* ================================
+   RESUMEN DE PRECIOS
+   ================================ */
+
+.price-summary {
+  background: $color-gray-50;
+  border-radius: $radius-xl;
+  padding: $space-5;
+  margin-top: $space-6;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: $space-3 0;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  border-bottom: 1px solid $color-gray-200;
+
+  &.total {
+    border-bottom: none;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+    padding-top: $space-4;
+
+    span:last-child {
+      color: $color-primary;
+    }
+  }
+}
+
+.price-note {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  margin-top: $space-3;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+
+  i {
+    color: $color-primary;
+  }
+}
+
+/* ================================
+   RESUMEN DE RESERVA
+   ================================ */
+
+.booking-summary {
+  background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+  border-radius: $radius-xl;
+  padding: $space-5;
+  margin-top: $space-6;
+  color: $color-white;
+
+  h4 {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    margin: 0 0 $space-3;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+  }
+}
+
+.summary-details {
+  p {
+    margin: $space-1 0;
+    font-size: $font-size-sm;
+    opacity: 0.9;
+
+    strong {
+      font-weight: $font-weight-semibold;
+    }
+  }
+
+  .summary-total {
+    font-size: $font-size-lg;
+    margin-top: $space-3;
+    padding-top: $space-3;
+    border-top: 1px solid rgba($color-white, 0.2);
+
+    strong {
+      color: $color-accent-light;
+    }
+  }
+}
+
+/* ================================
+   ACCIONES DEL MODAL
+   ================================ */
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: $space-4;
+  padding: $space-6 $space-8 $space-8;
+  background: $color-gray-50;
+  border-radius: 0 0 $radius-2xl $radius-2xl;
+}
+
+.btn-back {
+  padding: $space-4 $space-6;
+  background: $color-white;
+  border: 2px solid $color-gray-300;
+  border-radius: $radius-full;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  cursor: pointer;
+  transition: $transition-base;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+}
+
+.btn-next {
+  padding: $space-4 $space-8;
+  background: $color-primary;
+  border: none;
+  border-radius: $radius-full;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+  cursor: pointer;
+  transition: $transition-base;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  margin-left: auto;
+  box-shadow: $shadow-primary;
+
+  &:hover:not(:disabled) {
+    background: $color-primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-primary-lg;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.btn-submit {
+  padding: $space-4 $space-8;
+  background: $color-whatsapp;
+  border: none;
+  border-radius: $radius-full;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+  cursor: pointer;
+  transition: $transition-smooth;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-left: auto;
+  box-shadow: 0 4px 16px rgba($color-whatsapp, 0.4);
+
+  i {
+    font-size: $font-size-xl;
+  }
+
+  &:hover {
+    background: $color-whatsapp-dark;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba($color-whatsapp, 0.5);
+  }
+}
+
+/* ================================
+   ANIMACIONES
+   ================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-md) {
+  .booking-modal {
+    max-height: 95vh;
+    margin: $space-2;
+  }
+
+  .modal-header {
+    padding: $space-6 $space-5 $space-5;
+
+    h2 {
+      font-size: $font-size-lg;
+    }
+  }
+
+  .booking-steps {
+    &::before {
+      left: 30px;
+      right: 30px;
+    }
+  }
+
+  .step-label {
+    font-size: 10px;
+  }
+
+  .modal-step {
+    padding: $space-5;
+
+    h3 {
+      font-size: $font-size-base;
+    }
+  }
+
+  .date-inputs,
+  .contact-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    padding: $space-4 $space-5 $space-5;
+    flex-direction: column;
+  }
+
+  .btn-back,
+  .btn-next,
+  .btn-submit {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-back {
+    order: 2;
+  }
+}
