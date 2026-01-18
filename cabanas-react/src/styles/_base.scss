@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+}
+
+.grosor_texto {
+  font-weight: 200;
+}
+
+.tamaño_titulos {
+  font-size: 30px;
+}
+
+.centrar_texto {
+  text-align: center;
+}
+
+.tamaño-parrafos {
+  font-size: 20px;
+}
+
+.textos_importantes {
+  font-size: 3.2rem;
+  font-weight: 500;
+}
+
+.color_de_textos {
+  font-size: 25px;
+  color: rgb(28, 26, 26);
+}
+
+a:hover {
+  color: rgb(181, 181, 59);
+}

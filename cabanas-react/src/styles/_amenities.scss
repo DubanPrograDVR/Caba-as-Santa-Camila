@@ -1,0 +1,162 @@
+.amenities-section {
+  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.amenities-section::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(112, 134, 107, 0.03) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.amenity-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px 30px;
+  position: relative;
+  border: 2px solid #f3f4f6;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.amenity-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #70866b, #8fa888);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.amenity-card:hover::before {
+  transform: scaleX(1);
+}
+
+.amenity-card:hover {
+  transform: translateY(-10px);
+  border-color: #70866b;
+  box-shadow: 0 20px 40px rgba(112, 134, 107, 0.15);
+}
+
+.amenity-card.highlight {
+  background: linear-gradient(
+    135deg,
+    rgba(112, 134, 107, 0.05),
+    rgba(90, 110, 86, 0.03)
+  );
+  border-color: #70866b;
+}
+
+.amenity-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #70866b, #8fa888);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: #ffffff;
+  transition: all 0.4s ease;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(112, 134, 107, 0.2);
+}
+
+.amenity-card:hover .amenity-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 40px rgba(112, 134, 107, 0.3);
+}
+
+.amenity-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.amenity-description {
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.amenity-check {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  background: rgba(112, 134, 107, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #70866b;
+  transition: all 0.3s ease;
+}
+
+.amenity-card:hover .amenity-check {
+  background: #70866b;
+  color: #ffffff;
+  transform: scale(1.15);
+}
+
+@media (max-width: 1024px) {
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .amenities-section {
+    padding: 60px 0;
+  }
+  .amenities-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .amenity-card {
+    padding: 30px 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .amenities-grid {
+    grid-template-columns: 1fr;
+  }
+  .amenity-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    font-size: 1.8rem;
+  }
+  .amenity-title {
+    font-size: 1.2rem;
+  }
+}

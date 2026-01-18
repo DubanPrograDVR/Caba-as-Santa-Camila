@@ -1,0 +1,371 @@
+.segunda_seccion_lugar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 80vw;
+  height: 100vh;
+  background-color: #70866b;
+}
+
+.div-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 2px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3e3c4;
+  padding: 5px;
+  width: 100%;
+}
+
+.div-navbar a {
+  font-size: 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.color-textos-cabeza {
+  font-weight: 200;
+  color: #f9f8f4;
+  font-size: 25px;
+}
+
+.tamaño-titulos {
+  border-bottom: 4px solid #70866b;
+  font-weight: 600;
+  font-size: 50px;
+}
+
+.contenedor-principal {
+  width: 100%;
+  min-height: 100%;
+  background: #f9f8f4;
+}
+
+.seccion-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background: #f3e3c4;
+}
+
+.seccion-implementacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.titulo-cabañas {
+  padding: 15px;
+  font-size: 40px;
+  color: #fff;
+}
+
+.elemento-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 40px;
+  margin: 20px;
+  border-radius: 15px;
+  background: cadetblue;
+  border: 2px solid rgb(167, 119, 119);
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.elemento-contenedor:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.seccion-implementacion li {
+  list-style: none;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.elementos-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.fa-kitchen-set,
+.fa-bed,
+.fa-tv,
+.fa-shower,
+.fa-person-swimming,
+.fa-droplet,
+.fa-leaf,
+.fa-bolt {
+  color: #f3e3c4;
+  font-size: 2rem;
+}
+
+.contenedor_de_img,
+.contenedor_de_img-formulario,
+.contenedor_de_img_ubicacion,
+.contenedor_de_img-precios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 40px 20px;
+  text-align: center;
+  height: 85vh;
+  color: rgb(28, 26, 26);
+  position: relative;
+}
+
+.contenedor_de_img {
+  background-image: url(/img/Img_Cabañas.jpg);
+}
+
+.contenedor_de_img_ubicacion {
+  background-image: url(/img/Puente-Radal.jpeg);
+}
+
+.contenedor_de_img-formulario {
+  background-image: url(/img/Imagen_Cabaña_3.jpg);
+}
+
+.contenedor_de_img-precios {
+  background-image: url(/img/Valor_Cabañas.jpg);
+}
+
+.info-section {
+  padding: 60px 0;
+  background-color: #f9f8f4;
+}
+
+.info-section h2 {
+  font-size: 2.5rem;
+  color: #2d3748;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.info-item {
+  margin-bottom: 40px;
+  padding: 30px 20px;
+  transition: all 0.3s ease;
+  border-radius: 15px;
+}
+
+.info-item:hover {
+  background: rgba(112, 134, 107, 0.03);
+  transform: translateY(-5px);
+}
+
+.info-item h3 {
+  font-size: 1.8rem;
+  color: #70866b;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.info-item p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.info-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  background: linear-gradient(135deg, #70866b, #5a6e56);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 25px rgba(112, 134, 107, 0.2);
+}
+
+.info-item:hover .info-icon-wrapper {
+  transform: translateY(-10px) rotate(5deg);
+  box-shadow: 0 15px 35px rgba(112, 134, 107, 0.3);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  color: #f3e3c4;
+}
+
+.info-link {
+  color: #70866b;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.info-link:hover {
+  color: #5a6e56;
+  gap: 12px;
+}
+
+.info-link i {
+  transition: transform 0.3s ease;
+}
+
+.info-link:hover i {
+  transform: translateX(5px);
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #70866b, #5a6e56);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.section-description {
+  font-size: 1.15rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.carousel-section {
+  background-color: #70866b;
+  width: 100%;
+  padding: 60px 0;
+}
+
+.carousel-inner .carousel-item img {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.imagen-de-nosotros {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
+}
+
+.imagen-de-nosotros img {
+  padding: 20px;
+  width: 100%;
+  min-height: 70vh;
+  border-radius: 20px;
+}
+
+.imagen-de-nosotros p {
+  font-size: 1.2rem;
+  padding: 15px;
+  margin: 10px;
+}
+
+@media (max-width: 1024px) {
+  .imagen-de-nosotros {
+    padding: 20px;
+    height: 100%;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .div-navbar {
+    flex-direction: column;
+    padding: 15px;
+    gap: 10px;
+  }
+  .imagen-de-nosotros {
+    padding: 20px;
+    height: 100%;
+    flex-direction: column;
+  }
+  .Imagen-de-logo {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .elementos-contenedor {
+    margin: 10px;
+    padding: 10px;
+    flex-direction: column;
+  }
+  .imagen-de-nosotros {
+    flex-direction: column;
+    height: 100%;
+  }
+  .seccion-implementacion {
+    margin: 10px;
+    padding: 15px;
+    width: 90%;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-description {
+    font-size: 1rem;
+  }
+  .info-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  .feature-icon {
+    font-size: 1.6rem;
+  }
+  .info-item h3 {
+    font-size: 1.3rem;
+  }
+  .info-item p {
+    font-size: 0.95rem;
+  }
+  .logo-imagen {
+    width: 40%;
+  }
+}
