@@ -20,7 +20,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 15%) 100%);
+  background: linear-gradient(
+    135deg,
+    $color-primary 0%,
+    darken($color-primary, 15%) 100%
+  );
   overflow: hidden;
 
   &::before {
@@ -365,7 +369,11 @@
    ================================ */
 
 .precios-promos {
-  background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 10%) 100%);
+  background: linear-gradient(
+    135deg,
+    $color-primary 0%,
+    darken($color-primary, 10%) 100%
+  );
   border-radius: $radius-2xl;
   padding: $space-12;
   margin-bottom: $space-16;
@@ -681,7 +689,11 @@
    ================================ */
 
 .precios-cta {
-  background: linear-gradient(135deg, darken($color-primary, 5%) 0%, darken($color-primary, 15%) 100%);
+  background: linear-gradient(
+    135deg,
+    darken($color-primary, 5%) 0%,
+    darken($color-primary, 15%) 100%
+  );
   border-radius: $radius-2xl;
   padding: $space-12;
   text-align: center;
