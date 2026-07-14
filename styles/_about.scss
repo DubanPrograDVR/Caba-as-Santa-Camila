@@ -1,0 +1,357 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: SECCIÓN SOBRE NOSOTROS
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
+.seccion-sobre-nosotros {
+  background: $color-white;
+  padding: $section-padding-lg 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: $space-16;
+  align-items: start;
+  margin-top: $space-12;
+  position: relative;
+  z-index: 1;
+}
+
+/* ================================
+   IMAGEN
+   ================================ */
+
+.about-image-wrapper {
+  position: relative;
+  border-radius: $radius-2xl;
+  overflow: visible;
+}
+
+.image-decoration {
+  position: absolute;
+  top: -$space-5;
+  left: -$space-5;
+  width: 100%;
+  height: 100%;
+  background: $color-primary;
+  border-radius: $radius-2xl;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-xl;
+  display: block;
+  transition: transform $transition-smooth;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.image-badge {
+  position: absolute;
+  bottom: $space-8;
+  right: $space-8;
+  background: $color-primary;
+  color: $color-white;
+  padding: $space-5 $space-6;
+  border-radius: $radius-xl;
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  box-shadow: $shadow-primary-lg;
+
+  i {
+    font-size: $font-size-2xl;
+    color: $color-accent-light;
+  }
+
+  span {
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-snug;
+    font-size: $font-size-sm;
+  }
+}
+
+/* ================================
+   TARJETAS DE INFO
+   ================================ */
+
+.about-info {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.about-card {
+  background: $color-white;
+  padding: $space-8;
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-md;
+  display: flex;
+  gap: $space-6;
+  transition: $transition-smooth;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: $color-primary;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform $transition-base;
+  }
+
+  &:hover {
+    transform: translateX(8px);
+    box-shadow: $shadow-lg;
+    border-color: rgba($color-primary, 0.1);
+
+    &::before {
+      transform: scaleY(1);
+    }
+
+    .card-icon {
+      transform: rotate(5deg) scale(1.05);
+    }
+  }
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  background: $color-primary;
+  border-radius: $radius-xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-2xl;
+  color: $color-accent-light;
+  box-shadow: $shadow-primary;
+  transition: transform $transition-base;
+}
+
+.card-content {
+  flex: 1;
+
+  h3 {
+    font-size: $font-size-xl;
+    color: $color-text-primary;
+    margin-bottom: $space-4;
+    font-weight: $font-weight-bold;
+  }
+
+  p {
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    color: $color-text-secondary;
+    margin-bottom: $space-5;
+  }
+}
+
+.card-highlight {
+  background: rgba($color-primary, 0.05);
+  padding: $space-5 $space-6;
+  border-radius: $radius-lg;
+  border-left: 3px solid $color-primary;
+  font-style: italic;
+  color: $color-text-primary;
+  font-size: $font-size-base;
+  margin-top: $space-4;
+
+  i {
+    color: $color-primary;
+    margin-right: $space-3;
+    font-size: $font-size-lg;
+  }
+}
+
+/* ================================
+   LISTA DE BENEFICIOS
+   ================================ */
+
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  padding: $space-3 $space-4;
+  background: rgba($color-primary, 0.03);
+  border-radius: $radius-lg;
+  transition: $transition-base;
+
+  &:hover {
+    background: rgba($color-primary, 0.08);
+    transform: translateX(6px);
+  }
+
+  i {
+    color: $color-primary;
+    font-size: $font-size-lg;
+    min-width: 20px;
+  }
+}
+
+/* ================================
+   ECO BADGES
+   ================================ */
+
+.eco-badges {
+  display: flex;
+  gap: $space-4;
+  margin-top: $space-5;
+  flex-wrap: wrap;
+}
+
+.eco-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-4 $space-5;
+  background: $color-primary;
+  color: $color-white;
+  border-radius: $radius-lg;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  transition: $transition-base;
+  box-shadow: $shadow-primary;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-primary-lg;
+  }
+
+  i {
+    font-size: $font-size-xl;
+    color: $color-accent-light;
+  }
+}
+
+/* ================================
+   ESTADÍSTICAS
+   ================================ */
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-8;
+  margin-top: $space-16;
+  padding-top: $space-16;
+  border-top: 1px solid $color-gray-100;
+}
+
+.stat-item {
+  display: flex;
+  align-items: start;
+  gap: $space-5;
+  padding: $space-6;
+  background: $color-white;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-sm;
+  transition: $transition-smooth;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  background: rgba($color-primary, 0.08);
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-xl;
+  color: $color-primary;
+}
+
+.stat-info {
+  h4 {
+    font-size: $font-size-base;
+    color: $color-text-primary;
+    margin-bottom: $space-2;
+    font-weight: $font-weight-bold;
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    margin: 0;
+  }
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-lg) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: $space-10;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: $space-5;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .seccion-sobre-nosotros {
+    padding: $section-padding-md 0;
+  }
+
+  .about-card {
+    flex-direction: column;
+    padding: $space-6;
+  }
+
+  .card-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+  }
+
+  .image-badge {
+    bottom: $space-4;
+    right: $space-4;
+    padding: $space-4 $space-5;
+
+    i {
+      font-size: $font-size-xl;
+    }
+  }
+
+  .eco-badges {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,333 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: PRECIOS
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
+.price-header {
+  text-align: center;
+  margin-bottom: $space-10;
+
+  h1 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin: 0;
+    color: $color-text-primary;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $color-text-secondary;
+    margin-top: $space-3;
+  }
+}
+
+/* ================================
+   TABLA DE PRECIOS
+   ================================ */
+
+.table-container {
+  overflow-x: auto;
+  margin: $space-8 0;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: $space-4 $space-5;
+    text-align: left;
+    border: 1px solid $color-gray-200;
+  }
+
+  thead {
+    background-color: $color-primary;
+    color: $color-cream;
+
+    th {
+      font-weight: $font-weight-semibold;
+      text-transform: uppercase;
+      letter-spacing: $letter-spacing-wide;
+      font-size: $font-size-sm;
+    }
+  }
+
+  tbody tr {
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $color-gray-50;
+    }
+  }
+
+  td {
+    color: $color-text-secondary;
+  }
+
+  .cabin-name {
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: $space-5;
+    margin: 0;
+  }
+}
+
+/* ================================
+   NOTAS E INFO
+   ================================ */
+
+.notes {
+  background: rgba($color-primary, 0.05);
+  padding: $space-6;
+  border-radius: $radius-xl;
+  margin: $space-8 0;
+  border-left: 4px solid $color-primary;
+
+  a {
+    color: $color-primary;
+    text-decoration: none;
+    font-weight: $font-weight-semibold;
+    transition: $transition-fast;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.info-box {
+  background: rgba($color-primary, 0.08);
+  padding: $space-5;
+  border-radius: $radius-lg;
+  margin: $space-5 0;
+  text-align: left;
+}
+
+.info-box-title {
+  color: $color-primary;
+  margin-bottom: $space-4;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.info-list {
+  color: $color-text-primary;
+  line-height: $line-height-relaxed;
+  margin: 0;
+  padding-left: $space-5;
+}
+
+/* ================================
+   PROMOCIONES
+   ================================ */
+
+.promociones-section {
+  margin: $space-12 0;
+  padding: $space-10;
+  background: $color-primary;
+  color: $color-white;
+  border-radius: $radius-2xl;
+  text-align: center;
+}
+
+.promociones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: $space-6;
+  margin-top: $space-8;
+}
+
+.promo-card {
+  background: rgba($color-white, 0.1);
+  padding: $space-6;
+  border-radius: $radius-xl;
+  backdrop-filter: blur(10px);
+  transition: $transition-smooth;
+
+  &:hover {
+    background: rgba($color-white, 0.15);
+    transform: translateY(-6px);
+  }
+}
+
+.promo-title {
+  margin-bottom: $space-4;
+  color: $color-cream;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.promo-description {
+  font-size: $font-size-base;
+  margin-bottom: $space-3;
+  line-height: $line-height-relaxed;
+}
+
+.promo-discount {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-accent;
+}
+
+/* ================================
+   SERVICIOS ADICIONALES
+   ================================ */
+
+.servicios-section {
+  margin: $space-10 0;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $space-8;
+}
+
+.servicio-card {
+  background: $color-white;
+  padding: $space-8;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-md;
+  text-align: center;
+  transition: $transition-smooth;
+  border: 1px solid $color-gray-100;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.servicio-icon {
+  font-size: $font-size-3xl;
+  color: $color-primary;
+  margin-bottom: $space-4;
+}
+
+.servicio-title {
+  color: $color-text-primary;
+  margin-bottom: $space-4;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+}
+
+.servicio-description {
+  color: $color-text-muted;
+  margin-bottom: $space-4;
+  line-height: $line-height-relaxed;
+}
+
+.servicio-price {
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  font-size: $font-size-xl;
+}
+
+/* ================================
+   POLÍTICAS
+   ================================ */
+
+.politicas-section {
+  background: $color-gray-50;
+  padding: $space-10;
+  border-radius: $radius-xl;
+  margin: $space-10 0;
+}
+
+.politicas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $space-8;
+  text-align: left;
+}
+
+/* ================================
+   QUÉ INCLUYE
+   ================================ */
+
+.incluye-section {
+  background: rgba($color-primary, 0.05);
+  padding: $space-10;
+  border-radius: $radius-xl;
+  margin: $space-10 0;
+}
+
+.incluye-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: $space-5;
+  text-align: center;
+}
+
+.incluye-item {
+  padding: $space-5;
+}
+
+.incluye-icon {
+  font-size: $font-size-2xl;
+  color: $color-primary;
+  margin-bottom: $space-3;
+}
+
+.incluye-title {
+  color: $color-text-primary;
+  font-size: $font-size-base;
+  margin-bottom: $space-2;
+  font-weight: $font-weight-semibold;
+}
+
+.incluye-description {
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  line-height: $line-height-relaxed;
+}
+
+.cta-buttons-precios {
+  text-align: center;
+  margin-top: $space-8;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-md) {
+  .price-header h1 {
+    font-size: $font-size-2xl;
+  }
+
+  .price-table th,
+  .price-table td {
+    padding: $space-3 $space-4;
+    font-size: $font-size-sm;
+  }
+
+  .promociones-section,
+  .politicas-section,
+  .incluye-section {
+    padding: $space-6;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .servicio-card {
+    padding: $space-6;
+  }
+
+  .promo-card {
+    padding: $space-5;
+  }
+}

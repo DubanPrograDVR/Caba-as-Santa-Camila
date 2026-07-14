@@ -1,0 +1,275 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: ATRACCIONES CERCANAS
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
+.attractions-section {
+  background: $color-white;
+  padding: $section-padding-lg 0;
+  position: relative;
+}
+
+.attractions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: $space-8;
+  margin-top: $space-12;
+}
+
+/* ================================
+   TARJETA DE ATRACCIÓN
+   ================================ */
+
+.attraction-card {
+  background: $color-white;
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  transition: $transition-smooth;
+  position: relative;
+  border: 1px solid $color-gray-100;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: $shadow-xl;
+
+    .attraction-overlay {
+      opacity: 0.5;
+    }
+
+    .attraction-icon {
+      transform: scale(1.1) rotate(8deg);
+      background: rgba($color-white, 0.25);
+    }
+  }
+
+  &.featured {
+    grid-column: span 1;
+    border: 2px solid $color-primary;
+
+    .attraction-image {
+      height: 240px;
+    }
+  }
+}
+
+.attraction-image {
+  position: relative;
+  height: 200px;
+  background: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.attraction-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba($color-black, 0.15) 0%,
+    rgba($color-black, 0.35) 100%
+  );
+  transition: opacity $transition-base;
+}
+
+.attraction-icon {
+  position: relative;
+  z-index: 2;
+  width: 80px;
+  height: 80px;
+  background: rgba($color-white, 0.15);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba($color-white, 0.25);
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-3xl;
+  color: $color-white;
+  transition: $transition-smooth;
+}
+
+.attraction-badge {
+  position: absolute;
+  top: $space-4;
+  right: $space-4;
+  z-index: 3;
+  background: rgba($color-accent, 0.95);
+  color: $color-white;
+  padding: $space-2 $space-4;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  box-shadow: $shadow-md;
+}
+
+.attraction-content {
+  padding: $space-7;
+}
+
+.attraction-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $space-3;
+  line-height: $line-height-snug;
+}
+
+.attraction-description {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  margin-bottom: $space-5;
+}
+
+.attraction-meta {
+  display: flex;
+  gap: $space-5;
+  flex-wrap: wrap;
+  margin-top: $space-5;
+  padding-top: $space-5;
+  border-top: 1px solid $color-gray-100;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: $font-size-sm;
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+
+  i {
+    font-size: $font-size-base;
+  }
+}
+
+/* ================================
+   PREVIEW DE UBICACIÓN
+   ================================ */
+
+.location-preview {
+  margin-top: $space-16;
+  background: $color-primary;
+  border-radius: $radius-2xl;
+  padding: $space-12;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+      circle,
+      rgba($color-white, 0.08) 0%,
+      transparent 70%
+    );
+    border-radius: $radius-full;
+  }
+}
+
+.location-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-8;
+  position: relative;
+  z-index: 2;
+}
+
+.location-info {
+  display: flex;
+  align-items: center;
+  gap: $space-6;
+  color: $color-white;
+
+  i {
+    font-size: $font-size-4xl;
+    opacity: 0.9;
+  }
+
+  h4 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    font-size: $font-size-base;
+    opacity: 0.95;
+    margin: 0;
+  }
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-lg) {
+  .attractions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .attraction-card.featured {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .attractions-section {
+    padding: $section-padding-md 0;
+  }
+
+  .attractions-grid {
+    grid-template-columns: 1fr;
+    gap: $space-6;
+  }
+
+  .attraction-card.featured {
+    grid-column: span 1;
+  }
+
+  .location-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .location-info {
+    flex-direction: column;
+    text-align: center;
+
+    i {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  .location-preview {
+    padding: $space-10 $space-6;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .attraction-image {
+    height: 180px;
+  }
+
+  .attraction-content {
+    padding: $space-6 $space-5;
+  }
+
+  .attraction-icon {
+    width: 64px;
+    height: 64px;
+    font-size: $font-size-2xl;
+  }
+}

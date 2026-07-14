@@ -1,0 +1,307 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: BOTONES Y CTAs
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
+/* ================================
+   BOTÓN FLOTANTE WHATSAPP
+   ================================ */
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: $space-5;
+  right: $space-5;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: $color-white;
+  border-radius: $radius-full;
+  text-align: center;
+  font-size: $font-size-3xl;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  z-index: $z-fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: $transition-smooth;
+  border: 2px solid rgba($color-white, 0.2);
+
+  &:hover {
+    transform: scale(1.1) translateY(-4px);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+    color: $color-white;
+  }
+
+  .floating-text {
+    display: none;
+  }
+}
+
+/* ================================
+   CONTENEDOR DE CTAs
+   ================================ */
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $space-5;
+  margin: $space-8 0;
+  flex-wrap: wrap;
+}
+
+/* ================================
+   BOTÓN PRIMARIO
+   ================================ */
+
+.btn-primary {
+  font-weight: $font-weight-semibold;
+  color: $color-white;
+  padding: $space-4 $space-8;
+  text-decoration: none;
+  background: $color-primary;
+  border-radius: $radius-full;
+  box-shadow: $shadow-primary;
+  transition: $transition-smooth;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  font-size: $font-size-base;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba($color-white, 0.15),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-primary-lg;
+    color: $color-white;
+    background: $color-primary-dark;
+
+    &::before {
+      left: 100%;
+    }
+  }
+}
+
+/* ================================
+   BOTÓN SECUNDARIO
+   ================================ */
+
+.btn-secondary {
+  font-weight: $font-weight-medium;
+  color: $color-white;
+  padding: $space-4 $space-8;
+  text-decoration: none;
+  background: rgba($color-white, 0.1);
+  border: 2px solid rgba($color-white, 0.3);
+  border-radius: $radius-full;
+  backdrop-filter: blur(12px);
+  transition: $transition-base;
+  font-size: $font-size-base;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+
+  &:hover {
+    background: rgba($color-white, 0.2);
+    color: $color-white;
+    transform: translateY(-3px);
+    border-color: rgba($color-white, 0.5);
+  }
+}
+
+/* ================================
+   ACCIONES FLOTANTES
+   ================================ */
+
+.floating-actions {
+  position: fixed;
+  bottom: $space-5;
+  left: $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  z-index: $z-fixed;
+}
+
+.floating-reserve {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $space-3;
+  background: $color-primary;
+  color: $color-white;
+  padding: $space-4 $space-6;
+  border-radius: $radius-full;
+  text-decoration: none;
+  box-shadow: $shadow-primary;
+  transition: $transition-smooth;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-sm;
+  border: 2px solid rgba($color-white, 0.15);
+  cursor: pointer;
+  font-family: inherit;
+
+  i {
+    font-size: $font-size-lg;
+  }
+
+  &:hover {
+    color: $color-white;
+    transform: translateY(-4px);
+    box-shadow: $shadow-primary-lg;
+    background: $color-primary-dark;
+  }
+}
+
+.floating-text {
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-wide;
+}
+
+/* ================================
+   BOTONES DE UTILIDAD
+   ================================ */
+
+.boton-de-ver-precios,
+.Enviar-Mensaje {
+  background: $color-primary;
+  color: $color-white;
+  padding: $space-4 $space-8;
+  border-radius: $radius-full;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: $font-weight-bold;
+  margin: $space-3;
+  transition: $transition-base;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-primary;
+  }
+}
+
+.btn-disponibilidad {
+  padding: $space-4 $space-8;
+  border-radius: $radius-full;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: $font-weight-bold;
+  margin: $space-3;
+  transition: $transition-base;
+  background: $color-primary;
+  color: $color-white;
+
+  &:hover {
+    background: $color-primary-dark;
+    color: $color-white;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-whatsapp-precios {
+  padding: $space-4 $space-8;
+  border-radius: $radius-full;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: $font-weight-bold;
+  margin: $space-3;
+  transition: $transition-base;
+  background: #25d366;
+  color: $color-white;
+
+  &:hover {
+    background: #20ba5a;
+    color: $color-white;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-location {
+  background: $color-white;
+  color: $color-primary;
+  padding: $space-4 $space-8;
+  border-radius: $radius-full;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-3;
+  transition: $transition-base;
+  box-shadow: $shadow-lg;
+
+  &:hover {
+    background: $color-accent-light;
+    transform: translateX(4px);
+    box-shadow: $shadow-xl;
+
+    i {
+      transform: translateX(4px);
+    }
+  }
+
+  i {
+    transition: transform $transition-fast;
+  }
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-md) {
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: $space-4;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: $space-4 $space-6;
+    font-size: $font-size-sm;
+  }
+
+  .floating-actions {
+    bottom: $space-4;
+    left: $space-4;
+  }
+
+  .floating-text {
+    display: none;
+  }
+
+  .floating-reserve,
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+    padding: 0;
+  }
+}

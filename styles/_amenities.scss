@@ -1,0 +1,157 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: AMENIDADES
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
+.amenities-section {
+  background: $color-gray-50;
+  padding: $section-padding-lg 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $space-8;
+  margin-top: $space-12;
+}
+
+/* ================================
+   TARJETA DE AMENIDAD
+   ================================ */
+
+.amenity-card {
+  background: $color-white;
+  border-radius: $radius-2xl;
+  padding: $space-8 $space-6;
+  position: relative;
+  border: 1px solid $color-gray-100;
+  transition: $transition-smooth;
+  overflow: hidden;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: $color-primary;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: $color-primary;
+    box-shadow: $shadow-lg;
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .amenity-icon-wrapper {
+      transform: scale(1.08) rotate(3deg);
+      box-shadow: $shadow-primary-lg;
+    }
+
+    .amenity-check {
+      background: $color-primary;
+      color: $color-white;
+      transform: scale(1.1);
+    }
+  }
+
+  &.highlight {
+    background: rgba($color-primary, 0.03);
+    border-color: rgba($color-primary, 0.2);
+  }
+}
+
+.amenity-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  background: $color-primary;
+  border-radius: $radius-xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $space-6;
+  font-size: $font-size-2xl;
+  color: $color-white;
+  transition: $transition-smooth;
+  box-shadow: $shadow-primary;
+}
+
+.amenity-title {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $space-3;
+  line-height: $line-height-snug;
+}
+
+.amenity-description {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  margin-bottom: $space-5;
+}
+
+.amenity-check {
+  position: absolute;
+  top: $space-5;
+  right: $space-5;
+  width: 32px;
+  height: 32px;
+  background: rgba($color-primary, 0.08);
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-sm;
+  color: $color-primary;
+  transition: $transition-base;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-lg) {
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .amenities-section {
+    padding: $section-padding-md 0;
+  }
+
+  .amenities-grid {
+    grid-template-columns: 1fr;
+    gap: $space-6;
+  }
+
+  .amenity-card {
+    padding: $space-6 $space-5;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .amenity-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    font-size: $font-size-xl;
+  }
+
+  .amenity-title {
+    font-size: $font-size-lg;
+  }
+}

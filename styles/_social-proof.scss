@@ -1,0 +1,301 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: SOCIAL PROOF
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
+.social-proof-section {
+  background: $color-gray-50;
+  padding: $section-padding-lg 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-wrapper {
+  position: relative;
+  z-index: 1;
+  margin-bottom: $space-16;
+}
+
+/* ================================
+   MÉTRICAS DE CONFIANZA
+   ================================ */
+
+.trust-metrics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $space-8;
+  margin-bottom: $space-12;
+  flex-wrap: wrap;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-8 $space-10;
+  background: $color-white;
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-lg;
+  min-width: 180px;
+  position: relative;
+  transition: $transition-smooth;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, $color-primary, $color-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.metric-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto $space-5;
+  background: $color-primary;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-2xl;
+  color: $color-accent-light;
+  box-shadow: $shadow-primary;
+}
+
+.metric-number {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-extrabold;
+  color: $color-primary;
+  line-height: 1;
+  display: inline-block;
+}
+
+.metric-plus {
+  font-size: $font-size-2xl;
+  color: $color-accent;
+  margin-left: $space-1;
+}
+
+.metric-label {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  margin-top: $space-3;
+  font-weight: $font-weight-medium;
+}
+
+/* ================================
+   TESTIMONIOS
+   ================================ */
+
+.testimonios-section {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $space-8;
+  max-width: $container-max-width;
+  margin: 0 auto;
+}
+
+.testimonio-card {
+  background: $color-white;
+  padding: $space-8;
+  border-radius: $radius-2xl;
+  box-shadow: $shadow-md;
+  transition: $transition-smooth;
+  position: relative;
+  border: 1px solid transparent;
+
+  &::before {
+    content: '"';
+    position: absolute;
+    top: $space-4;
+    left: $space-6;
+    font-size: 4rem;
+    color: rgba($color-primary, 0.08);
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+    border-color: rgba($color-primary, 0.15);
+  }
+
+  &.featured {
+    background: $color-primary;
+    color: $color-white;
+    border: none;
+
+    .testimonio-text,
+    .author-info h4,
+    .author-info span {
+      color: $color-white;
+    }
+
+    &::before {
+      color: rgba($color-white, 0.1);
+    }
+
+    .testimonio-rating {
+      color: $color-accent-light;
+    }
+
+    .testimonio-footer {
+      border-top-color: rgba($color-white, 0.15);
+    }
+
+    .author-avatar {
+      background: rgba($color-white, 0.15);
+      color: $color-white;
+    }
+
+    .verified-badge {
+      color: $color-accent-light;
+    }
+  }
+}
+
+.featured-label {
+  position: absolute;
+  top: -$space-4;
+  right: $space-5;
+  background: $color-accent;
+  color: $color-white;
+  padding: $space-1 $space-4;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  box-shadow: $shadow-accent;
+}
+
+.testimonio-rating {
+  color: #fbbf24;
+  font-size: $font-size-lg;
+  margin-bottom: $space-5;
+  letter-spacing: 2px;
+}
+
+.testimonio-text {
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: $color-text-secondary;
+  margin-bottom: $space-6;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonio-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: $space-5;
+  border-top: 1px solid $color-gray-100;
+}
+
+.testimonio-author {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  background: $color-primary;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-2xl;
+  color: $color-accent-light;
+  box-shadow: $shadow-primary;
+}
+
+.author-info h4 {
+  margin: 0;
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.author-info span {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+}
+
+.verified-badge {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  font-size: $font-size-xs;
+  color: $color-success;
+  font-weight: $font-weight-semibold;
+
+  i {
+    font-size: $font-size-base;
+  }
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-md) {
+  .social-proof-section {
+    padding: $section-padding-md 0;
+  }
+
+  .trust-metrics {
+    gap: $space-5;
+  }
+
+  .metric {
+    min-width: 140px;
+    padding: $space-6 $space-8;
+  }
+
+  .metric-icon {
+    width: 48px;
+    height: 48px;
+    font-size: $font-size-xl;
+  }
+
+  .metric-number {
+    font-size: $font-size-3xl;
+  }
+
+  .testimonios-grid {
+    grid-template-columns: 1fr;
+    gap: $space-6;
+  }
+
+  .testimonio-card {
+    padding: $space-6;
+  }
+}

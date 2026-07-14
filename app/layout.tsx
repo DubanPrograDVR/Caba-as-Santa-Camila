@@ -1,42 +1,28 @@
-import { Analytics } from '@vercel/analytics/next'
-import type { Metadata, Viewport } from 'next'
-import './globals.css'
-import { Libre_Baskerville as V0_Font_Libre_Baskerville, IBM_Plex_Mono as V0_Font_IBM_Plex_Mono, Lora as V0_Font_Lora } from 'next/font/google'
-
-// Initialize fonts
-const _libreBaskerville = V0_Font_Libre_Baskerville({ subsets: ['latin'], weight: ["400","700"] })
-const _ibmPlexMono = V0_Font_IBM_Plex_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700"] })
-const _lora = V0_Font_Lora({ subsets: ['latin'], weight: ["400","500","600","700"] })
+import { Analytics } from "@vercel/analytics/next"
+import type { Metadata, Viewport } from "next"
+import "@/styles/styles.scss"
+import { BookingProvider } from "@/components/booking/booking-provider"
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+  title: "Cabañas Santa Camila | Tu refugio natural en Radal Siete Tazas",
+  description:
+    "Cabañas totalmente equipadas en El Radal, Molina, a minutos del Parque Nacional Radal Siete Tazas. Desconéctate y reconecta con la naturaleza. Reserva directa sin comisiones.",
+  generator: "v0.app",
+  keywords: [
+    "cabañas",
+    "Radal Siete Tazas",
+    "Molina",
+    "Maule",
+    "turismo",
+    "naturaleza",
+    "alojamiento",
+  ],
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#70866b",
 }
 
 export default function RootLayout({
@@ -45,10 +31,27 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+    <html lang="es">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          referrerPolicy="no-referrer"
+        />
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+        />
+      </head>
+      <body>
+        <BookingProvider>{children}</BookingProvider>
+        <Analytics />
       </body>
     </html>
   )

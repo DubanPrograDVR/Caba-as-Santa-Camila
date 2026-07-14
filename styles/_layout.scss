@@ -1,0 +1,405 @@
+@use "./variables" as *;
+
+/* ================================================
+   LAYOUT Y SECCIONES
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
+.segunda_seccion_lugar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 80vw;
+  height: 100vh;
+  background-color: $color-primary;
+}
+
+.div-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: $radius-sm;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-accent-light;
+  padding: $space-1;
+  width: 100%;
+}
+
+.div-navbar a {
+  font-size: $font-size-xl;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: $space-10 $space-5;
+}
+
+.color-textos-cabeza {
+  font-weight: $font-weight-light;
+  color: $color-gray-50;
+  font-size: $font-size-xl;
+}
+
+.tamaño-titulos {
+  border-bottom: 4px solid $color-primary;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-5xl;
+}
+
+.contenedor-principal {
+  width: 100%;
+  min-height: 100%;
+  background: $color-gray-50;
+}
+
+.seccion-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background: $color-cream;
+}
+
+.seccion-implementacion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: $space-5;
+  padding: $space-8;
+  width: 90%;
+  max-width: $container-max-width;
+
+  li {
+    list-style: none;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-light;
+  }
+}
+
+.titulo-cabañas {
+  padding: $space-4;
+  font-size: $font-size-4xl;
+  color: $color-white;
+}
+
+.elemento-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding: $space-10;
+  margin: $space-5;
+  border-radius: $radius-xl;
+  background: $color-primary;
+  border: 2px solid $color-gray-300;
+  gap: $space-3;
+  transition: $transition-smooth;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.elementos-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: $space-5;
+  margin-top: $space-8;
+}
+
+.fa-kitchen-set,
+.fa-bed,
+.fa-tv,
+.fa-shower,
+.fa-person-swimming,
+.fa-droplet,
+.fa-leaf,
+.fa-bolt {
+  color: $color-cream;
+  font-size: $font-size-2xl;
+}
+
+/* ================================
+   CONTENEDORES DE IMAGEN
+   ================================ */
+
+.contenedor_de_img,
+.contenedor_de_img-formulario,
+.contenedor_de_img_ubicacion,
+.contenedor_de_img-precios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: $space-10 $space-5;
+  text-align: center;
+  height: 85vh;
+  color: $color-text-primary;
+  position: relative;
+}
+
+.contenedor_de_img {
+  background-image: url(/img/Img_Cabañas.jpg);
+}
+
+.contenedor_de_img_ubicacion {
+  background-image: url(/img/Puente-Radal.jpeg);
+}
+
+.contenedor_de_img-formulario {
+  background-image: url(/img/Imagen_Cabaña_3.jpg);
+}
+
+.contenedor_de_img-precios {
+  background-image: url(/img/Valor_Cabañas.jpg);
+}
+
+/* ================================
+   INFO SECTION
+   ================================ */
+
+.info-section {
+  padding: $section-padding-md 0;
+  background-color: $color-gray-50;
+
+  h2 {
+    font-size: $font-size-3xl;
+    color: $color-text-primary;
+    margin-bottom: $space-5;
+    text-align: center;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.info-item {
+  margin-bottom: $space-10;
+  padding: $space-8 $space-5;
+  transition: $transition-smooth;
+  border-radius: $radius-xl;
+
+  &:hover {
+    background: rgba($color-primary, 0.03);
+    transform: translateY(-6px);
+
+    .info-icon-wrapper {
+      transform: translateY(-8px) rotate(5deg);
+      box-shadow: $shadow-primary-lg;
+    }
+  }
+
+  h3 {
+    font-size: $font-size-2xl;
+    color: $color-primary;
+    margin-bottom: $space-4;
+    font-weight: $font-weight-semibold;
+  }
+
+  p {
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    color: $color-text-secondary;
+  }
+}
+
+.info-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto $space-6;
+  background: $color-primary;
+  border-radius: $radius-xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $transition-smooth;
+  box-shadow: $shadow-primary;
+}
+
+.feature-icon {
+  font-size: $font-size-2xl;
+  color: $color-cream;
+}
+
+.info-link {
+  color: $color-primary;
+  text-decoration: none;
+  font-weight: $font-weight-semibold;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  transition: $transition-base;
+
+  &:hover {
+    color: $color-primary-dark;
+    gap: $space-3;
+
+    i {
+      transform: translateX(5px);
+    }
+  }
+
+  i {
+    transition: transform $transition-base;
+  }
+}
+
+/* ================================
+   SECTION INTRO
+   ================================ */
+
+.section-intro {
+  text-align: center;
+  margin-bottom: $space-12;
+}
+
+.section-badge {
+  display: inline-block;
+  background: $color-primary;
+  color: $color-white;
+  padding: $space-2 $space-5;
+  border-radius: $radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  margin-bottom: $space-4;
+}
+
+.section-title {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $space-4;
+  line-height: $line-height-tight;
+}
+
+.section-description {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: $line-height-relaxed;
+}
+
+/* ================================
+   CAROUSEL
+   ================================ */
+
+.carousel-section {
+  background-color: $color-primary;
+  width: 100%;
+  padding: $section-padding-md 0;
+}
+
+.carousel-inner .carousel-item img {
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+/* ================================
+   IMAGEN DE NOSOTROS
+   ================================ */
+
+.imagen-de-nosotros {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
+
+  img {
+    padding: $space-5;
+    width: 100%;
+    min-height: 70vh;
+    border-radius: $radius-2xl;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    padding: $space-4;
+    margin: $space-3;
+  }
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-lg) {
+  .imagen-de-nosotros {
+    padding: $space-5;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .div-navbar {
+    flex-direction: column;
+    padding: $space-4;
+    gap: $space-3;
+  }
+
+  .Imagen-de-logo {
+    text-align: center;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .elementos-contenedor {
+    margin: $space-3;
+    padding: $space-3;
+    flex-direction: column;
+  }
+
+  .imagen-de-nosotros {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .seccion-implementacion {
+    margin: $space-3;
+    padding: $space-4;
+    width: 90%;
+  }
+
+  .section-title {
+    font-size: $font-size-2xl;
+  }
+
+  .section-description {
+    font-size: $font-size-base;
+  }
+
+  .info-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .feature-icon {
+    font-size: $font-size-xl;
+  }
+
+  .info-item h3 {
+    font-size: $font-size-lg;
+  }
+
+  .info-item p {
+    font-size: $font-size-sm;
+  }
+
+  .logo-imagen {
+    width: 40%;
+  }
+}

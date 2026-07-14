@@ -1,0 +1,474 @@
+@use "./variables" as *;
+
+/* ================================================
+   COMPONENTE: NAVBAR PRINCIPAL
+   Sistema de Diseño Premium v2.0
+   ================================================ */
+
+.site-header {
+  position: relative;
+  width: 100%;
+}
+
+.site-header .main-navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 80px;
+  background: rgba($color-white, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: $shadow-sm;
+  border-bottom: 1px solid rgba($color-primary, 0.08);
+  z-index: $z-sticky;
+  transition: $transition-smooth;
+  animation: slideDown 0.5s ease-out;
+}
+
+.site-header .main-navbar.scrolled {
+  height: 70px;
+  box-shadow: $shadow-md;
+}
+
+.site-header .main-navbar.scrolled .brand-logo {
+  height: 42px;
+}
+
+.navbar-wrapper {
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.navbar-brand {
+  flex-shrink: 0;
+  z-index: 1001;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  text-decoration: none;
+  transition: $transition-base;
+  padding: $space-2;
+  border-radius: $radius-lg;
+
+  &:hover {
+    transform: translateY(-2px);
+
+    .brand-logo {
+      transform: scale(1.05);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 4px;
+  }
+}
+
+.brand-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: $transition-base;
+}
+
+.brand-text {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  letter-spacing: $letter-spacing-tight;
+  display: none;
+
+  @media (min-width: $breakpoint-xl) {
+    display: block;
+  }
+}
+
+/* ================================
+   NAVEGACIÓN
+   ================================ */
+
+.navbar-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+  padding: $space-3 $space-5;
+  color: $color-text-primary;
+  text-decoration: none;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-lg;
+  transition: $transition-base;
+  position: relative;
+  background: transparent;
+
+  &:hover {
+    color: $color-white;
+    background: $color-primary;
+    transform: translateY(-2px);
+    box-shadow: $shadow-primary;
+
+    .nav-icon {
+      transform: scale(1.1);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+
+  &--active {
+    background: $color-primary;
+    color: $color-white;
+    box-shadow: $shadow-primary;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: $shadow-primary-lg;
+    }
+
+    .nav-icon {
+      color: $color-white;
+    }
+  }
+}
+
+.nav-icon {
+  font-size: $font-size-base;
+  transition: $transition-base;
+  flex-shrink: 0;
+}
+
+.nav-text {
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-normal;
+  white-space: nowrap;
+}
+
+/* ================================
+   CTA BUTTON
+   ================================ */
+
+.navbar-cta {
+  flex-shrink: 0;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-3;
+  padding: $space-3 $space-7;
+  background: $color-primary;
+  color: $color-white;
+  text-decoration: none;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
+  border-radius: $radius-full;
+  box-shadow: $shadow-primary;
+  transition: $transition-smooth;
+  letter-spacing: $letter-spacing-normal;
+
+  i {
+    font-size: $font-size-lg;
+    transition: $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-primary-lg;
+
+    i {
+      transform: scale(1.15);
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: $shadow-primary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 4px;
+  }
+}
+
+/* ================================
+   TOGGLE MÓVIL
+   ================================ */
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 50px;
+  height: 50px;
+  background: $color-primary;
+  border: none;
+  border-radius: $radius-lg;
+  cursor: pointer;
+  transition: $transition-base;
+  z-index: $z-modal + 1;
+  box-shadow: $shadow-primary;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: $shadow-primary-lg;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 4px;
+  }
+
+  &[aria-expanded="true"] {
+    .toggle-icon:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .toggle-icon:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    .toggle-icon:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+  }
+}
+
+.toggle-icon {
+  width: 26px;
+  height: 3px;
+  background: $color-white;
+  border-radius: $radius-sm;
+  transition: $transition-base;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: $breakpoint-lg) {
+  .navbar-wrapper {
+    gap: $space-5;
+    padding: 0 $space-5;
+  }
+
+  .nav-list {
+    gap: $space-2;
+  }
+
+  .nav-link {
+    padding: $space-3 $space-4;
+    font-size: $font-size-sm;
+    gap: $space-2;
+  }
+
+  .cta-button {
+    padding: $space-3 $space-5;
+    font-size: $font-size-sm;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .site-header .main-navbar {
+    height: 70px;
+
+    &.scrolled {
+      height: 65px;
+    }
+  }
+
+  .navbar-wrapper {
+    padding: 0 $space-4;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba($color-white, 0.98);
+    backdrop-filter: blur(20px);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    overflow-y: auto;
+    box-shadow: $shadow-lg;
+    z-index: $z-modal - 1;
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $space-3;
+    padding: $space-6 $space-5;
+    width: 100%;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link {
+    width: 100%;
+    justify-content: flex-start;
+    padding: $space-4 $space-5;
+    font-size: $font-size-base;
+    border-radius: $radius-lg;
+
+    &:hover {
+      transform: translateX(5px);
+    }
+
+    &--active {
+      box-shadow: $shadow-primary;
+    }
+  }
+
+  .nav-icon {
+    font-size: $font-size-lg;
+  }
+
+  .navbar-cta {
+    display: none;
+  }
+
+  .brand-logo {
+    height: 45px;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .navbar-wrapper {
+    padding: 0 $space-3;
+  }
+
+  .brand-logo {
+    height: 40px;
+  }
+
+  .navbar-toggle {
+    width: 45px;
+    height: 45px;
+  }
+
+  .toggle-icon {
+    width: 24px;
+  }
+
+  .nav-list {
+    padding: $space-5 $space-4;
+  }
+
+  .nav-link {
+    padding: $space-4;
+    font-size: $font-size-base;
+  }
+}
+
+/* ================================
+   ANIMACIONES
+   ================================ */
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.main-navbar {
+  animation: slideDown 0.6s ease-out;
+}
+
+/* ================================
+   ACCESIBILIDAD
+   ================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .nav-link {
+    border: 2px solid currentColor;
+
+    &--active {
+      border-color: $color-white;
+      border-width: 3px;
+    }
+  }
+
+  .cta-button {
+    border: 2px solid $color-white;
+  }
+
+  .main-navbar {
+    border-bottom: 2px solid $color-text-primary;
+  }
+}
+
+.nav-link,
+.cta-button,
+.brand-link,
+.navbar-toggle {
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+  }
+}
